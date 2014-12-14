@@ -1,7 +1,12 @@
 {
     "paths": {
-		"amber-minimapless": "bower_components/minimapless/src",
-		"minimapless": "bower_components/minimapless/src",
-		"amber-amberflow": "src"
-    }
+		"amber-flow": "src"
+    },
+	"shim": {
+		"amber-flow": {
+		  "deps": [
+		    "minimapless"
+		  ]
+		}
+	}    
 }

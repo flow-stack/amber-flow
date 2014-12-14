@@ -1,8 +1,8 @@
-define("amber-amberflow/Flow-Core", ["amber/boot", "amber_core/Web", "amber-amberflow/MiniMapless", "amber_core/Kernel-Objects"], function($boot){
+define("amber-flow/Flow-Core", ["amber/boot", "amber_core/Web", "minimapless/MiniMapless", "amber_core/Kernel-Objects"], function($boot){
 var $core=$boot.api,nil=$boot.nil,$recv=$boot.asReceiver,$globals=$boot.globals;
 var smalltalk=$core,_st=$recv,globals=$globals;
 $core.addPackage('Flow-Core');
-$core.packages["Flow-Core"].transport = {"type":"amd","amdNamespace":"amber-amberflow"};
+$core.packages["Flow-Core"].transport = {"type":"amd","amdNamespace":"amber-flow"};
 
 $core.addClass('Controller', $globals.Widget, ['controllers', 'model', 'view', 'parent', 'parentElement'], 'Flow-Core');
 //>>excludeStart("ide", pragmas.excludeIdeData);

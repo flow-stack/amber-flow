@@ -17,7 +17,6 @@ require.config({
     "text": "bower_components/text/text",
     "rivets": "bower_components/rivets/dist/rivets.min",
     "minimapless": "bower_components/minimapless/src",
-    "amber-minimapless": "bower_components/minimapless/src",
     "helios": "bower_components/helios/src",
     "helios/resources": "bower_components/helios/resources",
     "helios/index": "bower_components/helios/index",
@@ -27,7 +26,7 @@ require.config({
     "amber_vm/_st": "bower_components/amber/support/deprecated-vm-files/as-receiver",
     "amber_css": "bower_components/amber/support/resources",
     "amber_core": "bower_components/amber/src",
-    "amber-amberflow": "src"
+    "amber-flow": "src"
   },
   "rjs_comment1": "require.min should be removed",
   "rjs_comment2": "it's backward compatibility hack if config finds",
@@ -54,6 +53,11 @@ require.config({
     },
     "ensure-console": {
       "exports": "console"
+    },
+    "amber-flow": {
+      "deps": [
+        "minimapless"
+      ]
     }
   },
   "map": {
