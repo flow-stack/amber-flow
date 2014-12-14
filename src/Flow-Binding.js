@@ -1,8 +1,8 @@
-define("amber-amberflow/Flow-Binding", ["amber/boot", "amber-amberflow/Flow-Templates"], function($boot){
+define("amber-flow/Flow-Binding", ["amber/boot", "amber-flow/Flow-Templates"], function($boot){
 var $core=$boot.api,nil=$boot.nil,$recv=$boot.asReceiver,$globals=$boot.globals;
 var smalltalk=$core,_st=$recv,globals=$globals;
 $core.addPackage('Flow-Binding');
-$core.packages["Flow-Binding"].transport = {"type":"amd","amdNamespace":"amber-amberflow"};
+$core.packages["Flow-Binding"].transport = {"type":"amd","amdNamespace":"amber-flow"};
 
 $core.addClass('BindingController', $globals.TemplateController, [], 'Flow-Binding');
 //>>excludeStart("ide", pragmas.excludeIdeData);

@@ -1,8 +1,8 @@
-define("amber-amberflow/Flow-Templates-Tests", ["amber/boot", "amber-amberflow/Flow-Templates", "amber-amberflow/Flow-Binding"], function($boot){
+define("amber-flow/Flow-Templates-Tests", ["amber/boot", "amber-flow/Flow-Templates", "amber-flow/Flow-Binding"], function($boot){
 var $core=$boot.api,nil=$boot.nil,$recv=$boot.asReceiver,$globals=$boot.globals;
 var smalltalk=$core,_st=$recv,globals=$globals;
 $core.addPackage('Flow-Templates-Tests');
-$core.packages["Flow-Templates-Tests"].transport = {"type":"amd","amdNamespace":"amber-amberflow"};
+$core.packages["Flow-Templates-Tests"].transport = {"type":"amd","amdNamespace":"amber-flow"};
 
 $core.addClass('HelloWorldController', $globals.TemplateController, [], 'Flow-Templates-Tests');
 

@@ -1,8 +1,8 @@
-define("amber-amberflow/Flow-Templates", ["amber/boot", "amber-amberflow/Flow-Core"], function($boot){
+define("amber-flow/Flow-Templates", ["amber/boot", "amber-flow/Flow-Core"], function($boot){
 var $core=$boot.api,nil=$boot.nil,$recv=$boot.asReceiver,$globals=$boot.globals;
 var smalltalk=$core,_st=$recv,globals=$globals;
 $core.addPackage('Flow-Templates');
-$core.packages["Flow-Templates"].transport = {"type":"amd","amdNamespace":"amber-amberflow"};
+$core.packages["Flow-Templates"].transport = {"type":"amd","amdNamespace":"amber-flow"};
 
 $core.addClass('TemplateController', $globals.RouteableController, ['templateUri'], 'Flow-Templates');
 //>>excludeStart("ide", pragmas.excludeIdeData);

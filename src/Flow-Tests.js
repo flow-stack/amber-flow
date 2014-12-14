@@ -1,8 +1,8 @@
-define("amber-amberflow/Flow-Tests", ["amber/boot", "amber_core/SUnit", "amber-amberflow/Flow-API"], function($boot){
+define("amber-flow/Flow-Tests", ["amber/boot", "amber_core/SUnit", "amber-flow/Flow-API"], function($boot){
 var $core=$boot.api,nil=$boot.nil,$recv=$boot.asReceiver,$globals=$boot.globals;
 var smalltalk=$core,_st=$recv,globals=$globals;
 $core.addPackage('Flow-Tests');
-$core.packages["Flow-Tests"].transport = {"type":"amd","amdNamespace":"amber-amberflow"};
+$core.packages["Flow-Tests"].transport = {"type":"amd","amdNamespace":"amber-flow"};
 
 $core.addClass('FlowTest', $globals.TestCase, [], 'Flow-Tests');
 $core.addMethod(

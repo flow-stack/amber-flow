@@ -1,8 +1,8 @@
-define("amber-amberflow/Flow-Binding-Tests", ["amber/boot", "amber-amberflow/MiniMapless", "amber-amberflow/Flow-Binding"], function($boot){
+define("amber-flow/Flow-Binding-Tests", ["amber/boot", "minimapless/MiniMapless", "amber-flow/Flow-Binding"], function($boot){
 var $core=$boot.api,nil=$boot.nil,$recv=$boot.asReceiver,$globals=$boot.globals;
 var smalltalk=$core,_st=$recv,globals=$globals;
 $core.addPackage('Flow-Binding-Tests');
-$core.packages["Flow-Binding-Tests"].transport = {"type":"amd","amdNamespace":"amber-amberflow"};
+$core.packages["Flow-Binding-Tests"].transport = {"type":"amd","amdNamespace":"amber-flow"};
 
 $core.addClass('MockPerson', $globals.MaplessModel, [], 'Flow-Binding-Tests');
 
