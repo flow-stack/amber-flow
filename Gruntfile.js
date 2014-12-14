@@ -32,9 +32,21 @@ module.exports = function (grunt) {
                 closure_jar: ''
             },
             all: {
-                src: [
-                    'src/Amberflow.st', // list all sources in dependency order
-                    'src/Amberflow-Tests.st' // list all tests in dependency order
+                src: [ // list all sources in dependency order
+                    'bower_components/minimapless/src/MiniMapless.st',
+                    'src/Flow.st',
+                    'src/Flow-Core.st',
+                    'src/Flow-API.st',
+                    'src/Flow-Templates.st',
+                    'src/Flow-Binding.st',
+                    'src/App.st',
+
+                    'bower_components/minimapless/src/MiniMapless-Tests.st',
+                    'src/Flow-Binding-Tests.st',
+                    'src/MiniMapless-Tests.st',
+                    'src/Flow-Templates-Tests.st',
+                    'src/Flow-Tests.st',
+                    'src/App-Tests.st'
                 ],
                 amd_namespace: 'amber-amberflow',
                 libraries: ['SUnit', 'Web']
@@ -43,9 +55,9 @@ module.exports = function (grunt) {
                 src: ['node_modules/amber-dev/lib/Test.st'],
                 libraries: [
                     /* add dependencies packages here */
-                    'Amberflow', /* add other code-to-test packages here */
+                    'App', /* add other code-to-test packages here */
                     'SUnit',
-                    'Amberflow-Tests' /* add other test packages here */
+                    'App-Tests' /* add other test packages here */
                 ],
                 main_class: 'NodeTestRunner',
                 output_name: 'test_runner'

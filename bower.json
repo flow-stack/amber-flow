@@ -1,7 +1,7 @@
 {
   "name": "amberflow",
   "description": "The Application or The Library doing The Thing.",
-  "version": "0.9.1",
+  "version": "0.3.0",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -27,6 +27,9 @@
   "private": false,
   "dependencies": {
     "amber": "^0.13.2",
+    "text": "requirejs/text#~2.0.12",
+    "bootstrap": "~3.3.0",
+    "rivets": "0.6.10",
     "minimapless": "~0.9.2"
   },
   "devDependencies": {

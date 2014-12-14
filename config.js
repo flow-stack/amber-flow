@@ -14,6 +14,7 @@ require.config({
     "jquery.blockUI": "bower_components/blockui/jquery.blockUI",
     "require-css": "bower_components/require-css",
     "amber_lib/es5-shim": "bower_components/es5-shim",
+    "amber-minimapless": "bower_components/minimapless/src",
     "helios": "bower_components/helios/src",
     "helios/resources": "bower_components/helios/resources",
     "helios/index": "bower_components/helios/index",
