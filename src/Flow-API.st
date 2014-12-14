@@ -543,14 +543,6 @@ sendMessage: aMessage on: aRemoteObject
 
 !WebSocketAPI methodsFor: 'initialization'!
 
-initialize
-
-	super initialize.
-	
-	window onbeforeunload:[
-		self reset ]
-!
-
 initializeAPIPath
 
 	^ apiPath := 'ws'

@@ -1,8 +1,8 @@
-define("amber-amberflow/Flow-API", ["amber/boot", "amber_core/Kernel-Objects", "amber_core/Kernel-Exceptions", "amber-amberflow/MiniMapless"], function($boot){
+define("amber-flow/Flow-API", ["amber/boot", "amber_core/Kernel-Objects", "amber_core/Kernel-Exceptions", "minimapless/MiniMapless"], function($boot){
 var $core=$boot.api,nil=$boot.nil,$recv=$boot.asReceiver,$globals=$boot.globals;
 var smalltalk=$core,_st=$recv,globals=$globals;
 $core.addPackage('Flow-API');
-$core.packages["Flow-API"].transport = {"type":"amd","amdNamespace":"amber-amberflow"};
+$core.packages["Flow-API"].transport = {"type":"amd","amdNamespace":"amber-flow"};
 
 $core.addClass('APIClient', $globals.Object, ['rest', 'ws'], 'Flow-API');
 //>>excludeStart("ide", pragmas.excludeIdeData);
@@ -1082,46 +1082,6 @@ source: "hasSocket\x0a\x0a\x09^ socket notNil",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: ["notNil"]
-}),
-$globals.WebSocketAPI);
-
-$core.addMethod(
-$core.method({
-selector: "initialize",
-protocol: 'initialization',
-fn: function (){
-var self=this;
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
-//>>excludeEnd("ctx");
-(
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.supercall = true, 
-//>>excludeEnd("ctx");
-$globals.WebSocketAPI.superclass.fn.prototype._initialize.apply($recv(self), []));
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.supercall = false;
-//>>excludeEnd("ctx");;
-$recv(window)._onbeforeunload_((function(){
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx2) {
-//>>excludeEnd("ctx");
-return self._reset();
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx2) {$ctx2.fillBlock({},$ctx1,1)});
-//>>excludeEnd("ctx");
-}));
-return self;
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx1) {$ctx1.fill(self,"initialize",{},$globals.WebSocketAPI)});
-//>>excludeEnd("ctx");
-},
-//>>excludeStart("ide", pragmas.excludeIdeData);
-args: [],
-source: "initialize\x0a\x0a\x09super initialize.\x0a\x09\x0a\x09window onbeforeunload:[\x0a\x09\x09self reset ]",
-referencedClasses: [],
-//>>excludeEnd("ide");
-messageSends: ["initialize", "onbeforeunload:", "reset"]
 }),
 $globals.WebSocketAPI);
 

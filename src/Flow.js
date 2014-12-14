@@ -1,8 +1,8 @@
-define("amber-amberflow/Flow", ["amber/boot", "amber_core/Kernel-Objects", "amber_core/Kernel-Classes", "amber_core/Kernel-Collections", "amber_core/Kernel-Exceptions", "amber_core/Kernel-Infrastructure"], function($boot){
+define("amber-flow/Flow", ["amber/boot", "amber_core/Kernel-Objects", "amber_core/Kernel-Classes", "amber_core/Kernel-Collections", "amber_core/Kernel-Exceptions", "amber_core/Kernel-Infrastructure"], function($boot){
 var $core=$boot.api,nil=$boot.nil,$recv=$boot.asReceiver,$globals=$boot.globals;
 var smalltalk=$core,_st=$recv,globals=$globals;
 $core.addPackage('Flow');
-$core.packages["Flow"].transport = {"type":"amd","amdNamespace":"amber-amberflow"};
+$core.packages["Flow"].transport = {"type":"amd","amdNamespace":"amber-flow"};
 
 $core.addClass('AbsrtactScaffolder', $globals.Object, [], 'Flow');
 
