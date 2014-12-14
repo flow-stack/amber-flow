@@ -14,15 +14,15 @@
 
     <div id="content"></div>
 
-    <img id="ide" 
-        src="img/tinylogo.png" 
+    <a id="legacy"
+        class="btn"
         onclick="require('amber/helpers').globals.Browser._open()"
-        style="position: fixed; bottom: 0; right: 0"></img>
+        style="position: fixed; bottom: 0; right: 0">Legacy IDE</a>
 
-    <img id="ide" 
-        src="img/tinylogo.png" 
+    <a id="helios"
+        class="btn btn-warning"
         onclick="require('amber/helpers').popupHelios()"
-        style="position: fixed; bottom: 0; right: 30px"></img>
+        style="position: fixed; bottom: 0; right: 120px">Helios IDE</a>
 
     <script type='text/javascript'>
         require(['app'], function (amber) {
@@ -31,7 +31,7 @@
               //used for all new packages in IDE
               'transport.defaultAmdNamespace': "amber-flow-app"
             });
-            require(["amber-ide-starter-dialog"], function (dlg) { dlg.start(); });
+            // require(["amber-ide-starter-dialog"], function (dlg) { dlg.start(); });
             amber.globals.App._start();
         });
     </script>

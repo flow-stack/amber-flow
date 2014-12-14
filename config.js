@@ -16,6 +16,7 @@ require.config({
     "amber_lib/es5-shim": "bower_components/es5-shim",
     "text": "bower_components/text/text",
     "rivets": "bower_components/rivets/dist/rivets.min",
+    "bootstrap": "bower_components/bootstrap/dist/js/bootstrap.min",
     "minimapless": "bower_components/minimapless/src",
     "helios": "bower_components/helios/src",
     "helios/resources": "bower_components/helios/resources",
@@ -56,6 +57,7 @@ require.config({
     },
     "amber-flow": {
       "deps": [
+        "bootstrap",
         "minimapless"
       ]
     }

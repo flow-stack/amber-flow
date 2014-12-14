@@ -5,6 +5,7 @@
 	"shim": {
 		"amber-flow": {
 		  "deps": [
+		    "bootstrap",
 		    "minimapless"
 		  ]
 		}

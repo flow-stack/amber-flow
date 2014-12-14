@@ -1087,46 +1087,6 @@ $globals.WebSocketAPI);
 
 $core.addMethod(
 $core.method({
-selector: "initialize",
-protocol: 'initialization',
-fn: function (){
-var self=this;
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
-//>>excludeEnd("ctx");
-(
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.supercall = true, 
-//>>excludeEnd("ctx");
-$globals.WebSocketAPI.superclass.fn.prototype._initialize.apply($recv(self), []));
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.supercall = false;
-//>>excludeEnd("ctx");;
-$recv(window)._onbeforeunload_((function(){
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx2) {
-//>>excludeEnd("ctx");
-return self._reset();
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx2) {$ctx2.fillBlock({},$ctx1,1)});
-//>>excludeEnd("ctx");
-}));
-return self;
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx1) {$ctx1.fill(self,"initialize",{},$globals.WebSocketAPI)});
-//>>excludeEnd("ctx");
-},
-//>>excludeStart("ide", pragmas.excludeIdeData);
-args: [],
-source: "initialize\x0a\x0a\x09super initialize.\x0a\x09\x0a\x09window onbeforeunload:[\x0a\x09\x09self reset ]",
-referencedClasses: [],
-//>>excludeEnd("ide");
-messageSends: ["initialize", "onbeforeunload:", "reset"]
-}),
-$globals.WebSocketAPI);
-
-$core.addMethod(
-$core.method({
 selector: "initializeAPIPath",
 protocol: 'initialization',
 fn: function (){
