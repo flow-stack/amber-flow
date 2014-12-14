@@ -1,6 +1,6 @@
 {
-  "name": "amberflow",
-  "description": "The Application or The Library doing The Thing.",
+  "name": "amber-flow",
+  "description": "Make Amber apps nice and easy. This is flow's frontend.",
   "version": "0.3.0",
   "ignore": [
     "**/.*",
@@ -16,7 +16,7 @@
       "email": "sebastian@flowingconcept.com"
     }
   ],
-  "homepage": "https://github.com/sebastian/amber-flow",
+  "homepage": "https://github.com/flow-stack/amber-flow",
   "keywords": [
     "Amber",
     "Smalltalk"

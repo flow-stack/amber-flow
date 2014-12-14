@@ -1,24 +1,24 @@
 {
-  "name": "amberflow",
-  "title": "AmberFlow",
-  "description": "The Application or The Library doing The Thing.",
-  "version": "0.9.1",
-  "homepage": "https://github.com/sebastian/amber-flow",
+  "name": "amber-flow",
+  "title": "Make Amber apps nice and easy. This is flow's frontend.",
+  "description": "",
+  "version": "0.3.0",
+  "homepage": "https://github.com/flow-stack/amber-flow",
   "author": {
     "name": "Sebastian Sastre",
     "email": "sebastian@flowingconcept.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/sebastian/amber-flow.git"
+    "url": "git://github.com/flow-stack/amber-flow.git"
   },
   "bugs": {
-    "url": "https://github.com/sebastian/amber-flow/issues"
+    "url": "https://github.com/flow-stack/amber-flow/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/sebastian/amber-flow/blob/master/LICENSE-MIT"
+      "url": "https://github.com/flow-stack/amber-flow/blob/master/LICENSE-MIT"
     }
   ],
   "engines": {
