@@ -101,6 +101,59 @@ $globals.Controller);
 
 $core.addMethod(
 $core.method({
+selector: "controllerAt:ifPresent:",
+protocol: 'accessing',
+fn: function (aKey,aBlock){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+var $1;
+$1=$recv(self._controllers())._at_ifPresent_ifAbsent_(aKey,aBlock,(function(){
+return nil;
+
+}));
+return $1;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"controllerAt:ifPresent:",{aKey:aKey,aBlock:aBlock},$globals.Controller)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["aKey", "aBlock"],
+source: "controllerAt: aKey ifPresent: aBlock\x0a\x09\x22Evaluates aBlock if this controller has a controller at aKey.\x0a\x09Silently do nothing otherwise.\x22\x0a\x09\x0a\x09^ self controllers \x0a\x09\x09at: aKey \x0a\x09\x09ifPresent: aBlock \x0a\x09\x09ifAbsent: [ nil ]",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: ["at:ifPresent:ifAbsent:", "controllers"]
+}),
+$globals.Controller);
+
+$core.addMethod(
+$core.method({
+selector: "controllerAt:ifPresent:ifAbsent:",
+protocol: 'accessing',
+fn: function (aKey,aBlock,anotherBlock){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+var $1;
+$1=$recv(self._controllers())._at_ifPresent_ifAbsent_(aKey,aBlock,anotherBlock);
+return $1;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"controllerAt:ifPresent:ifAbsent:",{aKey:aKey,aBlock:aBlock,anotherBlock:anotherBlock},$globals.Controller)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["aKey", "aBlock", "anotherBlock"],
+source: "controllerAt: aKey ifPresent: aBlock ifAbsent: anotherBlock\x0a\x09\x22Evaluates aBlock if this controller has a controller at aKey or\x0a\x09evaluates anotherBlock if it's absent.\x22\x0a\x09\x0a\x09^ self controllers \x0a\x09\x09at: aKey \x0a\x09\x09ifPresent: aBlock\x0a\x09\x09ifAbsent: anotherBlock",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: ["at:ifPresent:ifAbsent:", "controllers"]
+}),
+$globals.Controller);
+
+$core.addMethod(
+$core.method({
 selector: "controllerAt:put:",
 protocol: 'accessing',
 fn: function (aKey,aController){
