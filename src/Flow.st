@@ -155,10 +155,18 @@ session: aSession
 
 !Flow class methodsFor: 'actions'!
 
+resetOnBeforeUnload
+	"Gets rid of any registered onbeforeunload handlers."
+	
+	<window.onbeforeunload = null>
+!
+
 start
 	"Makes the foundation of a flow app to be ready for action."
 
 	window at: 'flow' put: self.
+
+	self resetOnBeforeUnload.
 
 	"Make the router be sensible to URI changes"
 	Router observeHash
@@ -291,6 +299,22 @@ printOn: aStream
 
 !JSObjectProxy methodsFor: '*Flow'!
 
+asDictionary
+	"Answers this object as a new Dictionary"
+
+	^ [ :newDic |
+		self addObjectVariablesTo: newDic.
+		newDic ] value: Dictionary new
+!
+
+asHashedCollection
+	"Answers this object as a new HashedCollection"
+
+	^ [ :h |
+		self addObjectVariablesTo: h.
+		h ] value: #{}
+!
+
 asRemoteReference
 	"Answers the object appropiate for 
 	traveling over the wire and still referring to this receiver"
@@ -389,24 +413,30 @@ promise: onDoneBlock
 
 trigger: anEventName 
 	"Triggers anEventName in this object.
-	There you have it, it happened. 
-	Hey World, do something about this!!"
+	Hey World.. anEventName happened!!.. 
+	Go do something about this!! (or not)"
 	
 	<return $(self).trigger(anEventName)>
 !
 
 trigger: anEventName with: anArgument
-	"Triggers anEventName in this object.
-	There you have it, it happened. 
-	Hey World, do something about this!!"
+	"Triggers anEventName, in this object and using anArgument"
 	
 	^ self trigger: anEventName withAll: (Array with: anArgument)
 !
 
+trigger: anEventName with: firstArgument with: secondArgument
+	"Triggers anEventName in this object using those two given arugments"
+	
+	^ self 
+		trigger: anEventName 
+		withAll: (Array 
+					with: firstArgument
+					with: secondArgument)
+!
+
 trigger: anEventName withAll: someArguments
-	"Triggers anEventName in this object.
-	There you have it, it happened. 
-	Hey World, do something about this!!"
+	"Triggers anEventName in this object using all the given arugments"
 
 	<return $(self).trigger( anEventName, someArguments )>
 !
@@ -418,7 +448,10 @@ when: anEventName do: aReactionBlock
 	Beware some objects wont fire (anArray for example).
 	Godspeed!!"
 
-	<$(self).on(anEventName, aReactionBlock)>
+	<$(self).on(anEventName, function(e){
+		var someArguments = $(arguments).slice();
+		someArguments.splice(0,1);
+		aReactionBlock.apply(null, someArguments)})>
 ! !
 
 !Object class methodsFor: '*Flow'!

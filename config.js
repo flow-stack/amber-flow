@@ -4,9 +4,9 @@ var require;
 if (!require) require = {config: function (x) {require = x;}};
 require.config({
   "paths": {
+    "jquery": "bower_components/jquery/jquery",
     "helios/showdown": "bower_components/showdown/src/showdown",
     "requireJS": "node_modules/requirejs/require",
-    "jquery": "bower_components/jquery/jquery",
     "jquery-ui": "bower_components/jquery-ui/jquery-ui.min",
     "codemirror": "bower_components/codemirror",
     "bootstrap2.3.2": "bower_components/bootstrap2.3.2/bootstrap",
@@ -14,8 +14,8 @@ require.config({
     "jquery.blockUI": "bower_components/blockui/jquery.blockUI",
     "require-css": "bower_components/require-css",
     "amber_lib/es5-shim": "bower_components/es5-shim",
-    "text": "bower_components/text/text",
     "rivets": "bower_components/rivets/dist/rivets.min",
+    "text": "bower_components/text/text",
     "bootstrap": "bower_components/bootstrap/dist/js/bootstrap.min",
     "minimapless": "bower_components/minimapless/src",
     "helios": "bower_components/helios/src",
