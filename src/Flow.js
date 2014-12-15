@@ -445,6 +445,30 @@ $globals.Flow.klass);
 
 $core.addMethod(
 $core.method({
+selector: "resetOnBeforeUnload",
+protocol: 'actions',
+fn: function (){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+window.onbeforeunload = null;
+return self;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"resetOnBeforeUnload",{},$globals.Flow.klass)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: [],
+source: "resetOnBeforeUnload\x0a\x09\x22Gets rid of any registered onbeforeunload handlers.\x22\x0a\x09\x0a\x09<window.onbeforeunload = null>",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
+}),
+$globals.Flow.klass);
+
+$core.addMethod(
+$core.method({
 selector: "scaffold",
 protocol: 'accessing',
 fn: function (){
@@ -547,6 +571,7 @@ function $Router(){return $globals.Router||(typeof Router=="undefined"?nil:Route
 return $core.withContext(function($ctx1) { 
 //>>excludeEnd("ctx");
 $recv(window)._at_put_("flow",self);
+self._resetOnBeforeUnload();
 $recv($Router())._observeHash();
 return self;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
@@ -555,10 +580,10 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "start\x0a\x09\x22Makes the foundation of a flow app to be ready for action.\x22\x0a\x0a\x09window at: 'flow' put: self.\x0a\x0a\x09\x22Make the router be sensible to URI changes\x22\x0a\x09Router observeHash",
+source: "start\x0a\x09\x22Makes the foundation of a flow app to be ready for action.\x22\x0a\x0a\x09window at: 'flow' put: self.\x0a\x0a\x09self resetOnBeforeUnload.\x0a\x0a\x09\x22Make the router be sensible to URI changes\x22\x0a\x09Router observeHash",
 referencedClasses: ["Router"],
 //>>excludeEnd("ide");
-messageSends: ["at:put:", "observeHash"]
+messageSends: ["at:put:", "resetOnBeforeUnload", "observeHash"]
 }),
 $globals.Flow.klass);
 
@@ -931,6 +956,75 @@ $globals.Error);
 
 $core.addMethod(
 $core.method({
+selector: "asDictionary",
+protocol: '*Flow',
+fn: function (){
+var self=this;
+function $Dictionary(){return $globals.Dictionary||(typeof Dictionary=="undefined"?nil:Dictionary)}
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+var $1;
+$1=$recv((function(newDic){
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx2) {
+//>>excludeEnd("ctx");
+self._addObjectVariablesTo_(newDic);
+return newDic;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx2) {$ctx2.fillBlock({newDic:newDic},$ctx1,1)});
+//>>excludeEnd("ctx");
+}))._value_($recv($Dictionary())._new());
+return $1;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"asDictionary",{},$globals.JSObjectProxy)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: [],
+source: "asDictionary\x0a\x09\x22Answers this object as a new Dictionary\x22\x0a\x0a\x09^ [ :newDic |\x0a\x09\x09self addObjectVariablesTo: newDic.\x0a\x09\x09newDic ] value: Dictionary new",
+referencedClasses: ["Dictionary"],
+//>>excludeEnd("ide");
+messageSends: ["value:", "addObjectVariablesTo:", "new"]
+}),
+$globals.JSObjectProxy);
+
+$core.addMethod(
+$core.method({
+selector: "asHashedCollection",
+protocol: '*Flow',
+fn: function (){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+var $1;
+$1=$recv((function(h){
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx2) {
+//>>excludeEnd("ctx");
+self._addObjectVariablesTo_(h);
+return h;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx2) {$ctx2.fillBlock({h:h},$ctx1,1)});
+//>>excludeEnd("ctx");
+}))._value_($globals.HashedCollection._newFromPairs_([]));
+return $1;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"asHashedCollection",{},$globals.JSObjectProxy)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: [],
+source: "asHashedCollection\x0a\x09\x22Answers this object as a new HashedCollection\x22\x0a\x0a\x09^ [ :h |\x0a\x09\x09self addObjectVariablesTo: h.\x0a\x09\x09h ] value: #{}",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: ["value:", "addObjectVariablesTo:"]
+}),
+$globals.JSObjectProxy);
+
+$core.addMethod(
+$core.method({
 selector: "asRemoteReference",
 protocol: '*Flow',
 fn: function (){
@@ -1257,7 +1351,7 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["anEventName"],
-source: "trigger: anEventName \x0a\x09\x22Triggers anEventName in this object.\x0a\x09There you have it, it happened. \x0a\x09Hey World, do something about this!\x22\x0a\x09\x0a\x09<return $(self).trigger(anEventName)>",
+source: "trigger: anEventName \x0a\x09\x22Triggers anEventName in this object.\x0a\x09Hey World.. anEventName happened!.. \x0a\x09Go do something about this! (or not)\x22\x0a\x09\x0a\x09<return $(self).trigger(anEventName)>",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: []
@@ -1283,10 +1377,36 @@ return $1;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["anEventName", "anArgument"],
-source: "trigger: anEventName with: anArgument\x0a\x09\x22Triggers anEventName in this object.\x0a\x09There you have it, it happened. \x0a\x09Hey World, do something about this!\x22\x0a\x09\x0a\x09^ self trigger: anEventName withAll: (Array with: anArgument)",
+source: "trigger: anEventName with: anArgument\x0a\x09\x22Triggers anEventName, in this object and using anArgument\x22\x0a\x09\x0a\x09^ self trigger: anEventName withAll: (Array with: anArgument)",
 referencedClasses: ["Array"],
 //>>excludeEnd("ide");
 messageSends: ["trigger:withAll:", "with:"]
+}),
+$globals.Object);
+
+$core.addMethod(
+$core.method({
+selector: "trigger:with:with:",
+protocol: '*Flow',
+fn: function (anEventName,firstArgument,secondArgument){
+var self=this;
+function $Array(){return $globals.Array||(typeof Array=="undefined"?nil:Array)}
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+var $1;
+$1=self._trigger_withAll_(anEventName,$recv($Array())._with_with_(firstArgument,secondArgument));
+return $1;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"trigger:with:with:",{anEventName:anEventName,firstArgument:firstArgument,secondArgument:secondArgument},$globals.Object)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["anEventName", "firstArgument", "secondArgument"],
+source: "trigger: anEventName with: firstArgument with: secondArgument\x0a\x09\x22Triggers anEventName in this object using those two given arugments\x22\x0a\x09\x0a\x09^ self \x0a\x09\x09trigger: anEventName \x0a\x09\x09withAll: (Array \x0a\x09\x09\x09\x09\x09with: firstArgument\x0a\x09\x09\x09\x09\x09with: secondArgument)",
+referencedClasses: ["Array"],
+//>>excludeEnd("ide");
+messageSends: ["trigger:withAll:", "with:with:"]
 }),
 $globals.Object);
 
@@ -1307,7 +1427,7 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["anEventName", "someArguments"],
-source: "trigger: anEventName withAll: someArguments\x0a\x09\x22Triggers anEventName in this object.\x0a\x09There you have it, it happened. \x0a\x09Hey World, do something about this!\x22\x0a\x0a\x09<return $(self).trigger( anEventName, someArguments )>",
+source: "trigger: anEventName withAll: someArguments\x0a\x09\x22Triggers anEventName in this object using all the given arugments\x22\x0a\x0a\x09<return $(self).trigger( anEventName, someArguments )>",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: []
@@ -1323,7 +1443,10 @@ var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) { 
 //>>excludeEnd("ctx");
-$(self).on(anEventName, aReactionBlock);
+$(self).on(anEventName, function(e){
+		var someArguments = $(arguments).slice();
+		someArguments.splice(0,1);
+		aReactionBlock.apply(null, someArguments)});
 return self;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 }, function($ctx1) {$ctx1.fill(self,"when:do:",{anEventName:anEventName,aReactionBlock:aReactionBlock},$globals.Object)});
@@ -1331,7 +1454,7 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["anEventName", "aReactionBlock"],
-source: "when: anEventName do: aReactionBlock\x0a\x09\x22Wires the observation of this object to the occurrence of anEventName.\x0a\x09When (and if) anEventName happens, aReactionBlock will take place. \x0a\x09Based on this feature: http://forum.jquery.com/topic/triggering-custom-events-on-js-objects\x0a\x09Beware some objects wont fire (anArray for example).\x0a\x09Godspeed!\x22\x0a\x0a\x09<$(self).on(anEventName, aReactionBlock)>",
+source: "when: anEventName do: aReactionBlock\x0a\x09\x22Wires the observation of this object to the occurrence of anEventName.\x0a\x09When (and if) anEventName happens, aReactionBlock will take place. \x0a\x09Based on this feature: http://forum.jquery.com/topic/triggering-custom-events-on-js-objects\x0a\x09Beware some objects wont fire (anArray for example).\x0a\x09Godspeed!\x22\x0a\x0a\x09<$(self).on(anEventName, function(e){\x0a\x09\x09var someArguments = $(arguments).slice();\x0a\x09\x09someArguments.splice(0,1);\x0a\x09\x09aReactionBlock.apply(null, someArguments)})>",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: []
