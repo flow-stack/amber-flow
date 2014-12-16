@@ -36,6 +36,26 @@ controllerAt: aKey ifAbsentPut: aBlock
 		ifAbsent:[ self controllerAt: aKey put: aBlock value ]
 !
 
+controllerAt: aKey ifPresent: aBlock
+	"Evaluates aBlock if this controller has a controller at aKey.
+	Silently do nothing otherwise."
+	
+	^ self controllers 
+		at: aKey 
+		ifPresent: aBlock 
+		ifAbsent: [ nil ]
+!
+
+controllerAt: aKey ifPresent: aBlock ifAbsent: anotherBlock
+	"Evaluates aBlock if this controller has a controller at aKey or
+	evaluates anotherBlock if it's absent."
+	
+	^ self controllers 
+		at: aKey 
+		ifPresent: aBlock
+		ifAbsent: anotherBlock
+!
+
 controllerAt: aKey put: aController
 
 	^ self controllers at: aKey put: aController

@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+# Cleans up libraries and modules that can be installed from remote sources and
+# local files that can be rebuilt from sources
+
+rm -rf bower_components/
+rm -f src/*.js
+rm -f the.js
+rm -f config.js
