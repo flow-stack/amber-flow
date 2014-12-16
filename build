@@ -4,6 +4,8 @@
 # compiles local files that can be rebuilt from sources
 
 bower install
+npm install
+amber config
 grunt devel
 grunt
 
