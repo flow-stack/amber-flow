@@ -1,7 +1,7 @@
 {
   "name": "amber-flow",
   "description": "Make Amber apps nice and easy. This is flow's frontend.",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "ignore": [
     "**/.*",
     "node_modules",
