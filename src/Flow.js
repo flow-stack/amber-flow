@@ -445,6 +445,33 @@ $globals.Flow.klass);
 
 $core.addMethod(
 $core.method({
+selector: "install",
+protocol: 'actions',
+fn: function (){
+var self=this;
+function $Router(){return $globals.Router||(typeof Router=="undefined"?nil:Router)}
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+$recv(window)._at_put_("flow",self);
+self._resetOnBeforeUnload();
+$recv($Router())._observeHash();
+return self;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"install",{},$globals.Flow.klass)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: [],
+source: "install\x0a\x09\x22Makes the foundation of a flow app to be ready for action.\x22\x0a\x0a\x09window at: 'flow' put: self.\x0a\x0a\x09self resetOnBeforeUnload.\x0a\x0a\x09\x22Make the router be sensible to URI changes\x22\x0a\x09Router observeHash",
+referencedClasses: ["Router"],
+//>>excludeEnd("ide");
+messageSends: ["at:put:", "resetOnBeforeUnload", "observeHash"]
+}),
+$globals.Flow.klass);
+
+$core.addMethod(
+$core.method({
 selector: "resetOnBeforeUnload",
 protocol: 'actions',
 fn: function (){
@@ -566,13 +593,10 @@ selector: "start",
 protocol: 'actions',
 fn: function (){
 var self=this;
-function $Router(){return $globals.Router||(typeof Router=="undefined"?nil:Router)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) { 
 //>>excludeEnd("ctx");
-$recv(window)._at_put_("flow",self);
-self._resetOnBeforeUnload();
-$recv($Router())._observeHash();
+self._trigger_("started");
 return self;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 }, function($ctx1) {$ctx1.fill(self,"start",{},$globals.Flow.klass)});
@@ -580,10 +604,10 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "start\x0a\x09\x22Makes the foundation of a flow app to be ready for action.\x22\x0a\x0a\x09window at: 'flow' put: self.\x0a\x0a\x09self resetOnBeforeUnload.\x0a\x0a\x09\x22Make the router be sensible to URI changes\x22\x0a\x09Router observeHash",
-referencedClasses: ["Router"],
+source: "start\x0a\x09\x0a\x09self trigger: #started",
+referencedClasses: [],
 //>>excludeEnd("ide");
-messageSends: ["at:put:", "resetOnBeforeUnload", "observeHash"]
+messageSends: ["trigger:"]
 }),
 $globals.Flow.klass);
 

@@ -2,6 +2,7 @@ define([
     'amber/deploy',
     // --- packages to be deployed begin here ---
     'text',
+    'sightglass',
     'rivets',
     'minimapless/MiniMapless',
 	'amber-flow/Flow',
