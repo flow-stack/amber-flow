@@ -534,22 +534,26 @@ var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) { 
 //>>excludeEnd("ctx");
-var $3,$2,$1;
-$3=$recv(self["@model"])._firstName();
+var $1,$4,$3,$2;
+$1=self._hasModel();
+if(!$core.assert($1)){
+return self;
+};
+$4=$recv(self["@model"])._firstName();
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 $ctx1.sendIdx["firstName"]=1;
 //>>excludeEnd("ctx");
-$2=$recv($3)._notNil();
-$1=$recv($2)._and_((function(){
+$3=$recv($4)._notNil();
+$2=$recv($3)._and_((function(){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx2) {
 //>>excludeEnd("ctx");
 return $recv($recv(self["@model"])._firstName())._notEmpty();
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx2) {$ctx2.fillBlock({},$ctx1,1)});
+}, function($ctx2) {$ctx2.fillBlock({},$ctx1,2)});
 //>>excludeEnd("ctx");
 }));
-self._basicAt_put_("canConfirm",$1);
+self._basicAt_put_("canConfirm",$2);
 return self;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 }, function($ctx1) {$ctx1.fill(self,"updateCanConfirm",{},$globals.Example2Controller)});
@@ -557,10 +561,10 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "updateCanConfirm\x0a\x09\x09\x0a\x09self \x0a\x09\x09basicAt: #canConfirm \x0a\x09\x09put: (model firstName notNil and: [\x0a\x09\x09\x09\x09model firstName notEmpty ])",
+source: "updateCanConfirm\x0a\x09\x09\x0a\x09self hasModel ifFalse: [ ^ self ].\x0a\x09\x0a\x09self \x0a\x09\x09basicAt: #canConfirm \x0a\x09\x09put: (model firstName notNil and: [\x0a\x09\x09\x09\x09model firstName notEmpty ])",
 referencedClasses: [],
 //>>excludeEnd("ide");
-messageSends: ["basicAt:put:", "and:", "notNil", "firstName", "notEmpty"]
+messageSends: ["ifFalse:", "hasModel", "basicAt:put:", "and:", "notNil", "firstName", "notEmpty"]
 }),
 $globals.Example2Controller);
 
@@ -571,12 +575,15 @@ selector: "defaultModel",
 protocol: 'accessing',
 fn: function (){
 var self=this;
-function $Flow(){return $globals.Flow||(typeof Flow=="undefined"?nil:Flow)}
+function $Thing(){return $globals.Thing||(typeof Thing=="undefined"?nil:Thing)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) { 
 //>>excludeEnd("ctx");
-var $1;
-$1=$recv($Flow())._session();
+var $2,$3,$1;
+$2=$recv($Thing())._new();
+$recv($2)._firstName_("Dude");
+$3=$recv($2)._yourself();
+$1=$3;
 return $1;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 }, function($ctx1) {$ctx1.fill(self,"defaultModel",{},$globals.Example2Controller.klass)});
@@ -584,10 +591,10 @@ return $1;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "defaultModel\x0a\x0a\x09^ Flow session",
-referencedClasses: ["Flow"],
+source: "defaultModel\x0a\x0a\x09^ Thing new \x0a\x09\x09firstName: 'Dude';\x0a\x09\x09yourself",
+referencedClasses: ["Thing"],
 //>>excludeEnd("ide");
-messageSends: ["session"]
+messageSends: ["firstName:", "new", "yourself"]
 }),
 $globals.Example2Controller.klass);
 
@@ -728,6 +735,35 @@ messageSends: ["on:do:", "find:", "asJQuery", "inspect"]
 }),
 $globals.Example3Controller);
 
+
+$core.addMethod(
+$core.method({
+selector: "defaultModel",
+protocol: 'testing',
+fn: function (){
+var self=this;
+function $Thing(){return $globals.Thing||(typeof Thing=="undefined"?nil:Thing)}
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+var $2,$3,$1;
+$2=$recv($Thing())._new();
+$recv($2)._firstName_("Visitor");
+$3=$recv($2)._yourself();
+$1=$3;
+return $1;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"defaultModel",{},$globals.Example3Controller.klass)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: [],
+source: "defaultModel\x0a\x0a\x09^ Thing new \x0a\x09\x09firstName: 'Visitor';\x0a\x09\x09yourself",
+referencedClasses: ["Thing"],
+//>>excludeEnd("ide");
+messageSends: ["firstName:", "new", "yourself"]
+}),
+$globals.Example3Controller.klass);
 
 $core.addMethod(
 $core.method({

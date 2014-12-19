@@ -483,7 +483,10 @@ keyword
 
 forURI: anURI
 
-	^ self for: (self modelFor: anURI) on: nil appendingTo: self defaultHtmlElement
+	^ self 
+		for: (self modelFor: anURI) 
+		on: nil 
+		appendingTo: self defaultHtmlElement
 !
 
 modelFor: anURI

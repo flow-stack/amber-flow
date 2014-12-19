@@ -142,6 +142,8 @@ observeEvents
 
 updateCanConfirm
 		
+	self hasModel ifFalse: [ ^ self ].
+	
 	self 
 		basicAt: #canConfirm 
 		put: (model firstName notNil and: [
@@ -173,7 +175,9 @@ onFirstNameBlur
 
 defaultModel
 
-	^ Flow session
+	^ Thing new 
+		firstName: 'Dude';
+		yourself
 ! !
 
 !Example2Controller class methodsFor: 'testing'!
@@ -224,6 +228,13 @@ initialize
 ! !
 
 !Example3Controller class methodsFor: 'testing'!
+
+defaultModel
+
+	^ Thing new 
+		firstName: 'Visitor';
+		yourself
+!
 
 isValidFor: anURI
 	"Answers true if this controller is the right route for anURI"
