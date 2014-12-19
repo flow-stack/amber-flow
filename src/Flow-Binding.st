@@ -8,15 +8,6 @@ The concrete subclasses of BindingController are users of the two-way data bindi
 
 Note that BindingController is a subclass of TemplateController so all subclasses of it follow the convention of loading a html template from the server using the keyword of the controller as the name of the template to be found at views/!
 
-!BindingController methodsFor: 'accessing'!
-
-rivets
-	"Answers the rivets accessor.
-	http://rivetsjs.com/docs/guide/"
-
-	^ require value: 'rivets'
-! !
-
 !BindingController methodsFor: 'actions'!
 
 asBindArgument
@@ -32,7 +23,7 @@ bind
 	"Tells rivets.js to bind 
 	the model of this controller to its view."
 	
-	self rivets
+	Rivets rv
 		bind: self view 
 		to: self asBindArgument
 !
@@ -43,7 +34,7 @@ configure
 	
 	conf := self getConfiguration.
 	
-	self rivets configure: conf
+	Rivets rv configure: conf
 !
 
 configureAndBind
@@ -378,5 +369,18 @@ rejectBlock: aBlock
 rejectButtonLabel: aString
 
 	self basicAt: #rejectButtonLabel put: aString
+! !
+
+Object subclass: #Rivets
+	instanceVariableNames: ''
+	package: 'Flow-Binding'!
+
+!Rivets class methodsFor: 'accessing'!
+
+rv
+	"Answers the rivets accessor.
+	http://rivetsjs.com/docs/guide/"
+
+	^ require value: 'rivets'
 ! !
 

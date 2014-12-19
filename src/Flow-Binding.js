@@ -1,4 +1,4 @@
-define("amber-flow/Flow-Binding", ["amber/boot", "amber-flow/Flow-Templates"], function($boot){
+define("amber-flow/Flow-Binding", ["amber/boot", "amber-flow/Flow-Templates", "amber_core/Kernel-Objects"], function($boot){
 var $core=$boot.api,nil=$boot.nil,$recv=$boot.asReceiver,$globals=$boot.globals;
 var smalltalk=$core,_st=$recv,globals=$globals;
 $core.addPackage('Flow-Binding');
@@ -39,10 +39,11 @@ selector: "bind",
 protocol: 'actions',
 fn: function (){
 var self=this;
+function $Rivets(){return $globals.Rivets||(typeof Rivets=="undefined"?nil:Rivets)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) { 
 //>>excludeEnd("ctx");
-$recv(self._rivets())._bind_to_(self._view(),self._asBindArgument());
+$recv($recv($Rivets())._rv())._bind_to_(self._view(),self._asBindArgument());
 return self;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 }, function($ctx1) {$ctx1.fill(self,"bind",{},$globals.BindingController)});
@@ -50,10 +51,10 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "bind\x0a\x09\x22Tells rivets.js to bind \x0a\x09the model of this controller to its view.\x22\x0a\x09\x0a\x09self rivets\x0a\x09\x09bind: self view \x0a\x09\x09to: self asBindArgument",
-referencedClasses: [],
+source: "bind\x0a\x09\x22Tells rivets.js to bind \x0a\x09the model of this controller to its view.\x22\x0a\x09\x0a\x09Rivets rv\x0a\x09\x09bind: self view \x0a\x09\x09to: self asBindArgument",
+referencedClasses: ["Rivets"],
 //>>excludeEnd("ide");
-messageSends: ["bind:to:", "rivets", "view", "asBindArgument"]
+messageSends: ["bind:to:", "rv", "view", "asBindArgument"]
 }),
 $globals.BindingController);
 
@@ -64,11 +65,12 @@ protocol: 'actions',
 fn: function (){
 var self=this;
 var conf;
+function $Rivets(){return $globals.Rivets||(typeof Rivets=="undefined"?nil:Rivets)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) { 
 //>>excludeEnd("ctx");
 conf=self._getConfiguration();
-$recv(self._rivets())._configure_(conf);
+$recv($recv($Rivets())._rv())._configure_(conf);
 return self;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 }, function($ctx1) {$ctx1.fill(self,"configure",{conf:conf},$globals.BindingController)});
@@ -76,10 +78,10 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "configure\x0a\x09\x22Sets some configurations for rivets\x22\x0a\x09| conf |\x0a\x09\x0a\x09conf := self getConfiguration.\x0a\x09\x0a\x09self rivets configure: conf",
-referencedClasses: [],
+source: "configure\x0a\x09\x22Sets some configurations for rivets\x22\x0a\x09| conf |\x0a\x09\x0a\x09conf := self getConfiguration.\x0a\x09\x0a\x09Rivets rv configure: conf",
+referencedClasses: ["Rivets"],
 //>>excludeEnd("ide");
-messageSends: ["getConfiguration", "configure:", "rivets"]
+messageSends: ["getConfiguration", "configure:", "rv"]
 }),
 $globals.BindingController);
 
@@ -290,31 +292,6 @@ source: "rebind\x0a\x0a\x09self unbind; configureAndBind",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: ["unbind", "configureAndBind"]
-}),
-$globals.BindingController);
-
-$core.addMethod(
-$core.method({
-selector: "rivets",
-protocol: 'accessing',
-fn: function (){
-var self=this;
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
-//>>excludeEnd("ctx");
-var $1;
-$1=$recv(require)._value_("rivets");
-return $1;
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx1) {$ctx1.fill(self,"rivets",{},$globals.BindingController)});
-//>>excludeEnd("ctx");
-},
-//>>excludeStart("ide", pragmas.excludeIdeData);
-args: [],
-source: "rivets\x0a\x09\x22Answers the rivets accessor.\x0a\x09http://rivetsjs.com/docs/guide/\x22\x0a\x0a\x09^ require value: 'rivets'",
-referencedClasses: [],
-//>>excludeEnd("ide");
-messageSends: ["value:"]
 }),
 $globals.BindingController);
 
@@ -1261,5 +1238,33 @@ messageSends: ["basicAt:put:"]
 }),
 $globals.ConfirmController);
 
+
+
+$core.addClass('Rivets', $globals.Object, [], 'Flow-Binding');
+
+$core.addMethod(
+$core.method({
+selector: "rv",
+protocol: 'accessing',
+fn: function (){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+var $1;
+$1=$recv(require)._value_("rivets");
+return $1;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"rv",{},$globals.Rivets.klass)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: [],
+source: "rv\x0a\x09\x22Answers the rivets accessor.\x0a\x09http://rivetsjs.com/docs/guide/\x22\x0a\x0a\x09^ require value: 'rivets'",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: ["value:"]
+}),
+$globals.Rivets.klass);
 
 });
