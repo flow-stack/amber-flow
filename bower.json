@@ -2,6 +2,13 @@
   "name": "amber-flow",
   "description": "Make Amber apps nice and easy. This is flow's frontend.",
   "version": "0.3.3",
+  "main": [
+    "src/Flow-API.js",
+    "src/Flow-Binding.js",
+    "src/Flow-Core.js",
+    "src/Flow-Templates.js",
+    "src/Flow.js"
+  ],
   "ignore": [
     "**/.*",
     "node_modules",
