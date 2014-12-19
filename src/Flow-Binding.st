@@ -377,6 +377,25 @@ Object subclass: #Rivets
 
 !Rivets class methodsFor: 'accessing'!
 
+binderCallback
+	"Returns a callback to bind whoBinds."
+	
+	<return function(){
+	
+		var args = Array.prototype.slice(arguments);
+		var fn = args.shift();
+		var whoBinds = args.shift();
+
+		if (typeof fn === 'function') {
+			return function() {
+				fn.apply(self, args);
+			}
+		}
+		
+		return fn;
+	}>
+!
+
 rv
 	"Answers the rivets accessor.
 	http://rivetsjs.com/docs/guide/"
@@ -397,6 +416,7 @@ utilFormatters
 		at: #decimalPlaces put: [ :aNumber :decimalPlaces | aNumber printShowingDecimalPlaces: decimalPlaces ];
 		at: #asLowercase put: [ :aString | aString asString asLowercase ];
 		at: #asUppercase put: [ :aString | aString asString asUppercase ];
+		at: #bind put: self binderCallback;
 		yourself
 ! !
 

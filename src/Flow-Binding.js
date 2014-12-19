@@ -1268,6 +1268,43 @@ $globals.Rivets.klass);
 
 $core.addMethod(
 $core.method({
+selector: "binderCallback",
+protocol: 'accessing',
+fn: function (){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+return function(){
+	
+		var args = Array.prototype.slice(arguments);
+		var fn = args.shift();
+		var whoBinds = args.shift();
+
+		if (typeof fn === 'function') {
+			return function() {
+				fn.apply(self, args);
+			}
+		}
+		
+		return fn;
+	};
+return self;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"binderCallback",{},$globals.Rivets.klass)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: [],
+source: "binderCallback\x0a\x09\x22Returns a callback to bind whoBinds.\x22\x0a\x09\x0a\x09<return function(){\x0a\x09\x0a\x09\x09var args = Array.prototype.slice(arguments);\x0a\x09\x09var fn = args.shift();\x0a\x09\x09var whoBinds = args.shift();\x0a\x0a\x09\x09if (typeof fn === 'function') {\x0a\x09\x09\x09return function() {\x0a\x09\x09\x09\x09fn.apply(self, args);\x0a\x09\x09\x09}\x0a\x09\x09}\x0a\x09\x09\x0a\x09\x09return fn;\x0a\x09}>",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
+}),
+$globals.Rivets.klass);
+
+$core.addMethod(
+$core.method({
 selector: "initialize",
 protocol: 'initialization',
 fn: function (){
@@ -1315,7 +1352,7 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "installUtils\x0a\x0a\x09self utilFormatters keysAndValuesDo: [ :key :value |\x0a\x09\x09self addFormatter: value at: key ] ",
+source: "installUtils\x0a\x0a\x09self utilFormatters keysAndValuesDo: [ :key :value |\x0a\x09\x09self addFormatter: value at: key ]",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: ["keysAndValuesDo:", "utilFormatters", "addFormatter:at:"]
@@ -1491,6 +1528,10 @@ return $recv($recv(aString)._asString())._asUppercase();
 }, function($ctx2) {$ctx2.fillBlock({aString:aString},$ctx1,10)});
 //>>excludeEnd("ctx");
 }));
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["at:put:"]=10;
+//>>excludeEnd("ctx");
+$recv($2)._at_put_("bind",self._binderCallback());
 $7=$recv($2)._yourself();
 $1=$7;
 return $1;
@@ -1502,10 +1543,10 @@ catch(e) {if(e===$early)return e[0]; throw e}
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "utilFormatters\x0a\x0a\x09^ Dictionary new \x0a\x09\x09at: #at put: [ :object :key | ^ object basicAt: key ];\x0a\x09\x09at: #reversed put: [ :aCollection | aCollection reversed ];\x0a\x09\x09at: #sorted put: [ :aCollection | aCollection sorted ];\x0a\x09\x09at: #size put: [ :anObject | anObject size ];\x0a\x09\x09at: #rounded put: [ :aNumber | aNumber rounded ];\x0a\x09\x09at: #capitalized put: [ :aString | aString capitalized ];\x0a\x09\x09at: #currency put: [ :aNumber :aCurrencySymbol | aCurrencySymbol asString, (aNumber printShowingDecimalPlaces: 2) ];\x0a\x09\x09at: #decimalPlaces put: [ :aNumber :decimalPlaces | aNumber printShowingDecimalPlaces: decimalPlaces ];\x0a\x09\x09at: #asLowercase put: [ :aString | aString asString asLowercase ];\x0a\x09\x09at: #asUppercase put: [ :aString | aString asString asUppercase ];\x0a\x09\x09yourself",
+source: "utilFormatters\x0a\x0a\x09^ Dictionary new \x0a\x09\x09at: #at put: [ :object :key | ^ object basicAt: key ];\x0a\x09\x09at: #reversed put: [ :aCollection | aCollection reversed ];\x0a\x09\x09at: #sorted put: [ :aCollection | aCollection sorted ];\x0a\x09\x09at: #size put: [ :anObject | anObject size ];\x0a\x09\x09at: #rounded put: [ :aNumber | aNumber rounded ];\x0a\x09\x09at: #capitalized put: [ :aString | aString capitalized ];\x0a\x09\x09at: #currency put: [ :aNumber :aCurrencySymbol | aCurrencySymbol asString, (aNumber printShowingDecimalPlaces: 2) ];\x0a\x09\x09at: #decimalPlaces put: [ :aNumber :decimalPlaces | aNumber printShowingDecimalPlaces: decimalPlaces ];\x0a\x09\x09at: #asLowercase put: [ :aString | aString asString asLowercase ];\x0a\x09\x09at: #asUppercase put: [ :aString | aString asString asUppercase ];\x0a\x09\x09at: #bind put: self binderCallback;\x0a\x09\x09yourself",
 referencedClasses: ["Dictionary"],
 //>>excludeEnd("ide");
-messageSends: ["at:put:", "new", "basicAt:", "reversed", "sorted", "size", "rounded", "capitalized", ",", "asString", "printShowingDecimalPlaces:", "asLowercase", "asUppercase", "yourself"]
+messageSends: ["at:put:", "new", "basicAt:", "reversed", "sorted", "size", "rounded", "capitalized", ",", "asString", "printShowingDecimalPlaces:", "asLowercase", "asUppercase", "binderCallback", "yourself"]
 }),
 $globals.Rivets.klass);
 

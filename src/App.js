@@ -582,6 +582,8 @@ return $core.withContext(function($ctx1) {
 var $2,$3,$1;
 $2=$recv($Thing())._new();
 $recv($2)._firstName_("Dude");
+$recv($2)._someNumbers_([(3), (6), (2), (8), (1)]);
+$recv($2)._someFloatValue_((33.33333333));
 $3=$recv($2)._yourself();
 $1=$3;
 return $1;
@@ -591,10 +593,10 @@ return $1;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "defaultModel\x0a\x0a\x09^ Thing new \x0a\x09\x09firstName: 'Dude';\x0a\x09\x09yourself",
+source: "defaultModel\x0a\x0a\x09^ Thing new \x0a\x09\x09firstName: 'Dude';\x0a\x09\x09someNumbers: #( 3 6 2 8 1 );\x0a\x09\x09someFloatValue: 33.33333333;\x0a\x09\x09yourself",
 referencedClasses: ["Thing"],
 //>>excludeEnd("ide");
-messageSends: ["firstName:", "new", "yourself"]
+messageSends: ["firstName:", "new", "someNumbers:", "someFloatValue:", "yourself"]
 }),
 $globals.Example2Controller.klass);
 

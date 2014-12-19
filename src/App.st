@@ -177,6 +177,8 @@ defaultModel
 
 	^ Thing new 
 		firstName: 'Dude';
+		someNumbers: #( 3 6 2 8 1 );
+		someFloatValue: 33.33333333;
 		yourself
 ! !
 

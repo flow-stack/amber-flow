@@ -29,8 +29,8 @@
     "amber": "^0.13.2",
     "text": "requirejs/text#~2.0.12",
     "bootstrap": "~3.3.0",
-    "rivets": "0.6.10",
-    "minimapless": "~0.9.4"
+    "minimapless": "~0.9.4",
+    "rivets": "~0.7.1"
   },
   "devDependencies": {
     "amber-ide-starter-dialog": "^0.1.0",
