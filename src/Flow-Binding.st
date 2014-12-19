@@ -382,5 +382,42 @@ rv
 	http://rivetsjs.com/docs/guide/"
 
 	^ require value: 'rivets'
+!
+
+utilFormatters
+
+	^ Dictionary new 
+		at: #at put: [ :object :key | ^ object basicAt: key ];
+		at: #reversed put: [ :aCollection | aCollection reversed ];
+		at: #sorted put: [ :aCollection | aCollection sorted ];
+		at: #size put: [ :anObject | anObject size ];
+		at: #rounded put: [ :aNumber | aNumber rounded ];
+		at: #capitalized put: [ :aString | aString capitalized ];
+		at: #currency put: [ :aNumber :aCurrencySymbol | aCurrencySymbol asString, (aNumber printShowingDecimalPlaces: 2) ];
+		at: #decimalPlaces put: [ :aNumber :decimalPlaces | aNumber printShowingDecimalPlaces: decimalPlaces ];
+		at: #asLowercase put: [ :aString | aString asString asLowercase ];
+		at: #asUppercase put: [ :aString | aString asString asUppercase ];
+		yourself
+! !
+
+!Rivets class methodsFor: 'actions'!
+
+addFormatter: aBlock at: aName
+	"Tells rivets.js to add aBlock callback as a formatter under aName."
+	
+	self rv formatters at: aName put: aBlock
+!
+
+installUtils
+
+	self utilFormatters keysAndValuesDo: [ :key :value |
+		self addFormatter: value at: key ]
+! !
+
+!Rivets class methodsFor: 'initialization'!
+
+initialize
+
+	self installUtils
 ! !
 

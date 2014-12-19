@@ -36,6 +36,19 @@
 	<div id="confirmName"></div>
 
 	<p rv-show="model.isConfirmed"><strong>Awesome {model.firstName}!</strong></p>	
+
+	<h2 rv-show="model.isConfirmed">You can haz formatterz too!</h2>
+	<p rv-show="model.isConfirmed">Lowercase formatters awesomeness { asLowercase | model.firstName}!</p>	
+	<p rv-show="model.isConfirmed">Uppercase formatters awesomeness { asUppercase | model.firstName}!</p>	
+	<p rv-show="model.isConfirmed">Formatters concatenation awesomeness: { capitalized | asLowercase | model.firstName}!</p>
+	<p rv-show="model.isConfirmed">Size formatters awesomeness, {model.firstName} has a size of: { size | model.firstName }!</p>	
+	<p rv-show="model.isConfirmed">Reversed formatters awesomeness, {model.firstName} reverses to: { reversed | model.firstName }!</p>	
+	<p rv-show="model.isConfirmed">Sorting formatters awesomeness, {model.firstName} sorts to: { sorted | model.firstName }!</p>	
+	<p rv-show="model.isConfirmed">Decimal places formatters awesomeness, 2 on 33.333333 gives you { decimalPlaces | 33.333333 2}!</p>	
+	<p rv-show="model.isConfirmed">Rounded formatters awesomeness, 33.33333 gives you: { rounded | 33.333333 }!</p>	
+	<p rv-show="model.isConfirmed">Currency formatters awesomeness, 33.33333 EUR gives you: { currency | 33.33333 EUR }!</p>	
+	
+
 	<button class="btn btn-default"
 		rv-show="model.isConfirmed"
 		rv-on-click="controller._confirmAgain">Confirm again</button>

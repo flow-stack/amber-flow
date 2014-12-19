@@ -19,11 +19,13 @@ publishObjects
 
 start
 
-	Flow start.
+	Flow install.
 	
 	Flow app: self.
 	Flow session visitor: AppVisitor new.
 	self publishObjects.
+
+	Flow start.
 	
 	Router refresh
 ! !

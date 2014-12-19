@@ -155,13 +155,7 @@ session: aSession
 
 !Flow class methodsFor: 'actions'!
 
-resetOnBeforeUnload
-	"Gets rid of any registered onbeforeunload handlers."
-	
-	<window.onbeforeunload = null>
-!
-
-start
+install
 	"Makes the foundation of a flow app to be ready for action."
 
 	window at: 'flow' put: self.
@@ -170,6 +164,17 @@ start
 
 	"Make the router be sensible to URI changes"
 	Router observeHash
+!
+
+resetOnBeforeUnload
+	"Gets rid of any registered onbeforeunload handlers."
+	
+	<window.onbeforeunload = null>
+!
+
+start
+	
+	self trigger: #started
 ! !
 
 !Flow class methodsFor: 'initialization'!

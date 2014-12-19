@@ -81,10 +81,11 @@ function $Router(){return $globals.Router||(typeof Router=="undefined"?nil:Route
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) { 
 //>>excludeEnd("ctx");
-$recv($Flow())._start();
+$recv($Flow())._install();
 $recv($Flow())._app_(self);
 $recv($recv($Flow())._session())._visitor_($recv($AppVisitor())._new());
 self._publishObjects();
+$recv($Flow())._start();
 $recv($Router())._refresh();
 return self;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
@@ -93,10 +94,10 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "start\x0a\x0a\x09Flow start.\x0a\x09\x0a\x09Flow app: self.\x0a\x09Flow session visitor: AppVisitor new.\x0a\x09self publishObjects.\x0a\x09\x0a\x09Router refresh",
+source: "start\x0a\x0a\x09Flow install.\x0a\x09\x0a\x09Flow app: self.\x0a\x09Flow session visitor: AppVisitor new.\x0a\x09self publishObjects.\x0a\x0a\x09Flow start.\x0a\x09\x0a\x09Router refresh",
 referencedClasses: ["Flow", "AppVisitor", "Router"],
 //>>excludeEnd("ide");
-messageSends: ["start", "app:", "visitor:", "session", "new", "publishObjects", "refresh"]
+messageSends: ["install", "app:", "visitor:", "session", "new", "publishObjects", "start", "refresh"]
 }),
 $globals.App.klass);
 
