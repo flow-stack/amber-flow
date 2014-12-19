@@ -406,7 +406,7 @@ rv
 utilFormatters
 
 	^ Dictionary new 
-		at: #at put: [ :object :key | ^ object basicAt: key ];
+		at: #at put: [ :object :key | object basicAt: key ];
 		at: #reversed put: [ :aCollection | aCollection reversed ];
 		at: #sorted put: [ :aCollection | aCollection sorted ];
 		at: #size put: [ :anObject | anObject size ];
