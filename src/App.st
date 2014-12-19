@@ -19,11 +19,13 @@ publishObjects
 
 start
 
-	Flow start.
+	Flow install.
 	
 	Flow app: self.
 	Flow session visitor: AppVisitor new.
 	self publishObjects.
+
+	Flow start.
 	
 	Router refresh
 ! !
@@ -140,6 +142,8 @@ observeEvents
 
 updateCanConfirm
 		
+	self hasModel ifFalse: [ ^ self ].
+	
 	self 
 		basicAt: #canConfirm 
 		put: (model firstName notNil and: [
@@ -171,7 +175,11 @@ onFirstNameBlur
 
 defaultModel
 
-	^ Flow session
+	^ Thing new 
+		firstName: 'Dude';
+		someNumbers: #( 3 6 2 8 1 );
+		someFloatValue: 33.33333333;
+		yourself
 ! !
 
 !Example2Controller class methodsFor: 'testing'!
@@ -222,6 +230,13 @@ initialize
 ! !
 
 !Example3Controller class methodsFor: 'testing'!
+
+defaultModel
+
+	^ Thing new 
+		firstName: 'Visitor';
+		yourself
+!
 
 isValidFor: anURI
 	"Answers true if this controller is the right route for anURI"

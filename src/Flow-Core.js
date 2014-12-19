@@ -1651,7 +1651,7 @@ return $1;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["anURI"],
-source: "forURI: anURI\x0a\x0a\x09^ self for: (self modelFor: anURI) on: nil appendingTo: self defaultHtmlElement",
+source: "forURI: anURI\x0a\x0a\x09^ self \x0a\x09\x09for: (self modelFor: anURI) \x0a\x09\x09on: nil \x0a\x09\x09appendingTo: self defaultHtmlElement",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: ["for:on:appendingTo:", "modelFor:", "defaultHtmlElement"]

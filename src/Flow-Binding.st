@@ -8,15 +8,6 @@ The concrete subclasses of BindingController are users of the two-way data bindi
 
 Note that BindingController is a subclass of TemplateController so all subclasses of it follow the convention of loading a html template from the server using the keyword of the controller as the name of the template to be found at views/!
 
-!BindingController methodsFor: 'accessing'!
-
-rivets
-	"Answers the rivets accessor.
-	http://rivetsjs.com/docs/guide/"
-
-	^ require value: 'rivets'
-! !
-
 !BindingController methodsFor: 'actions'!
 
 asBindArgument
@@ -32,7 +23,7 @@ bind
 	"Tells rivets.js to bind 
 	the model of this controller to its view."
 	
-	self rivets
+	Rivets rv
 		bind: self view 
 		to: self asBindArgument
 !
@@ -43,7 +34,7 @@ configure
 	
 	conf := self getConfiguration.
 	
-	self rivets configure: conf
+	Rivets rv configure: conf
 !
 
 configureAndBind
@@ -378,5 +369,75 @@ rejectBlock: aBlock
 rejectButtonLabel: aString
 
 	self basicAt: #rejectButtonLabel put: aString
+! !
+
+Object subclass: #Rivets
+	instanceVariableNames: ''
+	package: 'Flow-Binding'!
+
+!Rivets class methodsFor: 'accessing'!
+
+binderCallback
+	"Returns a callback to bind whoBinds."
+	
+	<return function(){
+	
+		var args = Array.prototype.slice(arguments);
+		var fn = args.shift();
+		var whoBinds = args.shift();
+
+		if (typeof fn === 'function') {
+			return function() {
+				fn.apply(self, args);
+			}
+		}
+		
+		return fn;
+	}>
+!
+
+rv
+	"Answers the rivets accessor.
+	http://rivetsjs.com/docs/guide/"
+
+	^ require value: 'rivets'
+!
+
+utilFormatters
+
+	^ Dictionary new 
+		at: #at put: [ :object :key | ^ object basicAt: key ];
+		at: #reversed put: [ :aCollection | aCollection reversed ];
+		at: #sorted put: [ :aCollection | aCollection sorted ];
+		at: #size put: [ :anObject | anObject size ];
+		at: #rounded put: [ :aNumber | aNumber rounded ];
+		at: #capitalized put: [ :aString | aString capitalized ];
+		at: #currency put: [ :aNumber :aCurrencySymbol | aCurrencySymbol asString, (aNumber printShowingDecimalPlaces: 2) ];
+		at: #decimalPlaces put: [ :aNumber :decimalPlaces | aNumber printShowingDecimalPlaces: decimalPlaces ];
+		at: #asLowercase put: [ :aString | aString asString asLowercase ];
+		at: #asUppercase put: [ :aString | aString asString asUppercase ];
+		at: #bind put: self binderCallback;
+		yourself
+! !
+
+!Rivets class methodsFor: 'actions'!
+
+addFormatter: aBlock at: aName
+	"Tells rivets.js to add aBlock callback as a formatter under aName."
+	
+	self rv formatters at: aName put: aBlock
+!
+
+installUtils
+
+	self utilFormatters keysAndValuesDo: [ :key :value |
+		self addFormatter: value at: key ]
+! !
+
+!Rivets class methodsFor: 'initialization'!
+
+initialize
+
+	self installUtils
 ! !
 
