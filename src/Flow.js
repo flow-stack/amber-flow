@@ -1236,7 +1236,7 @@ return $1;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "asRemoteReference\x0a\x09\x22Answers the object appropiate for \x0a\x09traveling over the wire and still referring to this receiver\x22\x0a\x09\x0a\x09^ self class asRemoteReferenceFor: self",
+source: "asRemoteReference\x0a\x09\x22Answers the object appropiate for \x0a\x09traveling over the wire while still referring to this receiver\x22\x0a\x09\x0a\x09^ self class asRemoteReferenceFor: self",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: ["asRemoteReferenceFor:", "class"]
@@ -1302,7 +1302,7 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "off\x0a\x09\x22Unwires the observation of this object to the occurrence of all events.\x0a\x09All handlers will stop reacting\x22\x0a\x0a\x09<$(self).off()>",
+source: "off\x0a\x09\x22Unwires the observation of this instance to the occurrence of all events.\x0a\x09All handlers will stop reacting\x22\x0a\x0a\x09<$(self).off()>",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: []
@@ -1326,7 +1326,7 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["anEventName"],
-source: "off: anEventName \x0a\x09\x22Unwires the observation of this object to the occurrence of anEventName.\x0a\x09All handlers will stop reacting\x22\x0a\x0a\x09<$(self).off(anEventName, aReactionBlock)>",
+source: "off: anEventName \x0a\x09\x22Unwires the observation of this instance from the occurrence of anEventName.\x0a\x09All handlers for it will stop reacting\x22\x0a\x0a\x09<$(self).off(anEventName, aReactionBlock)>",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: []
@@ -1375,7 +1375,7 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["anEventName"],
-source: "trigger: anEventName \x0a\x09\x22Triggers anEventName in this object.\x0a\x09Hey World.. anEventName happened!.. \x0a\x09Go do something about this! (or not)\x22\x0a\x09\x0a\x09<return $(self).trigger(anEventName)>",
+source: "trigger: anEventName \x0a\x09\x22Triggers anEventName from this instance (no arguments).\x0a\x09For example:  self trigger: #changed.\x22\x0a\x09\x0a\x09<return $(self).trigger(anEventName)>",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: []
@@ -1401,7 +1401,7 @@ return $1;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["anEventName", "anArgument"],
-source: "trigger: anEventName with: anArgument\x0a\x09\x22Triggers anEventName, in this object and using anArgument\x22\x0a\x09\x0a\x09^ self trigger: anEventName withAll: (Array with: anArgument)",
+source: "trigger: anEventName with: anArgument\x0a\x09\x22Triggers anEventName, from this instance eventually using anArgument in the reacting callbacks.\x22\x0a\x09\x0a\x09^ self trigger: anEventName withAll: (Array with: anArgument)",
 referencedClasses: ["Array"],
 //>>excludeEnd("ide");
 messageSends: ["trigger:withAll:", "with:"]
@@ -1427,7 +1427,7 @@ return $1;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["anEventName", "firstArgument", "secondArgument"],
-source: "trigger: anEventName with: firstArgument with: secondArgument\x0a\x09\x22Triggers anEventName in this object using those two given arugments\x22\x0a\x09\x0a\x09^ self \x0a\x09\x09trigger: anEventName \x0a\x09\x09withAll: (Array \x0a\x09\x09\x09\x09\x09with: firstArgument\x0a\x09\x09\x09\x09\x09with: secondArgument)",
+source: "trigger: anEventName with: firstArgument with: secondArgument\x0a\x09\x22Triggers anEventName from this instance using those two given arugments\x22\x0a\x09\x0a\x09^ self \x0a\x09\x09trigger: anEventName \x0a\x09\x09withAll: (Array \x0a\x09\x09\x09\x09\x09with: firstArgument\x0a\x09\x09\x09\x09\x09with: secondArgument)",
 referencedClasses: ["Array"],
 //>>excludeEnd("ide");
 messageSends: ["trigger:withAll:", "with:with:"]
@@ -1451,7 +1451,7 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["anEventName", "someArguments"],
-source: "trigger: anEventName withAll: someArguments\x0a\x09\x22Triggers anEventName in this object using all the given arugments\x22\x0a\x0a\x09<return $(self).trigger( anEventName, someArguments )>",
+source: "trigger: anEventName withAll: someArguments\x0a\x09\x22Triggers anEventName from this instance using all the given arugments\x22\x0a\x0a\x09<return $(self).trigger( anEventName, someArguments )>",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: []
@@ -1478,7 +1478,7 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["anEventName", "aReactionBlock"],
-source: "when: anEventName do: aReactionBlock\x0a\x09\x22Wires the observation of this object to the occurrence of anEventName.\x0a\x09When (and if) anEventName happens, aReactionBlock will take place. \x0a\x09Based on this feature: http://forum.jquery.com/topic/triggering-custom-events-on-js-objects\x0a\x09Beware some objects wont fire (anArray for example).\x0a\x09Godspeed!\x22\x0a\x0a\x09<$(self).on(anEventName, function(e){\x0a\x09\x09var someArguments = $(arguments).slice();\x0a\x09\x09someArguments.splice(0,1);\x0a\x09\x09aReactionBlock.apply(null, someArguments)})>",
+source: "when: anEventName do: aReactionBlock\x0a\x09\x22Wires the observation of this instance to react to the eventual occurrence of anEventName.\x0a\x09When (and if) anEventName happens, aReactionBlock will take place. \x0a\x09Based on this feature: http://forum.jquery.com/topic/triggering-custom-events-on-js-objects\x0a\x09Note that some objects wont fire (anArray for example).\x22\x0a\x0a\x09<$(self).on(anEventName, function(e){\x0a\x09\x09var someArguments = $(arguments).slice();\x0a\x09\x09someArguments.splice(0,1);\x0a\x09\x09aReactionBlock.apply(null, someArguments)})>",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: []
