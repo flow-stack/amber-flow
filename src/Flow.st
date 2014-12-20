@@ -381,7 +381,7 @@ asRemote
 
 asRemoteReference
 	"Answers the object appropiate for 
-	traveling over the wire and still referring to this receiver"
+	traveling over the wire while still referring to this receiver"
 	
 	^ self class asRemoteReferenceFor: self
 !
@@ -397,66 +397,9 @@ isRemote
 	^ false
 !
 
-off
-	"Unwires the observation of this object to the occurrence of all events.
-	All handlers will stop reacting"
-
-	<$(self).off()>
-!
-
-off: anEventName 
-	"Unwires the observation of this object to the occurrence of anEventName.
-	All handlers will stop reacting"
-
-	<$(self).off(anEventName, aReactionBlock)>
-!
-
 promise: onDoneBlock
 	
 	^ (jQuery value: self) promise done: onDoneBlock
-!
-
-trigger: anEventName 
-	"Triggers anEventName in this object.
-	Hey World.. anEventName happened!!.. 
-	Go do something about this!! (or not)"
-	
-	<return $(self).trigger(anEventName)>
-!
-
-trigger: anEventName with: anArgument
-	"Triggers anEventName, in this object and using anArgument"
-	
-	^ self trigger: anEventName withAll: (Array with: anArgument)
-!
-
-trigger: anEventName with: firstArgument with: secondArgument
-	"Triggers anEventName in this object using those two given arugments"
-	
-	^ self 
-		trigger: anEventName 
-		withAll: (Array 
-					with: firstArgument
-					with: secondArgument)
-!
-
-trigger: anEventName withAll: someArguments
-	"Triggers anEventName in this object using all the given arugments"
-
-	<return $(self).trigger( anEventName, someArguments )>
-!
-
-when: anEventName do: aReactionBlock
-	"Wires the observation of this object to the occurrence of anEventName.
-	When (and if) anEventName happens, aReactionBlock will take place. 
-	Based on this feature: http://forum.jquery.com/topic/triggering-custom-events-on-js-objects
-	Beware some objects wont fire (anArray for example).
-	Godspeed!!"
-
-	<$(self).on(anEventName, function(e){
-		var someArguments = $(arguments).slice();
-		someArguments.splice(0,1);
-		aReactionBlock.apply(null, someArguments)})>
 ! !
 
 !Object class methodsFor: '*Flow'!
