@@ -418,6 +418,148 @@ isValidFor: anURI
 	^ anURI match: '^example4$'
 ! !
 
+BindingController subclass: #Example5Controller
+	instanceVariableNames: ''
+	package: 'App'!
+!Example5Controller commentStamp!
+##AppController
+
+The AppController is the main/root controller of your flow-based application.!
+
+!Example5Controller methodsFor: 'accessing'!
+
+potentialNames
+
+	^ #(
+	Galileo
+	Newton
+	Einstein
+	Heisemberg
+	Bohr
+	Schrodinger
+	Plank
+	Neumann
+	DeBroglie
+	Feynman
+	)
+! !
+
+!Example5Controller methodsFor: 'actions'!
+
+addThing
+
+	model things add: (Thing new name: #( Wave Particle Entanglement Superposition ) atRandom; yourself).
+	
+	self updateNotEmpty
+!
+
+ensureList
+	"Makes sure we have a controller for #things and 
+	make it fresh and visible with a refresh"
+	
+	self ifAbsentAt: #things put: [
+		ItemsController 
+			for: model
+			on: self
+			appendingTo: '#things-wrapper' asJQuery ].
+	
+	(self controllerAt: #things) 
+		newItemControllerBlock: [ :item | 
+			self newItemControllerFor: item for: (self controllerAt: #things) ];
+		model: model;
+		refresh
+!
+
+newItemControllerFor: aModel for: aListController
+	"Returns a new controller for aModel to be handled by aListController."
+
+	| row |
+
+	row := ThingRowController 
+				for: aModel
+				on: aListController
+				appendingTo: aListController view.
+				
+	row
+		when: #removeThing do: [ self onRemove: aModel ];
+		yourself.
+
+	^ row
+!
+
+newItems
+	"Answers a newly created collection of items to be used as models in the ItemsController."
+	
+	^ self potentialNames shuffled collect: [ :aName |  
+		Thing new 
+			name: aName;
+			yourself ]
+!
+
+observeEvents
+
+	'#inspect-this' asJQuery on: 'click' do: [ self inspect ]
+!
+
+removeThing
+
+	self things removeLast.
+	
+	self updateNotEmpty
+!
+
+updateNotEmpty
+
+	self 
+		basicAt: #notEmpty 
+		put: model things notEmpty
+! !
+
+!Example5Controller methodsFor: 'initialization'!
+
+initialize
+
+	super initialize.
+	
+	self when: #onAfterView do: [ 
+		self ensureList.
+		self updateNotEmpty.
+		self observeEvents ]
+!
+
+model: aModel
+
+	console log: aModel.
+	
+	super model: aModel.
+	
+	aModel things: self newItems
+! !
+
+!Example5Controller methodsFor: 'reactions'!
+
+onRemove: aThing
+
+	model things remove: aThing.
+
+	"self updateNotEmpty"
+! !
+
+!Example5Controller class methodsFor: 'accessing'!
+
+defaultModel
+
+	^ Flow session
+! !
+
+!Example5Controller class methodsFor: 'testing'!
+
+isValidFor: anURI
+	"Answers true if this controller is the right route for anURI"
+	
+	^ anURI match: '^example5$'
+! !
+
 TemplateController subclass: #MainController
 	instanceVariableNames: ''
 	package: 'App'!

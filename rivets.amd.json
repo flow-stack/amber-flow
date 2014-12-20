@@ -1,6 +1,6 @@
 {
     "paths": {
-        "rivets": "dist/rivets.min"
+        "rivets": "dist/rivets"
     },
 	"shim": {
 		"rivets": {
