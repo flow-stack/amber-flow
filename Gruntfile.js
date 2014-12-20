@@ -47,9 +47,11 @@ module.exports = function (grunt) {
                     'src/App-Tests.st'
                 ],
                 amd_namespace: 'amber-flow',
-                libraries: ['SUnit', 'Web', 'MiniMapless'],
+                libraries: ['SUnit', 'Web', 'DOMEvents', 'MiniMapless'],
                  options: {
-                   library_dirs: ['bower_components/minimapless/src'], // optional
+                   library_dirs: [
+                        'bower_components/minimapless/src',
+                        'bower_components/amber-dom-events/src' ], 
                    verbose: true
                  }
             },

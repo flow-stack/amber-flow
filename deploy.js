@@ -4,6 +4,7 @@ define([
     'text',
     'sightglass',
     'rivets',
+    'domevents/DOMEvents',
     'minimapless/MiniMapless',
 	'amber-flow/Flow',
 	'amber-flow/Flow-Core',
