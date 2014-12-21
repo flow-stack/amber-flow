@@ -1,7 +1,7 @@
 {
   "name": "amber-flow",
   "description": "Make Amber apps nice and easy. This is flow's frontend.",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "main": [
     "src/Flow-API.js",
     "src/Flow-Binding.js",
@@ -37,7 +37,7 @@
     "text": "requirejs/text#~2.0.12",
     "bootstrap": "~3.3.0",
     "rivets": "~0.7.1",
-    "minimapless": "~0.9.5",
+    "minimapless": "~0.10.1",
     "amber-dom-events": "~0.1.1"
   },
   "devDependencies": {
