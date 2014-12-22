@@ -613,6 +613,13 @@ BindingController subclass: #ThingRowController
 
 !ThingRowController methodsFor: 'actions'!
 
+onViewCreated: anObject at: index for: someModel
+
+	console log: anObject.
+	console log: index.
+	console log: someModel.
+!
+
 removeThing
 
 	self trigger: #removeThing

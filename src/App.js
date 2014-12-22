@@ -1882,6 +1882,38 @@ $core.addClass('ThingDetailsController', $globals.BindingController, [], 'App');
 $core.addClass('ThingRowController', $globals.BindingController, [], 'App');
 $core.addMethod(
 $core.method({
+selector: "onViewCreated:at:for:",
+protocol: 'actions',
+fn: function (anObject,index,someModel){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+$recv(console)._log_(anObject);
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["log:"]=1;
+//>>excludeEnd("ctx");
+$recv(console)._log_(index);
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["log:"]=2;
+//>>excludeEnd("ctx");
+$recv(console)._log_(someModel);
+return self;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"onViewCreated:at:for:",{anObject:anObject,index:index,someModel:someModel},$globals.ThingRowController)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["anObject", "index", "someModel"],
+source: "onViewCreated: anObject at: index for: someModel\x0a\x0a\x09console log: anObject.\x0a\x09console log: index.\x0a\x09console log: someModel.",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: ["log:"]
+}),
+$globals.ThingRowController);
+
+$core.addMethod(
+$core.method({
 selector: "removeThing",
 protocol: 'actions',
 fn: function (){

@@ -41,7 +41,10 @@ configureAndBind
 
 	(self hasModel not or: [
 	self hasView not ]) ifTrue: [ ^ self ].
-console log: self class name,'>>initialize'.	
+
+	console log: (self class name,'>>configureAndBind').
+	(jQuery value: self view)  on: #afterBound: do: [ :aRivetsBinding :a1 :a2 :a3 :a4 | self halt. self onBiding: aRivetsBinding ].
+
 	self configure.
 	
 	self bind.
@@ -99,6 +102,29 @@ initialize
 		when: #onAfterModel do: [ self rebind ];
 		when: #onBeforeRemove do: [ self unbind ];
 		yourself
+! !
+
+!BindingController methodsFor: 'reactions'!
+
+onAfterBound: aRivetsBinding
+
+	console log: 'onAfterBound: aRivetsBinding'.
+
+	console log: aRivetsBinding
+!
+
+onBiding: aRivetsBinding
+
+	console log: 'onBiding: aRivetsBinding'.
+
+	console log: aRivetsBinding
+!
+
+onBound: aRivetsBinding
+
+	console log: 'onBound: aRivetsBinding'.
+
+	console log: aRivetsBinding
 ! !
 
 !BindingController class methodsFor: 'testing'!
@@ -216,7 +242,18 @@ onRoutine: anElement value: aValue
 
 onViewCreated: anObject 
 
+	self inspect.
+
+	console log: (self class name,'>>onViewCreated: anObject').
 	console log: anObject
+!
+
+onViewCreated: anObject at: index for: someModel
+
+	console log: 'ItemsController>>onViewCreated: anObject at: index for: someModel'.
+	console log: anObject.
+	console log: index.
+	console log: someModel.
 !
 
 onViewCreated: aRivetJSView for: aModel
@@ -504,6 +541,26 @@ Object subclass: #Rivets
 
 !Rivets class methodsFor: 'accessing'!
 
+afterBoundCallback
+	"Returns a callback used when rivets had bound an element"
+	
+	<return function(el, val){
+		this.model.controller._onAfterBound_(this);
+		return this;
+	}>
+!
+
+bindCallbackUsing: originalBind
+	"Returns a callback used when rivets had bound an element"
+	
+	<return function(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10){
+		var answer;
+		debugger
+		answer = originalBind();
+		return answer;
+	}>
+!
+
 binderCallback
 	"Returns a callback to bind whoBinds."
 	
@@ -533,6 +590,7 @@ utilFormatters
 
 	^ Dictionary new 
 		at: #at put: [ :object :key | object basicAt: key ];
+		at: #onBound put: [ :controller :arg | controller onBound: arg ];
 		at: #reversed put: [ :aCollection | aCollection reversed ];
 		at: #sorted put: [ :aCollection | aCollection sorted ];
 		at: #size put: [ :anObject | anObject size ];
@@ -554,6 +612,39 @@ addFormatter: aBlock at: aName
 	self rv formatters at: aName put: aBlock
 !
 
+installBinders
+	"Installs custom binders."
+	
+	| originalBind |
+	
+	originalBind := self rv binders at: #bind.
+	
+	self rv binders 
+		at: #bind put: (self bindCallbackUsing: originalBind);
+		"at: #bind
+		put: #{
+				#bind -> (self bindCallbackUsing: originalBind).
+				#priority -> 4000
+			};"
+		at: 'after-bound' 
+		put: #{
+				#bind -> self afterBoundCallback.
+				#priority -> 4000
+			};
+		yourself. 
+
+	"original := (self rv binders at: 'each-*') at: #routine.
+	(self rv binders at: 'each-*')
+		at: #routine 
+		put: [ :el :val | | result |
+			console log: 'each-* routine: '.
+			console log: el.
+			console log: val.
+			result := original value: el value: val.
+			console log: result.
+			result ]"
+!
+
 installUtils
 
 	self utilFormatters keysAndValuesDo: [ :key :value |
@@ -564,6 +655,7 @@ installUtils
 
 initialize
 
-	self installUtils
+	self installUtils.
+	self installBinders.
 ! !
 

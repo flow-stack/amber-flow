@@ -111,7 +111,17 @@ return $recv(self._hasView())._not();
 if($core.assert($1)){
 return self;
 };
-$recv(console)._log_($recv($recv(self._class())._name()).__comma(">>initialize"));
+$recv(console)._log_($recv($recv(self._class())._name()).__comma(">>configureAndBind"));
+$recv($recv(jQuery)._value_(self._view()))._on_do_("afterBound:",(function(aRivetsBinding,a1,a2,a3,a4){
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx2) {
+//>>excludeEnd("ctx");
+self._halt();
+return self._onBiding_(aRivetsBinding);
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx2) {$ctx2.fillBlock({aRivetsBinding:aRivetsBinding,a1:a1,a2:a2,a3:a3,a4:a4},$ctx1,3)});
+//>>excludeEnd("ctx");
+}));
 self._configure();
 self._bind();
 return self;
@@ -121,10 +131,10 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "configureAndBind\x0a\x0a\x09(self hasModel not or: [\x0a\x09self hasView not ]) ifTrue: [ ^ self ].\x0aconsole log: self class name,'>>initialize'.\x09\x0a\x09self configure.\x0a\x09\x0a\x09self bind.",
+source: "configureAndBind\x0a\x0a\x09(self hasModel not or: [\x0a\x09self hasView not ]) ifTrue: [ ^ self ].\x0a\x0a\x09console log: (self class name,'>>configureAndBind').\x0a\x09(jQuery value: self view)  on: #afterBound: do: [ :aRivetsBinding :a1 :a2 :a3 :a4 | self halt. self onBiding: aRivetsBinding ].\x0a\x0a\x09self configure.\x0a\x09\x0a\x09self bind.",
 referencedClasses: [],
 //>>excludeEnd("ide");
-messageSends: ["ifTrue:", "or:", "not", "hasModel", "hasView", "log:", ",", "name", "class", "configure", "bind"]
+messageSends: ["ifTrue:", "or:", "not", "hasModel", "hasView", "log:", ",", "name", "class", "on:do:", "value:", "view", "halt", "onBiding:", "configure", "bind"]
 }),
 $globals.BindingController);
 
@@ -267,6 +277,90 @@ source: "initialize\x0a\x0a\x09super initialize.\x0a\x09\x0a\x09self \x0a\x09\x0
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: ["initialize", "when:do:", "configureAndBind", "rebind", "unbind", "yourself"]
+}),
+$globals.BindingController);
+
+$core.addMethod(
+$core.method({
+selector: "onAfterBound:",
+protocol: 'reactions',
+fn: function (aRivetsBinding){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+$recv(console)._log_("onAfterBound: aRivetsBinding");
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["log:"]=1;
+//>>excludeEnd("ctx");
+$recv(console)._log_(aRivetsBinding);
+return self;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"onAfterBound:",{aRivetsBinding:aRivetsBinding},$globals.BindingController)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["aRivetsBinding"],
+source: "onAfterBound: aRivetsBinding\x0a\x0a\x09console log: 'onAfterBound: aRivetsBinding'.\x0a\x0a\x09console log: aRivetsBinding",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: ["log:"]
+}),
+$globals.BindingController);
+
+$core.addMethod(
+$core.method({
+selector: "onBiding:",
+protocol: 'reactions',
+fn: function (aRivetsBinding){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+$recv(console)._log_("onBiding: aRivetsBinding");
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["log:"]=1;
+//>>excludeEnd("ctx");
+$recv(console)._log_(aRivetsBinding);
+return self;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"onBiding:",{aRivetsBinding:aRivetsBinding},$globals.BindingController)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["aRivetsBinding"],
+source: "onBiding: aRivetsBinding\x0a\x0a\x09console log: 'onBiding: aRivetsBinding'.\x0a\x0a\x09console log: aRivetsBinding",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: ["log:"]
+}),
+$globals.BindingController);
+
+$core.addMethod(
+$core.method({
+selector: "onBound:",
+protocol: 'reactions',
+fn: function (aRivetsBinding){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+$recv(console)._log_("onBound: aRivetsBinding");
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["log:"]=1;
+//>>excludeEnd("ctx");
+$recv(console)._log_(aRivetsBinding);
+return self;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"onBound:",{aRivetsBinding:aRivetsBinding},$globals.BindingController)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["aRivetsBinding"],
+source: "onBound: aRivetsBinding\x0a\x0a\x09console log: 'onBound: aRivetsBinding'.\x0a\x0a\x09console log: aRivetsBinding",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: ["log:"]
 }),
 $globals.BindingController);
 
@@ -718,6 +812,11 @@ var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) { 
 //>>excludeEnd("ctx");
+self._inspect();
+$recv(console)._log_($recv($recv(self._class())._name()).__comma(">>onViewCreated: anObject"));
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["log:"]=1;
+//>>excludeEnd("ctx");
 $recv(console)._log_(anObject);
 return self;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
@@ -726,7 +825,43 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["anObject"],
-source: "onViewCreated: anObject \x0a\x0a\x09console log: anObject",
+source: "onViewCreated: anObject \x0a\x0a\x09self inspect.\x0a\x0a\x09console log: (self class name,'>>onViewCreated: anObject').\x0a\x09console log: anObject",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: ["inspect", "log:", ",", "name", "class"]
+}),
+$globals.ItemsController);
+
+$core.addMethod(
+$core.method({
+selector: "onViewCreated:at:for:",
+protocol: 'reactions',
+fn: function (anObject,index,someModel){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+$recv(console)._log_("ItemsController>>onViewCreated: anObject at: index for: someModel");
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["log:"]=1;
+//>>excludeEnd("ctx");
+$recv(console)._log_(anObject);
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["log:"]=2;
+//>>excludeEnd("ctx");
+$recv(console)._log_(index);
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["log:"]=3;
+//>>excludeEnd("ctx");
+$recv(console)._log_(someModel);
+return self;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"onViewCreated:at:for:",{anObject:anObject,index:index,someModel:someModel},$globals.ItemsController)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["anObject", "index", "someModel"],
+source: "onViewCreated: anObject at: index for: someModel\x0a\x0a\x09console log: 'ItemsController>>onViewCreated: anObject at: index for: someModel'.\x0a\x09console log: anObject.\x0a\x09console log: index.\x0a\x09console log: someModel.",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: ["log:"]
@@ -1680,6 +1815,62 @@ $globals.Rivets.klass);
 
 $core.addMethod(
 $core.method({
+selector: "afterBoundCallback",
+protocol: 'accessing',
+fn: function (){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+return function(el, val){
+		this.model.controller._onAfterBound_(this);
+		return this;
+	};
+return self;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"afterBoundCallback",{},$globals.Rivets.klass)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: [],
+source: "afterBoundCallback\x0a\x09\x22Returns a callback used when rivets had bound an element\x22\x0a\x09\x0a\x09<return function(el, val){\x0a\x09\x09this.model.controller._onAfterBound_(this);\x0a\x09\x09return this;\x0a\x09}>",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
+}),
+$globals.Rivets.klass);
+
+$core.addMethod(
+$core.method({
+selector: "bindCallbackUsing:",
+protocol: 'accessing',
+fn: function (originalBind){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+return function(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10){
+		var answer;
+		debugger
+		answer = originalBind();
+		return answer;
+	};
+return self;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"bindCallbackUsing:",{originalBind:originalBind},$globals.Rivets.klass)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["originalBind"],
+source: "bindCallbackUsing: originalBind\x0a\x09\x22Returns a callback used when rivets had bound an element\x22\x0a\x09\x0a\x09<return function(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10){\x0a\x09\x09var answer;\x0a\x09\x09debugger\x0a\x09\x09answer = originalBind();\x0a\x09\x09return answer;\x0a\x09}>",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
+}),
+$globals.Rivets.klass);
+
+$core.addMethod(
+$core.method({
 selector: "binderCallback",
 protocol: 'accessing',
 fn: function (){
@@ -1724,6 +1915,7 @@ var self=this;
 return $core.withContext(function($ctx1) { 
 //>>excludeEnd("ctx");
 self._installUtils();
+self._installBinders();
 return self;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 }, function($ctx1) {$ctx1.fill(self,"initialize",{},$globals.Rivets.klass)});
@@ -1731,10 +1923,51 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "initialize\x0a\x0a\x09self installUtils",
+source: "initialize\x0a\x0a\x09self installUtils.\x0a\x09self installBinders.",
 referencedClasses: [],
 //>>excludeEnd("ide");
-messageSends: ["installUtils"]
+messageSends: ["installUtils", "installBinders"]
+}),
+$globals.Rivets.klass);
+
+$core.addMethod(
+$core.method({
+selector: "installBinders",
+protocol: 'actions',
+fn: function (){
+var self=this;
+var originalBind;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+var $2,$1,$3,$4;
+$2=self._rv();
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["rv"]=1;
+//>>excludeEnd("ctx");
+$1=$recv($2)._binders();
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["binders"]=1;
+//>>excludeEnd("ctx");
+originalBind=$recv($1)._at_("bind");
+$3=$recv(self._rv())._binders();
+$recv($3)._at_put_("bind",self._bindCallbackUsing_(originalBind));
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["at:put:"]=1;
+//>>excludeEnd("ctx");
+$recv($3)._at_put_("after-bound",$globals.HashedCollection._newFromPairs_(["bind",self._afterBoundCallback(),"priority",(4000)]));
+$4=$recv($3)._yourself();
+return self;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"installBinders",{originalBind:originalBind},$globals.Rivets.klass)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: [],
+source: "installBinders\x0a\x09\x22Installs custom binders.\x22\x0a\x09\x0a\x09| originalBind |\x0a\x09\x0a\x09originalBind := self rv binders at: #bind.\x0a\x09\x0a\x09self rv binders \x0a\x09\x09at: #bind put: (self bindCallbackUsing: originalBind);\x0a\x09\x09\x22at: #bind\x0a\x09\x09put: #{\x0a\x09\x09\x09\x09#bind -> (self bindCallbackUsing: originalBind).\x0a\x09\x09\x09\x09#priority -> 4000\x0a\x09\x09\x09};\x22\x0a\x09\x09at: 'after-bound' \x0a\x09\x09put: #{\x0a\x09\x09\x09\x09#bind -> self afterBoundCallback.\x0a\x09\x09\x09\x09#priority -> 4000\x0a\x09\x09\x09};\x0a\x09\x09yourself. \x0a\x0a\x09\x22original := (self rv binders at: 'each-*') at: #routine.\x0a\x09(self rv binders at: 'each-*')\x0a\x09\x09at: #routine \x0a\x09\x09put: [ :el :val | | result |\x0a\x09\x09\x09console log: 'each-* routine: '.\x0a\x09\x09\x09console log: el.\x0a\x09\x09\x09console log: val.\x0a\x09\x09\x09result := original value: el value: val.\x0a\x09\x09\x09console log: result.\x0a\x09\x09\x09result ]\x22",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: ["at:", "binders", "rv", "at:put:", "bindCallbackUsing:", "afterBoundCallback", "yourself"]
 }),
 $globals.Rivets.klass);
 
@@ -1819,23 +2052,23 @@ return $recv(object)._basicAt_(key);
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 $ctx1.sendIdx["at:put:"]=1;
 //>>excludeEnd("ctx");
-$recv($2)._at_put_("reversed",(function(aCollection){
+$recv($2)._at_put_("onBound",(function(controller,arg){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx2) {
 //>>excludeEnd("ctx");
-return $recv(aCollection)._reversed();
+return $recv(controller)._onBound_(arg);
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx2) {$ctx2.fillBlock({aCollection:aCollection},$ctx1,2)});
+}, function($ctx2) {$ctx2.fillBlock({controller:controller,arg:arg},$ctx1,2)});
 //>>excludeEnd("ctx");
 }));
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 $ctx1.sendIdx["at:put:"]=2;
 //>>excludeEnd("ctx");
-$recv($2)._at_put_("sorted",(function(aCollection){
+$recv($2)._at_put_("reversed",(function(aCollection){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx2) {
 //>>excludeEnd("ctx");
-return $recv(aCollection)._sorted();
+return $recv(aCollection)._reversed();
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 }, function($ctx2) {$ctx2.fillBlock({aCollection:aCollection},$ctx1,3)});
 //>>excludeEnd("ctx");
@@ -1843,17 +2076,29 @@ return $recv(aCollection)._sorted();
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 $ctx1.sendIdx["at:put:"]=3;
 //>>excludeEnd("ctx");
+$recv($2)._at_put_("sorted",(function(aCollection){
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx2) {
+//>>excludeEnd("ctx");
+return $recv(aCollection)._sorted();
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx2) {$ctx2.fillBlock({aCollection:aCollection},$ctx1,4)});
+//>>excludeEnd("ctx");
+}));
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["at:put:"]=4;
+//>>excludeEnd("ctx");
 $recv($2)._at_put_("size",(function(anObject){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx2) {
 //>>excludeEnd("ctx");
 return $recv(anObject)._size();
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx2) {$ctx2.fillBlock({anObject:anObject},$ctx1,4)});
+}, function($ctx2) {$ctx2.fillBlock({anObject:anObject},$ctx1,5)});
 //>>excludeEnd("ctx");
 }));
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["at:put:"]=4;
+$ctx1.sendIdx["at:put:"]=5;
 //>>excludeEnd("ctx");
 $recv($2)._at_put_("rounded",(function(aNumber){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
@@ -1861,11 +2106,11 @@ return $core.withContext(function($ctx2) {
 //>>excludeEnd("ctx");
 return $recv(aNumber)._rounded();
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx2) {$ctx2.fillBlock({aNumber:aNumber},$ctx1,5)});
+}, function($ctx2) {$ctx2.fillBlock({aNumber:aNumber},$ctx1,6)});
 //>>excludeEnd("ctx");
 }));
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["at:put:"]=5;
+$ctx1.sendIdx["at:put:"]=6;
 //>>excludeEnd("ctx");
 $recv($2)._at_put_("capitalized",(function(aString){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
@@ -1873,11 +2118,11 @@ return $core.withContext(function($ctx2) {
 //>>excludeEnd("ctx");
 return $recv(aString)._capitalized();
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx2) {$ctx2.fillBlock({aString:aString},$ctx1,6)});
+}, function($ctx2) {$ctx2.fillBlock({aString:aString},$ctx1,7)});
 //>>excludeEnd("ctx");
 }));
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["at:put:"]=6;
+$ctx1.sendIdx["at:put:"]=7;
 //>>excludeEnd("ctx");
 $recv($2)._at_put_("currency",(function(aNumber,aCurrencySymbol){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
@@ -1893,11 +2138,11 @@ $ctx2.sendIdx["printShowingDecimalPlaces:"]=1;
 //>>excludeEnd("ctx");
 return $recv($3).__comma($4);
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx2) {$ctx2.fillBlock({aNumber:aNumber,aCurrencySymbol:aCurrencySymbol},$ctx1,7)});
+}, function($ctx2) {$ctx2.fillBlock({aNumber:aNumber,aCurrencySymbol:aCurrencySymbol},$ctx1,8)});
 //>>excludeEnd("ctx");
 }));
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["at:put:"]=7;
+$ctx1.sendIdx["at:put:"]=8;
 //>>excludeEnd("ctx");
 $recv($2)._at_put_("decimalPlaces",(function(aNumber,decimalPlaces){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
@@ -1905,11 +2150,11 @@ return $core.withContext(function($ctx2) {
 //>>excludeEnd("ctx");
 return $recv(aNumber)._printShowingDecimalPlaces_(decimalPlaces);
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx2) {$ctx2.fillBlock({aNumber:aNumber,decimalPlaces:decimalPlaces},$ctx1,8)});
+}, function($ctx2) {$ctx2.fillBlock({aNumber:aNumber,decimalPlaces:decimalPlaces},$ctx1,9)});
 //>>excludeEnd("ctx");
 }));
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["at:put:"]=8;
+$ctx1.sendIdx["at:put:"]=9;
 //>>excludeEnd("ctx");
 $recv($2)._at_put_("asLowercase",(function(aString){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
@@ -1921,11 +2166,11 @@ $ctx2.sendIdx["asString"]=2;
 //>>excludeEnd("ctx");
 return $recv($5)._asLowercase();
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx2) {$ctx2.fillBlock({aString:aString},$ctx1,9)});
+}, function($ctx2) {$ctx2.fillBlock({aString:aString},$ctx1,10)});
 //>>excludeEnd("ctx");
 }));
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["at:put:"]=9;
+$ctx1.sendIdx["at:put:"]=10;
 //>>excludeEnd("ctx");
 $recv($2)._at_put_("asUppercase",(function(aString){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
@@ -1933,11 +2178,11 @@ return $core.withContext(function($ctx2) {
 //>>excludeEnd("ctx");
 return $recv($recv(aString)._asString())._asUppercase();
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx2) {$ctx2.fillBlock({aString:aString},$ctx1,10)});
+}, function($ctx2) {$ctx2.fillBlock({aString:aString},$ctx1,11)});
 //>>excludeEnd("ctx");
 }));
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["at:put:"]=10;
+$ctx1.sendIdx["at:put:"]=11;
 //>>excludeEnd("ctx");
 $recv($2)._at_put_("bind",self._binderCallback());
 $6=$recv($2)._yourself();
@@ -1949,10 +2194,10 @@ return $1;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "utilFormatters\x0a\x0a\x09^ Dictionary new \x0a\x09\x09at: #at put: [ :object :key | object basicAt: key ];\x0a\x09\x09at: #reversed put: [ :aCollection | aCollection reversed ];\x0a\x09\x09at: #sorted put: [ :aCollection | aCollection sorted ];\x0a\x09\x09at: #size put: [ :anObject | anObject size ];\x0a\x09\x09at: #rounded put: [ :aNumber | aNumber rounded ];\x0a\x09\x09at: #capitalized put: [ :aString | aString capitalized ];\x0a\x09\x09at: #currency put: [ :aNumber :aCurrencySymbol | aCurrencySymbol asString, (aNumber printShowingDecimalPlaces: 2) ];\x0a\x09\x09at: #decimalPlaces put: [ :aNumber :decimalPlaces | aNumber printShowingDecimalPlaces: decimalPlaces ];\x0a\x09\x09at: #asLowercase put: [ :aString | aString asString asLowercase ];\x0a\x09\x09at: #asUppercase put: [ :aString | aString asString asUppercase ];\x0a\x09\x09at: #bind put: self binderCallback;\x0a\x09\x09yourself",
+source: "utilFormatters\x0a\x0a\x09^ Dictionary new \x0a\x09\x09at: #at put: [ :object :key | object basicAt: key ];\x0a\x09\x09at: #onBound put: [ :controller :arg | controller onBound: arg ];\x0a\x09\x09at: #reversed put: [ :aCollection | aCollection reversed ];\x0a\x09\x09at: #sorted put: [ :aCollection | aCollection sorted ];\x0a\x09\x09at: #size put: [ :anObject | anObject size ];\x0a\x09\x09at: #rounded put: [ :aNumber | aNumber rounded ];\x0a\x09\x09at: #capitalized put: [ :aString | aString capitalized ];\x0a\x09\x09at: #currency put: [ :aNumber :aCurrencySymbol | aCurrencySymbol asString, (aNumber printShowingDecimalPlaces: 2) ];\x0a\x09\x09at: #decimalPlaces put: [ :aNumber :decimalPlaces | aNumber printShowingDecimalPlaces: decimalPlaces ];\x0a\x09\x09at: #asLowercase put: [ :aString | aString asString asLowercase ];\x0a\x09\x09at: #asUppercase put: [ :aString | aString asString asUppercase ];\x0a\x09\x09at: #bind put: self binderCallback;\x0a\x09\x09yourself",
 referencedClasses: ["Dictionary"],
 //>>excludeEnd("ide");
-messageSends: ["at:put:", "new", "basicAt:", "reversed", "sorted", "size", "rounded", "capitalized", ",", "asString", "printShowingDecimalPlaces:", "asLowercase", "asUppercase", "binderCallback", "yourself"]
+messageSends: ["at:put:", "new", "basicAt:", "onBound:", "reversed", "sorted", "size", "rounded", "capitalized", ",", "asString", "printShowingDecimalPlaces:", "asLowercase", "asUppercase", "binderCallback", "yourself"]
 }),
 $globals.Rivets.klass);
 
