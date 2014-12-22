@@ -1362,16 +1362,22 @@ return $recv($ItemsController())._for_on_appendingTo_(self["@model"],self,"#thin
 //>>excludeEnd("ctx");
 }));
 $1=self._controllerAt_("things");
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["controllerAt:"]=1;
-//>>excludeEnd("ctx");
-$recv($1)._newItemControllerBlock_((function(item){
+$recv($1)._getItemsBlock_((function(m){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx2) {
 //>>excludeEnd("ctx");
-return self._newItemControllerFor_for_(item,self._controllerAt_("things"));
+return $recv(m)._things();
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx2) {$ctx2.fillBlock({item:item},$ctx1,2)});
+}, function($ctx2) {$ctx2.fillBlock({m:m},$ctx1,2)});
+//>>excludeEnd("ctx");
+}));
+$recv($1)._newItemControllerBlock_((function(v,m,itemsController){
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx2) {
+//>>excludeEnd("ctx");
+return self._newItemControllerForModel_view_parent_(m,v,itemsController);
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx2) {$ctx2.fillBlock({v:v,m:m,itemsController:itemsController},$ctx1,3)});
 //>>excludeEnd("ctx");
 }));
 $recv($1)._model_(self["@model"]);
@@ -1383,10 +1389,10 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "ensureList\x0a\x09\x22Makes sure we have a controller for #things and \x0a\x09make it fresh and visible with a refresh\x22\x0a\x09\x0a\x09self ifAbsentAt: #things put: [\x0a\x09\x09ItemsController \x0a\x09\x09\x09for: model\x0a\x09\x09\x09on: self\x0a\x09\x09\x09appendingTo: '#things-wrapper' asJQuery ].\x0a\x09\x0a\x09(self controllerAt: #things) \x0a\x09\x09newItemControllerBlock: [ :item | \x0a\x09\x09\x09self newItemControllerFor: item for: (self controllerAt: #things) ];\x0a\x09\x09model: model;\x0a\x09\x09refresh",
+source: "ensureList\x0a\x09\x22Makes sure we have a controller for #things and \x0a\x09make it fresh and visible with a refresh\x22\x0a\x09\x0a\x09self ifAbsentAt: #things put: [\x0a\x09\x09ItemsController \x0a\x09\x09\x09for: model\x0a\x09\x09\x09on: self\x0a\x09\x09\x09appendingTo: '#things-wrapper' asJQuery ].\x0a\x09\x0a\x09(self controllerAt: #things) \x0a\x09\x09getItemsBlock: [ :m | m things ];\x0a\x09\x09newItemControllerBlock: [ :v :m :itemsController | \x0a\x09\x09\x09self newItemControllerForModel: m view: v parent: itemsController ];\x0a\x09\x09model: model;\x0a\x09\x09refresh",
 referencedClasses: ["ItemsController"],
 //>>excludeEnd("ide");
-messageSends: ["ifAbsentAt:put:", "for:on:appendingTo:", "asJQuery", "newItemControllerBlock:", "controllerAt:", "newItemControllerFor:for:", "model:", "refresh"]
+messageSends: ["ifAbsentAt:put:", "for:on:appendingTo:", "asJQuery", "getItemsBlock:", "controllerAt:", "things", "newItemControllerBlock:", "newItemControllerForModel:view:parent:", "model:", "refresh"]
 }),
 $globals.Example5Controller);
 
@@ -1441,7 +1447,6 @@ var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) { 
 //>>excludeEnd("ctx");
-$recv(console)._log_(aModel);
 (
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 $ctx1.supercall = true, 
@@ -1458,18 +1463,18 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["aModel"],
-source: "model: aModel\x0a\x0a\x09console log: aModel.\x0a\x09\x0a\x09super model: aModel.\x0a\x09\x0a\x09aModel things: self newItems",
+source: "model: aModel\x0a\x09\x0a\x09super model: aModel.\x0a\x09\x0a\x09aModel things: self newItems",
 referencedClasses: [],
 //>>excludeEnd("ide");
-messageSends: ["log:", "model:", "things:", "newItems"]
+messageSends: ["model:", "things:", "newItems"]
 }),
 $globals.Example5Controller);
 
 $core.addMethod(
 $core.method({
-selector: "newItemControllerFor:for:",
+selector: "newItemControllerForModel:view:parent:",
 protocol: 'actions',
-fn: function (aModel,aListController){
+fn: function (aModel,aView,anItemsController){
 var self=this;
 var row;
 function $ThingRowController(){return $globals.ThingRowController||(typeof ThingRowController=="undefined"?nil:ThingRowController)}
@@ -1477,7 +1482,7 @@ function $ThingRowController(){return $globals.ThingRowController||(typeof Thing
 return $core.withContext(function($ctx1) { 
 //>>excludeEnd("ctx");
 var $1,$2,$3;
-row=$recv($ThingRowController())._for_on_appendingTo_(aModel,aListController,$recv(aListController)._view());
+row=$recv($ThingRowController())._for_on_appendingTo_(aModel,anItemsController,aView);
 $1=row;
 $recv($1)._when_do_("removeThing",(function(){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
@@ -1492,15 +1497,15 @@ $2=$recv($1)._yourself();
 $3=row;
 return $3;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx1) {$ctx1.fill(self,"newItemControllerFor:for:",{aModel:aModel,aListController:aListController,row:row},$globals.Example5Controller)});
+}, function($ctx1) {$ctx1.fill(self,"newItemControllerForModel:view:parent:",{aModel:aModel,aView:aView,anItemsController:anItemsController,row:row},$globals.Example5Controller)});
 //>>excludeEnd("ctx");
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
-args: ["aModel", "aListController"],
-source: "newItemControllerFor: aModel for: aListController\x0a\x09\x22Returns a new controller for aModel to be handled by aListController.\x22\x0a\x0a\x09| row |\x0a\x0a\x09row := ThingRowController \x0a\x09\x09\x09\x09for: aModel\x0a\x09\x09\x09\x09on: aListController\x0a\x09\x09\x09\x09appendingTo: aListController view.\x0a\x09\x09\x09\x09\x0a\x09row\x0a\x09\x09when: #removeThing do: [ self onRemove: aModel ];\x0a\x09\x09yourself.\x0a\x0a\x09^ row",
+args: ["aModel", "aView", "anItemsController"],
+source: "newItemControllerForModel: aModel view: aView parent: anItemsController\x0a\x09\x22Returns a new controller for aModel using aView and meant to be child of anItemsController.\x22\x0a\x0a\x09| row |\x0a\x0a\x09row := ThingRowController \x0a\x09\x09\x09\x09for: aModel\x0a\x09\x09\x09\x09on: anItemsController\x0a\x09\x09\x09\x09appendingTo: aView.\x0a\x09\x09\x09\x09\x0a\x09row\x0a\x09\x09when: #removeThing do: [ self onRemove: aModel ];\x0a\x09\x09yourself.\x0a\x0a\x09^ row",
 referencedClasses: ["ThingRowController"],
 //>>excludeEnd("ide");
-messageSends: ["for:on:appendingTo:", "view", "when:do:", "onRemove:", "yourself"]
+messageSends: ["for:on:appendingTo:", "when:do:", "onRemove:", "yourself"]
 }),
 $globals.Example5Controller);
 
@@ -1880,38 +1885,6 @@ $core.addClass('ThingDetailsController', $globals.BindingController, [], 'App');
 
 
 $core.addClass('ThingRowController', $globals.BindingController, [], 'App');
-$core.addMethod(
-$core.method({
-selector: "onViewCreated:at:for:",
-protocol: 'actions',
-fn: function (anObject,index,someModel){
-var self=this;
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
-//>>excludeEnd("ctx");
-$recv(console)._log_(anObject);
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["log:"]=1;
-//>>excludeEnd("ctx");
-$recv(console)._log_(index);
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["log:"]=2;
-//>>excludeEnd("ctx");
-$recv(console)._log_(someModel);
-return self;
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx1) {$ctx1.fill(self,"onViewCreated:at:for:",{anObject:anObject,index:index,someModel:someModel},$globals.ThingRowController)});
-//>>excludeEnd("ctx");
-},
-//>>excludeStart("ide", pragmas.excludeIdeData);
-args: ["anObject", "index", "someModel"],
-source: "onViewCreated: anObject at: index for: someModel\x0a\x0a\x09console log: anObject.\x0a\x09console log: index.\x0a\x09console log: someModel.",
-referencedClasses: [],
-//>>excludeEnd("ide");
-messageSends: ["log:"]
-}),
-$globals.ThingRowController);
-
 $core.addMethod(
 $core.method({
 selector: "removeThing",

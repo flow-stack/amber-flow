@@ -464,21 +464,22 @@ ensureList
 			appendingTo: '#things-wrapper' asJQuery ].
 	
 	(self controllerAt: #things) 
-		newItemControllerBlock: [ :item | 
-			self newItemControllerFor: item for: (self controllerAt: #things) ];
+		getItemsBlock: [ :m | m things ];
+		newItemControllerBlock: [ :v :m :itemsController | 
+			self newItemControllerForModel: m view: v parent: itemsController ];
 		model: model;
 		refresh
 !
 
-newItemControllerFor: aModel for: aListController
-	"Returns a new controller for aModel to be handled by aListController."
+newItemControllerForModel: aModel view: aView parent: anItemsController
+	"Returns a new controller for aModel using aView and meant to be child of anItemsController."
 
 	| row |
 
 	row := ThingRowController 
 				for: aModel
-				on: aListController
-				appendingTo: aListController view.
+				on: anItemsController
+				appendingTo: aView.
 				
 	row
 		when: #removeThing do: [ self onRemove: aModel ];
@@ -528,8 +529,6 @@ initialize
 !
 
 model: aModel
-
-	console log: aModel.
 	
 	super model: aModel.
 	
@@ -612,13 +611,6 @@ BindingController subclass: #ThingRowController
 	package: 'App'!
 
 !ThingRowController methodsFor: 'actions'!
-
-onViewCreated: anObject at: index for: someModel
-
-	console log: anObject.
-	console log: index.
-	console log: someModel.
-!
 
 removeThing
 
