@@ -479,8 +479,8 @@ newItemControllerForModel: aModel view: aView parent: anItemsController
 	row := ThingRowController 
 				for: aModel
 				on: anItemsController
-				appendingTo: aView.
-				
+				view: aView.
+
 	row
 		when: #removeThing do: [ self onRemove: aModel ];
 		yourself.

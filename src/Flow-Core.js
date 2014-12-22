@@ -884,16 +884,21 @@ selector: "silentView:",
 protocol: 'accessing',
 fn: function (aHtmlElement){
 var self=this;
-self["@view"]=aHtmlElement;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+self["@view"]=$recv(jQuery)._value_(aHtmlElement);
 return self;
-
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"silentView:",{aHtmlElement:aHtmlElement},$globals.Controller)});
+//>>excludeEnd("ctx");
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["aHtmlElement"],
-source: "silentView: aHtmlElement\x0a\x0a\x09view := aHtmlElement",
+source: "silentView: aHtmlElement\x0a\x0a\x09view := jQuery value: aHtmlElement",
 referencedClasses: [],
 //>>excludeEnd("ide");
-messageSends: []
+messageSends: ["value:"]
 }),
 $globals.Controller);
 

@@ -105,7 +105,7 @@ parentElement: aHtmlElement
 
 silentView: aHtmlElement
 
-	view := aHtmlElement
+	view := jQuery value: aHtmlElement
 !
 
 view
