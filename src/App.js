@@ -922,7 +922,7 @@ function $ListModel(){return $globals.ListModel||(typeof ListModel=="undefined"?
 return $core.withContext(function($ctx1) { 
 //>>excludeEnd("ctx");
 var $1,$2,$receiver;
-things=$recv($ListModel())._localFindId_("samples");
+things=$recv($ListModel())._localFindCid_("samples");
 $1=things;
 if(($receiver = $1) == null || $receiver.isNil){
 things=self._newListModel();
@@ -951,10 +951,10 @@ return $2;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "getListModel\x0a\x09\x22Answers the list model of things\x22\x0a\x0a\x09| things |\x0a\x09 \x0a\x09\x22Load them from the local storage\x22\x0a\x09things := ListModel localFindId: 'samples'.\x0a\x09\x0a\x09things ifNil: [ \x0a\x09\x09\x22Oh, not found? then create and save some...\x22\x0a\x09\x09things := self newListModel.\x0a\x09\x09things do: [ :e | e localSave ].\x0a\x09\x09things localSave ].\x0a\x09\x0a\x09^ things",
+source: "getListModel\x0a\x09\x22Answers the list model of things\x22\x0a\x0a\x09| things |\x0a\x09 \x0a\x09\x22Load them from the local storage\x22\x0a\x09things := ListModel localFindCid: 'samples'.\x0a\x09\x0a\x09things ifNil: [ \x0a\x09\x09\x22Oh, not found? then create and save some...\x22\x0a\x09\x09things := self newListModel.\x0a\x09\x09things do: [ :e | e localSave ].\x0a\x09\x09things localSave ].\x0a\x09\x0a\x09^ things",
 referencedClasses: ["ListModel"],
 //>>excludeEnd("ide");
-messageSends: ["localFindId:", "ifNil:", "newListModel", "do:", "localSave"]
+messageSends: ["localFindCid:", "ifNil:", "newListModel", "do:", "localSave"]
 }),
 $globals.Example4Controller);
 
