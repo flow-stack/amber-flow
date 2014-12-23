@@ -1,18 +1,8 @@
 <div id="items" class="list">
 
 	<ul id="things">
-		<li 
-			rv-each-thing="model.things" 
-			>
-				
-				<!-- <div rv-after-bind="controller._onViewCreated_at_for_ | bind this index model">	 -->
-
-				<!-- <div rv-after-bind="controller._onViewCreated_at_for_ | bind model controller">	 -->
-
-				<div rv-after-bound="controller">{thing.@data.name} index: {index}</div>
-				
-				<input type="checkbox" rv-checked="thing.@data.done">
-				<span>{ thing.@data.name }</span>
+		<li rv-each-thing="model.things" class="row">
+			<div class="item-wrapper" rv-after-bound="controller"></div>
 		</li>
 	<ul>
 

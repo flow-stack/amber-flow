@@ -614,6 +614,7 @@ return self._newItemControllerOn_for_(boundItemView,boundItemModel);
 }, function($ctx2) {$ctx2.fillBlock({},$ctx1,1)});
 //>>excludeEnd("ctx");
 }));
+$recv(self._controllerAt_(boundItemModel))._render();
 return self;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 }, function($ctx1) {$ctx1.fill(self,"onAfterBound:",{aRivetsBinding:aRivetsBinding,boundItemView:boundItemView,boundItemModel:boundItemModel},$globals.ItemsController)});
@@ -621,10 +622,10 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["aRivetsBinding"],
-source: "onAfterBound: aRivetsBinding\x0a\x09\x22Rivets has created a Binding instance with a view and the model and all its parts\x22\x0a\x0a\x09| boundItemView boundItemModel |\x0a\x09\x0a\x09super onAfterBound: aRivetsBinding.\x0a\x0a\x09boundItemModel := self getItems at: aRivetsBinding model index + 1.\x0a\x0a\x09self ifAbsentAt: boundItemModel put: [\x0a\x09\x09boundItemView := aRivetsBinding view els first.\x0a\x09\x09self newItemControllerOn: boundItemView for: boundItemModel ]",
+source: "onAfterBound: aRivetsBinding\x0a\x09\x22Rivets has created a Binding instance with a view and the model and all its parts\x22\x0a\x0a\x09| boundItemView boundItemModel |\x0a\x09\x0a\x09super onAfterBound: aRivetsBinding.\x0a\x0a\x09boundItemModel := self getItems at: aRivetsBinding model index + 1.\x0a\x0a\x09self ifAbsentAt: boundItemModel put: [\x0a\x09\x09boundItemView := aRivetsBinding view els first.\x0a\x09\x09self newItemControllerOn: boundItemView for: boundItemModel ].\x0a\x09\x09\x0a\x09(self controllerAt: boundItemModel) render",
 referencedClasses: [],
 //>>excludeEnd("ide");
-messageSends: ["onAfterBound:", "at:", "getItems", "+", "index", "model", "ifAbsentAt:put:", "first", "els", "view", "newItemControllerOn:for:"]
+messageSends: ["onAfterBound:", "at:", "getItems", "+", "index", "model", "ifAbsentAt:put:", "first", "els", "view", "newItemControllerOn:for:", "render", "controllerAt:"]
 }),
 $globals.ItemsController);
 

@@ -1307,7 +1307,7 @@ messageSends: ["match:"]
 $globals.Example4Controller.klass);
 
 
-$core.addClass('Example5Controller', $globals.BindingController, [], 'App');
+$core.addClass('Example5Controller', $globals.Example4Controller, [], 'App');
 //>>excludeStart("ide", pragmas.excludeIdeData);
 $globals.Example5Controller.comment="##AppController\x0a\x0aThe AppController is the main/root controller of your flow-based application.";
 //>>excludeEnd("ide");
@@ -1482,7 +1482,7 @@ function $ThingRowController(){return $globals.ThingRowController||(typeof Thing
 return $core.withContext(function($ctx1) { 
 //>>excludeEnd("ctx");
 var $1,$2,$3;
-row=$recv($ThingRowController())._for_on_view_(aModel,anItemsController,aView);
+row=$recv($ThingRowController())._for_on_appendingTo_(aModel,anItemsController,$recv($recv(aView)._asJQuery())._find_(".item-wrapper"));
 $1=row;
 $recv($1)._when_do_("removeThing",(function(){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
@@ -1502,10 +1502,10 @@ return $3;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["aModel", "aView", "anItemsController"],
-source: "newItemControllerForModel: aModel view: aView parent: anItemsController\x0a\x09\x22Returns a new controller for aModel using aView and meant to be child of anItemsController.\x22\x0a\x0a\x09| row |\x0a\x0a\x09row := ThingRowController \x0a\x09\x09\x09\x09for: aModel\x0a\x09\x09\x09\x09on: anItemsController\x0a\x09\x09\x09\x09view: aView.\x0a\x0a\x09row\x0a\x09\x09when: #removeThing do: [ self onRemove: aModel ];\x0a\x09\x09yourself.\x0a\x0a\x09^ row",
+source: "newItemControllerForModel: aModel view: aView parent: anItemsController\x0a\x09\x22Returns a new controller for aModel using aView and meant to be child of anItemsController.\x22\x0a\x0a\x09| row |\x0a\x0a\x09row := ThingRowController \x0a\x09\x09\x09\x09for: aModel\x0a\x09\x09\x09\x09on: anItemsController\x0a\x09\x09\x09\x09appendingTo: (aView asJQuery find: '.item-wrapper').\x0a\x0a\x09row\x0a\x09\x09when: #removeThing do: [ self onRemove: aModel ];\x0a\x09\x09yourself.\x0a\x0a\x09^ row",
 referencedClasses: ["ThingRowController"],
 //>>excludeEnd("ide");
-messageSends: ["for:on:view:", "when:do:", "onRemove:", "yourself"]
+messageSends: ["for:on:appendingTo:", "find:", "asJQuery", "when:do:", "onRemove:", "yourself"]
 }),
 $globals.Example5Controller);
 

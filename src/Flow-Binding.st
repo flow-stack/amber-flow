@@ -197,7 +197,9 @@ onAfterBound: aRivetsBinding
 
 	self ifAbsentAt: boundItemModel put: [
 		boundItemView := aRivetsBinding view els first.
-		self newItemControllerOn: boundItemView for: boundItemModel ]
+		self newItemControllerOn: boundItemView for: boundItemModel ].
+		
+	(self controllerAt: boundItemModel) render
 ! !
 
 BindingController subclass: #IteratedController

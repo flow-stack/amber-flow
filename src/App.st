@@ -418,7 +418,7 @@ isValidFor: anURI
 	^ anURI match: '^example4$'
 ! !
 
-BindingController subclass: #Example5Controller
+Example4Controller subclass: #Example5Controller
 	instanceVariableNames: ''
 	package: 'App'!
 !Example5Controller commentStamp!
@@ -479,7 +479,7 @@ newItemControllerForModel: aModel view: aView parent: anItemsController
 	row := ThingRowController 
 				for: aModel
 				on: anItemsController
-				view: aView.
+				appendingTo: (aView asJQuery find: '.item-wrapper').
 
 	row
 		when: #removeThing do: [ self onRemove: aModel ];
