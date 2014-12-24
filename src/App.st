@@ -418,7 +418,7 @@ isValidFor: anURI
 	^ anURI match: '^example4$'
 ! !
 
-Example4Controller subclass: #Example5Controller
+BindingController subclass: #Example5Controller
 	instanceVariableNames: ''
 	package: 'App'!
 !Example5Controller commentStamp!
@@ -453,6 +453,18 @@ addThing
 	self updateNotEmpty
 !
 
+ensureDetails
+	"Makes sure we have a controller for #details and 
+	make it fresh and visible with a refresh"
+	
+	self ifAbsentAt: #details put: [
+		ThingDetailsController
+			on: self
+			appendingTo: '#details-wrapper' asJQuery ].
+	
+	(self controllerAt: #details) refresh
+!
+
 ensureList
 	"Makes sure we have a controller for #things and 
 	make it fresh and visible with a refresh"
@@ -483,6 +495,7 @@ newItemControllerForModel: aModel view: aView parent: anItemsController
 
 	row
 		when: #removeThing do: [ self onRemove: aModel ];
+		when: #viewDetails do: [ self onDetails: aModel ];
 		yourself.
 
 	^ row
@@ -504,7 +517,7 @@ observeEvents
 
 removeThing
 
-	self things removeLast.
+	model things remove: model things last ifAbsent: [ nil ].
 	
 	self updateNotEmpty
 !
@@ -523,6 +536,7 @@ initialize
 	super initialize.
 	
 	self when: #onAfterView do: [ 
+		self ensureDetails.
 		self ensureList.
 		self updateNotEmpty.
 		self observeEvents ]
@@ -537,11 +551,18 @@ model: aModel
 
 !Example5Controller methodsFor: 'reactions'!
 
+onDetails: aThing
+
+	self basicAt: #hasDetails put: true.
+	
+	(self controllerAt: #details) model: aThing; refresh
+!
+
 onRemove: aThing
 
-	model things remove: aThing.
+	model things remove: aThing ifAbsent: [ nil ].
 
-	"self updateNotEmpty"
+	self updateNotEmpty
 ! !
 
 !Example5Controller class methodsFor: 'accessing'!
