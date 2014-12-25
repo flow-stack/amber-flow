@@ -104,7 +104,11 @@ initialize
 !BindingController methodsFor: 'reactions'!
 
 onAfterBound: aRivetsBinding
-	"Rivets has created a Binding instance with a view and the model and all its parts"
+	"Rivets has created a Binding instance (aRivetsBinding) with a view and the model and all its parts"
+!
+
+onAfterUnbound: aRivetsBinding
+	"Rivets has unbound aRivetsBinding"
 ! !
 
 !BindingController class methodsFor: 'testing'!
@@ -116,7 +120,7 @@ isAbstract
 ! !
 
 BindingController subclass: #ItemsController
-	instanceVariableNames: 'getItemsBlock itemControllerClass newItemControllerBlock'
+	instanceVariableNames: 'getItemsBlock itemControllerClass newItemControllerBlock rivetsAccessor'
 	package: 'Flow-Binding'!
 !ItemsController commentStamp!
 ##IteratedController
@@ -167,6 +171,16 @@ newItemControllerBlock
 newItemControllerBlock: aBlock
 
 	newItemControllerBlock := aBlock
+!
+
+rivetsAccessor
+
+	^ rivetsAccessor
+!
+
+rivetsAccessor: aSymbol
+
+	rivetsAccessor := aSymbol
 ! !
 
 !ItemsController methodsFor: 'actions'!
@@ -192,14 +206,25 @@ onAfterBound: aRivetsBinding
 	| boundItemView boundItemModel |
 	
 	super onAfterBound: aRivetsBinding.
-
-	boundItemModel := self getItems at: aRivetsBinding model index + 1.
+	boundItemModel := aRivetsBinding model at: self rivetsAccessor.
 
 	self ifAbsentAt: boundItemModel put: [
 		boundItemView := aRivetsBinding view els first.
 		self newItemControllerOn: boundItemView for: boundItemModel ].
 		
 	(self controllerAt: boundItemModel) render
+!
+
+onAfterUnbound: aRivetsBinding
+	"Rivets has unbound a aRivetsBinding instance"
+
+	| boundItemModel |
+	
+	super onAfterUnbound: aRivetsBinding.
+
+	boundItemModel := aRivetsBinding model at: self rivetsAccessor.
+	
+	(self removeControllerAt: boundItemModel)
 ! !
 
 BindingController subclass: #IteratedController
@@ -478,6 +503,15 @@ afterBoundCallback
 	}>
 !
 
+afterUnboundCallback
+	"Returns a callback used when rivets had bound an element"
+	
+	<return function(el, val){
+		this.model.controller._onAfterUnbound_(this);
+		return this;
+	}>
+!
+
 bindCallbackUsing: originalBind
 	"Returns a callback used when rivets had bound an element"
 	
@@ -543,12 +577,14 @@ addFormatter: aBlock at: aName
 installBinders
 	"Installs custom binders."
 	
-	| originalBind |
+	| originalBind originalUnbind |
 	
 	originalBind := self rv binders at: #bind.
+	originalUnbind := self rv binders at: #unbind.
 	
 	self rv binders 
-		at: #bind put: (self bindCallbackUsing: originalBind);
+		"at: #bind put: (self bindCallbackUsing: originalBind);
+		at: #unbind put: (self unbindCallbackUsing: originalUnbind);"
 		"at: #bind
 		put: #{
 				#bind -> (self bindCallbackUsing: originalBind).
@@ -557,6 +593,11 @@ installBinders
 		at: 'after-bound' 
 		put: #{
 				#bind -> self afterBoundCallback.
+				#priority -> 4000
+			};
+		at: 'after-unbound' 
+		put: #{
+				#unbind -> self afterUnboundCallback.
 				#priority -> 4000
 			};
 		yourself. 

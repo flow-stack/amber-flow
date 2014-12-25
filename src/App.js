@@ -1405,6 +1405,7 @@ return $recv(m)._things();
 }, function($ctx2) {$ctx2.fillBlock({m:m},$ctx1,2)});
 //>>excludeEnd("ctx");
 }));
+$recv($1)._rivetsAccessor_("thing");
 $recv($1)._newItemControllerBlock_((function(v,m,itemsController){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx2) {
@@ -1423,10 +1424,10 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "ensureList\x0a\x09\x22Makes sure we have a controller for #things and \x0a\x09make it fresh and visible with a refresh\x22\x0a\x09\x0a\x09self ifAbsentAt: #things put: [\x0a\x09\x09ItemsController \x0a\x09\x09\x09for: model\x0a\x09\x09\x09on: self\x0a\x09\x09\x09appendingTo: '#things-wrapper' asJQuery ].\x0a\x09\x0a\x09(self controllerAt: #things) \x0a\x09\x09getItemsBlock: [ :m | m things ];\x0a\x09\x09newItemControllerBlock: [ :v :m :itemsController | \x0a\x09\x09\x09self newItemControllerForModel: m view: v parent: itemsController ];\x0a\x09\x09model: model;\x0a\x09\x09refresh",
+source: "ensureList\x0a\x09\x22Makes sure we have a controller for #things and \x0a\x09make it fresh and visible with a refresh\x22\x0a\x09\x0a\x09self ifAbsentAt: #things put: [\x0a\x09\x09ItemsController \x0a\x09\x09\x09for: model\x0a\x09\x09\x09on: self\x0a\x09\x09\x09appendingTo: '#things-wrapper' asJQuery ].\x0a\x09\x0a\x09(self controllerAt: #things) \x0a\x09\x09getItemsBlock: [ :m | m things ];\x0a\x09\x09rivetsAccessor: #thing;\x0a\x09\x09newItemControllerBlock: [ :v :m :itemsController | \x0a\x09\x09\x09self newItemControllerForModel: m view: v parent: itemsController ];\x0a\x09\x09model: model;\x0a\x09\x09refresh",
 referencedClasses: ["ItemsController"],
 //>>excludeEnd("ide");
-messageSends: ["ifAbsentAt:put:", "for:on:appendingTo:", "asJQuery", "getItemsBlock:", "controllerAt:", "things", "newItemControllerBlock:", "newItemControllerForModel:view:parent:", "model:", "refresh"]
+messageSends: ["ifAbsentAt:put:", "for:on:appendingTo:", "asJQuery", "getItemsBlock:", "controllerAt:", "things", "rivetsAccessor:", "newItemControllerBlock:", "newItemControllerForModel:view:parent:", "model:", "refresh"]
 }),
 $globals.Example5Controller);
 

@@ -477,6 +477,7 @@ ensureList
 	
 	(self controllerAt: #things) 
 		getItemsBlock: [ :m | m things ];
+		rivetsAccessor: #thing;
 		newItemControllerBlock: [ :v :m :itemsController | 
 			self newItemControllerForModel: m view: v parent: itemsController ];
 		model: model;
