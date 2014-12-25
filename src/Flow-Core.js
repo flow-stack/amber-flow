@@ -179,6 +179,72 @@ $globals.Controller);
 
 $core.addMethod(
 $core.method({
+selector: "controllerAtView:",
+protocol: 'accessing',
+fn: function (aView){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+var $1;
+$1=self._controllerAtView_ifAbsent_(aView,(function(){
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx2) {
+//>>excludeEnd("ctx");
+return self._error_("Controller not found for view: ".__comma($recv(aView)._asString()));
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx2) {$ctx2.fillBlock({},$ctx1,1)});
+//>>excludeEnd("ctx");
+}));
+return $1;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"controllerAtView:",{aView:aView},$globals.Controller)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["aView"],
+source: "controllerAtView: aView \x0a\x0a\x09^ self controllerAtView: aView ifAbsent:[ \x0a\x09\x09self error: 'Controller not found for view: ', aView asString ]",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: ["controllerAtView:ifAbsent:", "error:", ",", "asString"]
+}),
+$globals.Controller);
+
+$core.addMethod(
+$core.method({
+selector: "controllerAtView:ifAbsent:",
+protocol: 'accessing',
+fn: function (aView,aBlock){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+var $1;
+$1=$recv($recv(self._controllers())._values())._detect_ifNone_((function(e){
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx2) {
+//>>excludeEnd("ctx");
+return $recv($recv(e)._view()).__eq_eq(aView);
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx2) {$ctx2.fillBlock({e:e},$ctx1,1)});
+//>>excludeEnd("ctx");
+}),aBlock);
+return $1;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"controllerAtView:ifAbsent:",{aView:aView,aBlock:aBlock},$globals.Controller)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["aView", "aBlock"],
+source: "controllerAtView: aView ifAbsent: aBlock\x0a\x0a\x09^ self controllers values\x0a\x09\x09detect: [ :e | e view == aView ]\x0a\x09\x09ifNone: aBlock",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: ["detect:ifNone:", "values", "controllers", "==", "view"]
+}),
+$globals.Controller);
+
+$core.addMethod(
+$core.method({
 selector: "controllers",
 protocol: 'accessing',
 fn: function (){
@@ -890,7 +956,7 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["aHtmlElement"],
-source: "silentView: aHtmlElement\x0a\x0a\x09view := aHtmlElement",
+source: " silentView: aHtmlElement\x0a\x09\x22Sets the instance of the element considered the view of this controller.\x22\x0a\x09view := aHtmlElement",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: []

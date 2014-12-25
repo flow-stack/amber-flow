@@ -61,6 +61,19 @@ controllerAt: aKey put: aController
 	^ self controllers at: aKey put: aController
 !
 
+controllerAtView: aView 
+
+	^ self controllerAtView: aView ifAbsent:[ 
+		self error: 'Controller not found for view: ', aView asString ]
+!
+
+controllerAtView: aView ifAbsent: aBlock
+
+	^ self controllers values
+		detect: [ :e | e view == aView ]
+		ifNone: aBlock
+!
+
 controllers
 	
 	^ controllers ifNil:[ self initializeControllers ]
@@ -104,7 +117,7 @@ parentElement: aHtmlElement
 !
 
 silentView: aHtmlElement
-
+	"Sets the instance of the element considered the view of this controller."
 	view := aHtmlElement
 !
 

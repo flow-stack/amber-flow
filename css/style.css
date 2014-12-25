@@ -11,3 +11,7 @@ pre {
 	float: left;
 	margin: 0 10px 0 0;
 }
+
+li {
+	list-style: none;
+}
