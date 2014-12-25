@@ -23,7 +23,7 @@ bind
 	"Tells rivets.js to bind 
 	the model of this controller to its view."
 	
-	Rivets rv
+	RivetsJS rv
 		bind: self view 
 		to: self asBindArgument
 !
@@ -34,14 +34,14 @@ configure
 	
 	conf := self getConfiguration.
 	
-	Rivets rv configure: conf
+	RivetsJS rv configure: conf
 !
 
 configureAndBind
 
 	(self hasModel not or: [
 	self hasView not ]) ifTrue: [ ^ self ].
-	
+
 	self configure.
 	
 	self bind.
@@ -101,12 +101,130 @@ initialize
 		yourself
 ! !
 
+!BindingController methodsFor: 'reactions'!
+
+onAfterBound: aRivetsBinding
+	"Rivets has created a Binding instance (aRivetsBinding) with a view and the model and all its parts"
+!
+
+onAfterUnbound: aRivetsBinding
+	"Rivets has unbound aRivetsBinding"
+! !
+
 !BindingController class methodsFor: 'testing'!
 
 isAbstract
 	"Answers true if the receiver is abstract."
 	
 	^ self = BindingController
+! !
+
+BindingController subclass: #ItemsController
+	instanceVariableNames: 'getItemsBlock itemControllerClass newItemControllerBlock rivetsAccessor'
+	package: 'Flow-Binding'!
+!ItemsController commentStamp!
+##IteratedController
+##Sorry this one is not currently being supported
+It requires a rivetjs hack to work and the ListController gives you the feature 
+____
+
+Like ListController except it relies on rivets.js to iterate  models' presentation.
+
+It's rivets who triggers the creation, maintenance and destruction of the (sub)controllers of this controller.
+
+[This is how you use it in the template/view](http://rivetsjs.com/docs/reference/#each-[item])!
+
+!ItemsController methodsFor: 'accessing'!
+
+getItems
+
+	^ getItemsBlock numArgs isZero
+		ifTrue: [ getItemsBlock value ]
+		ifFalse: [ getItemsBlock value: model ]
+!
+
+getItemsBlock
+
+	^ getItemsBlock
+!
+
+getItemsBlock: aBlock
+
+	getItemsBlock := aBlock
+!
+
+itemControllerClass
+
+	^ itemControllerClass
+!
+
+itemControllerClass: aBlock
+
+	itemControllerClass := aBlock
+!
+
+newItemControllerBlock
+
+	^ newItemControllerBlock
+!
+
+newItemControllerBlock: aBlock
+
+	newItemControllerBlock := aBlock
+!
+
+rivetsAccessor
+
+	^ rivetsAccessor
+!
+
+rivetsAccessor: aSymbol
+
+	rivetsAccessor := aSymbol
+! !
+
+!ItemsController methodsFor: 'actions'!
+
+newItemControllerOn: aView for: aModel
+
+	^ itemControllerClass isNil
+		ifFalse:[ itemControllerClass 
+					for: aModel 
+					on: self 
+					appendingTo: aView ] 
+		ifTrue:[ self newItemControllerBlock 
+						value: aView 
+						value: aModel 
+						value: self ]
+! !
+
+!ItemsController methodsFor: 'reactions'!
+
+onAfterBound: aRivetsBinding
+	"Rivets has created a Binding instance with a view and the model and all its parts"
+
+	| boundItemView boundItemModel |
+	
+	super onAfterBound: aRivetsBinding.
+	boundItemModel := aRivetsBinding model at: self rivetsAccessor.
+
+	self ifAbsentAt: boundItemModel put: [
+		boundItemView := aRivetsBinding view els first.
+		self newItemControllerOn: boundItemView for: boundItemModel ].
+		
+	(self controllerAt: boundItemModel) render
+!
+
+onAfterUnbound: aRivetsBinding
+	"Rivets has unbound a aRivetsBinding instance"
+
+	| boundItemModel |
+	
+	super onAfterUnbound: aRivetsBinding.
+
+	boundItemModel := aRivetsBinding model at: self rivetsAccessor.
+	
+	(self removeControllerAt: boundItemModel)
 ! !
 
 BindingController subclass: #IteratedController
@@ -224,8 +342,7 @@ onViewCreated: aRivetJSView for: aModel
 	"aRivetJSView was ceated for aModel by rivetsjs iterated-* and 
 	we make sure we have a controller for it."
 
-	self ifAbsentAt: aModel id
-		put:[ self newItemControllerOn: aRivetJSView for: aModel].
+	self ifAbsentAt: aModel id put:[ self newItemControllerOn: aRivetJSView for: aModel].
 		
 	(self controllerAt: aModel id) render
 !
@@ -371,18 +488,46 @@ rejectButtonLabel: aString
 	self basicAt: #rejectButtonLabel put: aString
 ! !
 
-Object subclass: #Rivets
+Object subclass: #RivetsJS
 	instanceVariableNames: ''
 	package: 'Flow-Binding'!
 
-!Rivets class methodsFor: 'accessing'!
+!RivetsJS class methodsFor: 'accessing'!
+
+afterBoundCallback
+	"Returns a callback used when rivets had bound an element"
+	
+	<return function(el, val){
+		this.model.controller._onAfterBound_(this);
+		return this;
+	}>
+!
+
+afterUnboundCallback
+	"Returns a callback used when rivets had bound an element"
+	
+	<return function(el, val){
+		this.model.controller._onAfterUnbound_(this);
+		return this;
+	}>
+!
+
+bindCallbackUsing: originalBind
+	"Returns a callback used when rivets had bound an element"
+	
+	<return function(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10){
+		var answer;
+		debugger
+		answer = originalBind();
+		return answer;
+	}>
+!
 
 binderCallback
 	"Returns a callback to bind whoBinds."
 	
 	<return function(){
-	
-		var args = Array.prototype.slice(arguments);
+		var args = Array.prototype.slice.call(arguments);
 		var fn = args.shift();
 		var whoBinds = args.shift();
 
@@ -407,6 +552,7 @@ utilFormatters
 
 	^ Dictionary new 
 		at: #at put: [ :object :key | object basicAt: key ];
+		"at: #onBound put: [ :controller :arg | controller onBound: arg ];"
 		at: #reversed put: [ :aCollection | aCollection reversed ];
 		at: #sorted put: [ :aCollection | aCollection sorted ];
 		at: #size put: [ :anObject | anObject size ];
@@ -420,12 +566,52 @@ utilFormatters
 		yourself
 ! !
 
-!Rivets class methodsFor: 'actions'!
+!RivetsJS class methodsFor: 'actions'!
 
 addFormatter: aBlock at: aName
 	"Tells rivets.js to add aBlock callback as a formatter under aName."
 	
 	self rv formatters at: aName put: aBlock
+!
+
+installBinders
+	"Installs custom binders."
+	
+	| originalBind originalUnbind |
+	
+	originalBind := self rv binders at: #bind.
+	originalUnbind := self rv binders at: #unbind.
+	
+	self rv binders 
+		"at: #bind put: (self bindCallbackUsing: originalBind);
+		at: #unbind put: (self unbindCallbackUsing: originalUnbind);"
+		"at: #bind
+		put: #{
+				#bind -> (self bindCallbackUsing: originalBind).
+				#priority -> 4000
+			};"
+		at: 'after-bound' 
+		put: #{
+				#bind -> self afterBoundCallback.
+				#priority -> 4000
+			};
+		at: 'after-unbound' 
+		put: #{
+				#unbind -> self afterUnboundCallback.
+				#priority -> 4000
+			};
+		yourself. 
+
+	"original := (self rv binders at: 'each-*') at: #routine.
+	(self rv binders at: 'each-*')
+		at: #routine 
+		put: [ :el :val | | result |
+			console log: 'each-* routine: '.
+			console log: el.
+			console log: val.
+			result := original value: el value: val.
+			console log: result.
+			result ]"
 !
 
 installUtils
@@ -434,10 +620,11 @@ installUtils
 		self addFormatter: value at: key ]
 ! !
 
-!Rivets class methodsFor: 'initialization'!
+!RivetsJS class methodsFor: 'initialization'!
 
 initialize
 
-	self installUtils
+	self installUtils.
+	self installBinders.
 ! !
 

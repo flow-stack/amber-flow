@@ -313,7 +313,7 @@ getListModel
 	| things |
 	 
 	"Load them from the local storage"
-	things := ListModel localFindId: 'samples'.
+	things := ListModel localFindCid: 'samples'.
 	
 	things ifNil: [ 
 		"Oh, not found? then create and save some..."
@@ -416,6 +416,169 @@ isValidFor: anURI
 	"Answers true if this controller is the right route for anURI"
 	
 	^ anURI match: '^example4$'
+! !
+
+BindingController subclass: #Example5Controller
+	instanceVariableNames: ''
+	package: 'App'!
+!Example5Controller commentStamp!
+##AppController
+
+The AppController is the main/root controller of your flow-based application.!
+
+!Example5Controller methodsFor: 'accessing'!
+
+potentialNames
+
+	^ #(
+	Galileo
+	Newton
+	Einstein
+	Heisemberg
+	Bohr
+	Schrodinger
+	Plank
+	Neumann
+	DeBroglie
+	Feynman
+	)
+! !
+
+!Example5Controller methodsFor: 'actions'!
+
+addThing
+
+	model things add: (Thing new name: #( Wave Particle Entanglement Superposition ) atRandom; yourself).
+	
+	self updateNotEmpty
+!
+
+ensureDetails
+	"Makes sure we have a controller for #details and 
+	make it fresh and visible with a refresh"
+	
+	self ifAbsentAt: #details put: [
+		ThingDetailsController
+			on: self
+			appendingTo: '#details-wrapper' asJQuery ].
+	
+	(self controllerAt: #details) refresh
+!
+
+ensureList
+	"Makes sure we have a controller for #things and 
+	make it fresh and visible with a refresh"
+	
+	self ifAbsentAt: #things put: [
+		ItemsController 
+			for: model
+			on: self
+			appendingTo: '#things-wrapper' asJQuery ].
+	
+	(self controllerAt: #things) 
+		getItemsBlock: [ :m | m things ];
+		rivetsAccessor: #thing;
+		newItemControllerBlock: [ :v :m :itemsController | 
+			self newItemControllerForModel: m view: v parent: itemsController ];
+		model: model;
+		refresh
+!
+
+newItemControllerForModel: aModel view: aView parent: anItemsController
+	"Returns a new controller for aModel using aView and meant to be child of anItemsController."
+
+	| row |
+
+	row := ThingRowController 
+				for: aModel
+				on: anItemsController
+				appendingTo: (aView asJQuery find: '.item-wrapper').
+
+	row
+		when: #removeThing do: [ self onRemove: aModel ];
+		when: #viewDetails do: [ self onDetails: aModel ];
+		yourself.
+
+	^ row
+!
+
+newItems
+	"Answers a newly created collection of items to be used as models in the ItemsController."
+	
+	^ self potentialNames shuffled collect: [ :aName |  
+		Thing new 
+			name: aName;
+			yourself ]
+!
+
+observeEvents
+
+	'#inspect-this' asJQuery on: 'click' do: [ self inspect ]
+!
+
+removeThing
+
+	model things remove: model things last ifAbsent: [ nil ].
+	
+	self updateNotEmpty
+!
+
+updateNotEmpty
+
+	self 
+		basicAt: #notEmpty 
+		put: model things notEmpty
+! !
+
+!Example5Controller methodsFor: 'initialization'!
+
+initialize
+
+	super initialize.
+	
+	self when: #onAfterView do: [ 
+		self ensureDetails.
+		self ensureList.
+		self updateNotEmpty.
+		self observeEvents ]
+!
+
+model: aModel
+	
+	super model: aModel.
+	
+	aModel things: self newItems
+! !
+
+!Example5Controller methodsFor: 'reactions'!
+
+onDetails: aThing
+
+	self basicAt: #hasDetails put: true.
+	
+	(self controllerAt: #details) model: aThing; refresh
+!
+
+onRemove: aThing
+
+	model things remove: aThing ifAbsent: [ nil ].
+
+	self updateNotEmpty
+! !
+
+!Example5Controller class methodsFor: 'accessing'!
+
+defaultModel
+
+	^ Flow session
+! !
+
+!Example5Controller class methodsFor: 'testing'!
+
+isValidFor: anURI
+	"Answers true if this controller is the right route for anURI"
+	
+	^ anURI match: '^example5$'
 ! !
 
 TemplateController subclass: #MainController

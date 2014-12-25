@@ -39,11 +39,11 @@ selector: "bind",
 protocol: 'actions',
 fn: function (){
 var self=this;
-function $Rivets(){return $globals.Rivets||(typeof Rivets=="undefined"?nil:Rivets)}
+function $RivetsJS(){return $globals.RivetsJS||(typeof RivetsJS=="undefined"?nil:RivetsJS)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) { 
 //>>excludeEnd("ctx");
-$recv($recv($Rivets())._rv())._bind_to_(self._view(),self._asBindArgument());
+$recv($recv($RivetsJS())._rv())._bind_to_(self._view(),self._asBindArgument());
 return self;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 }, function($ctx1) {$ctx1.fill(self,"bind",{},$globals.BindingController)});
@@ -51,8 +51,8 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "bind\x0a\x09\x22Tells rivets.js to bind \x0a\x09the model of this controller to its view.\x22\x0a\x09\x0a\x09Rivets rv\x0a\x09\x09bind: self view \x0a\x09\x09to: self asBindArgument",
-referencedClasses: ["Rivets"],
+source: "bind\x0a\x09\x22Tells rivets.js to bind \x0a\x09the model of this controller to its view.\x22\x0a\x09\x0a\x09RivetsJS rv\x0a\x09\x09bind: self view \x0a\x09\x09to: self asBindArgument",
+referencedClasses: ["RivetsJS"],
 //>>excludeEnd("ide");
 messageSends: ["bind:to:", "rv", "view", "asBindArgument"]
 }),
@@ -65,12 +65,12 @@ protocol: 'actions',
 fn: function (){
 var self=this;
 var conf;
-function $Rivets(){return $globals.Rivets||(typeof Rivets=="undefined"?nil:Rivets)}
+function $RivetsJS(){return $globals.RivetsJS||(typeof RivetsJS=="undefined"?nil:RivetsJS)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) { 
 //>>excludeEnd("ctx");
 conf=self._getConfiguration();
-$recv($recv($Rivets())._rv())._configure_(conf);
+$recv($recv($RivetsJS())._rv())._configure_(conf);
 return self;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 }, function($ctx1) {$ctx1.fill(self,"configure",{conf:conf},$globals.BindingController)});
@@ -78,8 +78,8 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "configure\x0a\x09\x22Sets some configurations for rivets\x22\x0a\x09| conf |\x0a\x09\x0a\x09conf := self getConfiguration.\x0a\x09\x0a\x09Rivets rv configure: conf",
-referencedClasses: ["Rivets"],
+source: "configure\x0a\x09\x22Sets some configurations for rivets\x22\x0a\x09| conf |\x0a\x09\x0a\x09conf := self getConfiguration.\x0a\x09\x0a\x09RivetsJS rv configure: conf",
+referencedClasses: ["RivetsJS"],
 //>>excludeEnd("ide");
 messageSends: ["getConfiguration", "configure:", "rv"]
 }),
@@ -120,7 +120,7 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "configureAndBind\x0a\x0a\x09(self hasModel not or: [\x0a\x09self hasView not ]) ifTrue: [ ^ self ].\x0a\x09\x0a\x09self configure.\x0a\x09\x0a\x09self bind.",
+source: "configureAndBind\x0a\x0a\x09(self hasModel not or: [\x0a\x09self hasView not ]) ifTrue: [ ^ self ].\x0a\x0a\x09self configure.\x0a\x09\x0a\x09self bind.",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: ["ifTrue:", "or:", "not", "hasModel", "hasView", "configure", "bind"]
@@ -271,6 +271,42 @@ $globals.BindingController);
 
 $core.addMethod(
 $core.method({
+selector: "onAfterBound:",
+protocol: 'reactions',
+fn: function (aRivetsBinding){
+var self=this;
+return self;
+
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["aRivetsBinding"],
+source: "onAfterBound: aRivetsBinding\x0a\x09\x22Rivets has created a Binding instance (aRivetsBinding) with a view and the model and all its parts\x22",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
+}),
+$globals.BindingController);
+
+$core.addMethod(
+$core.method({
+selector: "onAfterUnbound:",
+protocol: 'reactions',
+fn: function (aRivetsBinding){
+var self=this;
+return self;
+
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["aRivetsBinding"],
+source: "onAfterUnbound: aRivetsBinding\x0a\x09\x22Rivets has unbound aRivetsBinding\x22",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
+}),
+$globals.BindingController);
+
+$core.addMethod(
+$core.method({
 selector: "rebind",
 protocol: 'actions',
 fn: function (){
@@ -383,6 +419,307 @@ referencedClasses: ["BindingController"],
 messageSends: ["="]
 }),
 $globals.BindingController.klass);
+
+
+$core.addClass('ItemsController', $globals.BindingController, ['getItemsBlock', 'itemControllerClass', 'newItemControllerBlock', 'rivetsAccessor'], 'Flow-Binding');
+//>>excludeStart("ide", pragmas.excludeIdeData);
+$globals.ItemsController.comment="##IteratedController\x0a##Sorry this one is not currently being supported\x0aIt requires a rivetjs hack to work and the ListController gives you the feature \x0a____\x0a\x0aLike ListController except it relies on rivets.js to iterate  models' presentation.\x0a\x0aIt's rivets who triggers the creation, maintenance and destruction of the (sub)controllers of this controller.\x0a\x0a[This is how you use it in the template/view](http://rivetsjs.com/docs/reference/#each-[item])";
+//>>excludeEnd("ide");
+$core.addMethod(
+$core.method({
+selector: "getItems",
+protocol: 'accessing',
+fn: function (){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+var $2,$1;
+$2=$recv($recv(self["@getItemsBlock"])._numArgs())._isZero();
+if($core.assert($2)){
+$1=$recv(self["@getItemsBlock"])._value();
+} else {
+$1=$recv(self["@getItemsBlock"])._value_(self["@model"]);
+};
+return $1;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"getItems",{},$globals.ItemsController)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: [],
+source: "getItems\x0a\x0a\x09^ getItemsBlock numArgs isZero\x0a\x09\x09ifTrue: [ getItemsBlock value ]\x0a\x09\x09ifFalse: [ getItemsBlock value: model ]",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: ["ifTrue:ifFalse:", "isZero", "numArgs", "value", "value:"]
+}),
+$globals.ItemsController);
+
+$core.addMethod(
+$core.method({
+selector: "getItemsBlock",
+protocol: 'accessing',
+fn: function (){
+var self=this;
+var $1;
+$1=self["@getItemsBlock"];
+return $1;
+
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: [],
+source: "getItemsBlock\x0a\x0a\x09^ getItemsBlock",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
+}),
+$globals.ItemsController);
+
+$core.addMethod(
+$core.method({
+selector: "getItemsBlock:",
+protocol: 'accessing',
+fn: function (aBlock){
+var self=this;
+self["@getItemsBlock"]=aBlock;
+return self;
+
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["aBlock"],
+source: "getItemsBlock: aBlock\x0a\x0a\x09getItemsBlock := aBlock",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
+}),
+$globals.ItemsController);
+
+$core.addMethod(
+$core.method({
+selector: "itemControllerClass",
+protocol: 'accessing',
+fn: function (){
+var self=this;
+var $1;
+$1=self["@itemControllerClass"];
+return $1;
+
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: [],
+source: "itemControllerClass\x0a\x0a\x09^ itemControllerClass",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
+}),
+$globals.ItemsController);
+
+$core.addMethod(
+$core.method({
+selector: "itemControllerClass:",
+protocol: 'accessing',
+fn: function (aBlock){
+var self=this;
+self["@itemControllerClass"]=aBlock;
+return self;
+
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["aBlock"],
+source: "itemControllerClass: aBlock\x0a\x0a\x09itemControllerClass := aBlock",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
+}),
+$globals.ItemsController);
+
+$core.addMethod(
+$core.method({
+selector: "newItemControllerBlock",
+protocol: 'accessing',
+fn: function (){
+var self=this;
+var $1;
+$1=self["@newItemControllerBlock"];
+return $1;
+
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: [],
+source: "newItemControllerBlock\x0a\x0a\x09^ newItemControllerBlock",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
+}),
+$globals.ItemsController);
+
+$core.addMethod(
+$core.method({
+selector: "newItemControllerBlock:",
+protocol: 'accessing',
+fn: function (aBlock){
+var self=this;
+self["@newItemControllerBlock"]=aBlock;
+return self;
+
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["aBlock"],
+source: "newItemControllerBlock: aBlock\x0a\x0a\x09newItemControllerBlock := aBlock",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
+}),
+$globals.ItemsController);
+
+$core.addMethod(
+$core.method({
+selector: "newItemControllerOn:for:",
+protocol: 'actions',
+fn: function (aView,aModel){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+var $2,$1;
+$2=$recv(self["@itemControllerClass"])._isNil();
+if($core.assert($2)){
+$1=$recv(self._newItemControllerBlock())._value_value_value_(aView,aModel,self);
+} else {
+$1=$recv(self["@itemControllerClass"])._for_on_appendingTo_(aModel,self,aView);
+};
+return $1;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"newItemControllerOn:for:",{aView:aView,aModel:aModel},$globals.ItemsController)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["aView", "aModel"],
+source: "newItemControllerOn: aView for: aModel\x0a\x0a\x09^ itemControllerClass isNil\x0a\x09\x09ifFalse:[ itemControllerClass \x0a\x09\x09\x09\x09\x09for: aModel \x0a\x09\x09\x09\x09\x09on: self \x0a\x09\x09\x09\x09\x09appendingTo: aView ] \x0a\x09\x09ifTrue:[ self newItemControllerBlock \x0a\x09\x09\x09\x09\x09\x09value: aView \x0a\x09\x09\x09\x09\x09\x09value: aModel \x0a\x09\x09\x09\x09\x09\x09value: self ]",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: ["ifFalse:ifTrue:", "isNil", "for:on:appendingTo:", "value:value:value:", "newItemControllerBlock"]
+}),
+$globals.ItemsController);
+
+$core.addMethod(
+$core.method({
+selector: "onAfterBound:",
+protocol: 'reactions',
+fn: function (aRivetsBinding){
+var self=this;
+var boundItemView,boundItemModel;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+(
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.supercall = true, 
+//>>excludeEnd("ctx");
+$globals.ItemsController.superclass.fn.prototype._onAfterBound_.apply($recv(self), [aRivetsBinding]));
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.supercall = false;
+//>>excludeEnd("ctx");;
+boundItemModel=$recv($recv(aRivetsBinding)._model())._at_(self._rivetsAccessor());
+self._ifAbsentAt_put_(boundItemModel,(function(){
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx2) {
+//>>excludeEnd("ctx");
+boundItemView=$recv($recv($recv(aRivetsBinding)._view())._els())._first();
+boundItemView;
+return self._newItemControllerOn_for_(boundItemView,boundItemModel);
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx2) {$ctx2.fillBlock({},$ctx1,1)});
+//>>excludeEnd("ctx");
+}));
+$recv(self._controllerAt_(boundItemModel))._render();
+return self;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"onAfterBound:",{aRivetsBinding:aRivetsBinding,boundItemView:boundItemView,boundItemModel:boundItemModel},$globals.ItemsController)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["aRivetsBinding"],
+source: "onAfterBound: aRivetsBinding\x0a\x09\x22Rivets has created a Binding instance with a view and the model and all its parts\x22\x0a\x0a\x09| boundItemView boundItemModel |\x0a\x09\x0a\x09super onAfterBound: aRivetsBinding.\x0a\x09boundItemModel := aRivetsBinding model at: self rivetsAccessor.\x0a\x0a\x09self ifAbsentAt: boundItemModel put: [\x0a\x09\x09boundItemView := aRivetsBinding view els first.\x0a\x09\x09self newItemControllerOn: boundItemView for: boundItemModel ].\x0a\x09\x09\x0a\x09(self controllerAt: boundItemModel) render",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: ["onAfterBound:", "at:", "model", "rivetsAccessor", "ifAbsentAt:put:", "first", "els", "view", "newItemControllerOn:for:", "render", "controllerAt:"]
+}),
+$globals.ItemsController);
+
+$core.addMethod(
+$core.method({
+selector: "onAfterUnbound:",
+protocol: 'reactions',
+fn: function (aRivetsBinding){
+var self=this;
+var boundItemModel;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+(
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.supercall = true, 
+//>>excludeEnd("ctx");
+$globals.ItemsController.superclass.fn.prototype._onAfterUnbound_.apply($recv(self), [aRivetsBinding]));
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.supercall = false;
+//>>excludeEnd("ctx");;
+boundItemModel=$recv($recv(aRivetsBinding)._model())._at_(self._rivetsAccessor());
+self._removeControllerAt_(boundItemModel);
+return self;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"onAfterUnbound:",{aRivetsBinding:aRivetsBinding,boundItemModel:boundItemModel},$globals.ItemsController)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["aRivetsBinding"],
+source: "onAfterUnbound: aRivetsBinding\x0a\x09\x22Rivets has unbound a aRivetsBinding instance\x22\x0a\x0a\x09| boundItemModel |\x0a\x09\x0a\x09super onAfterUnbound: aRivetsBinding.\x0a\x0a\x09boundItemModel := aRivetsBinding model at: self rivetsAccessor.\x0a\x09\x0a\x09(self removeControllerAt: boundItemModel)",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: ["onAfterUnbound:", "at:", "model", "rivetsAccessor", "removeControllerAt:"]
+}),
+$globals.ItemsController);
+
+$core.addMethod(
+$core.method({
+selector: "rivetsAccessor",
+protocol: 'accessing',
+fn: function (){
+var self=this;
+var $1;
+$1=self["@rivetsAccessor"];
+return $1;
+
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: [],
+source: "rivetsAccessor\x0a\x0a\x09^ rivetsAccessor",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
+}),
+$globals.ItemsController);
+
+$core.addMethod(
+$core.method({
+selector: "rivetsAccessor:",
+protocol: 'accessing',
+fn: function (aSymbol){
+var self=this;
+self["@rivetsAccessor"]=aSymbol;
+return self;
+
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["aSymbol"],
+source: "rivetsAccessor: aSymbol\x0a\x0a\x09rivetsAccessor := aSymbol",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
+}),
+$globals.ItemsController);
+
 
 
 $core.addClass('IteratedController', $globals.BindingController, ['itemControllerClass', 'newItemControllerBlock'], 'Flow-Binding');
@@ -726,7 +1063,7 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["aRivetJSView", "aModel"],
-source: "onViewCreated: aRivetJSView for: aModel\x0a\x09\x22aRivetJSView was ceated for aModel by rivetsjs iterated-* and \x0a\x09we make sure we have a controller for it.\x22\x0a\x0a\x09self ifAbsentAt: aModel id\x0a\x09\x09put:[ self newItemControllerOn: aRivetJSView for: aModel].\x0a\x09\x09\x0a\x09(self controllerAt: aModel id) render",
+source: "onViewCreated: aRivetJSView for: aModel\x0a\x09\x22aRivetJSView was ceated for aModel by rivetsjs iterated-* and \x0a\x09we make sure we have a controller for it.\x22\x0a\x0a\x09self ifAbsentAt: aModel id put:[ self newItemControllerOn: aRivetJSView for: aModel].\x0a\x09\x09\x0a\x09(self controllerAt: aModel id) render",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: ["ifAbsentAt:put:", "id", "newItemControllerOn:for:", "render", "controllerAt:"]
@@ -1240,7 +1577,7 @@ $globals.ConfirmController);
 
 
 
-$core.addClass('Rivets', $globals.Object, [], 'Flow-Binding');
+$core.addClass('RivetsJS', $globals.Object, [], 'Flow-Binding');
 
 $core.addMethod(
 $core.method({
@@ -1254,7 +1591,7 @@ return $core.withContext(function($ctx1) {
 $recv($recv(self._rv())._formatters())._at_put_(aName,aBlock);
 return self;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx1) {$ctx1.fill(self,"addFormatter:at:",{aBlock:aBlock,aName:aName},$globals.Rivets.klass)});
+}, function($ctx1) {$ctx1.fill(self,"addFormatter:at:",{aBlock:aBlock,aName:aName},$globals.RivetsJS.klass)});
 //>>excludeEnd("ctx");
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
@@ -1264,7 +1601,90 @@ referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: ["at:put:", "formatters", "rv"]
 }),
-$globals.Rivets.klass);
+$globals.RivetsJS.klass);
+
+$core.addMethod(
+$core.method({
+selector: "afterBoundCallback",
+protocol: 'accessing',
+fn: function (){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+return function(el, val){
+		this.model.controller._onAfterBound_(this);
+		return this;
+	};
+return self;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"afterBoundCallback",{},$globals.RivetsJS.klass)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: [],
+source: "afterBoundCallback\x0a\x09\x22Returns a callback used when rivets had bound an element\x22\x0a\x09\x0a\x09<return function(el, val){\x0a\x09\x09this.model.controller._onAfterBound_(this);\x0a\x09\x09return this;\x0a\x09}>",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
+}),
+$globals.RivetsJS.klass);
+
+$core.addMethod(
+$core.method({
+selector: "afterUnboundCallback",
+protocol: 'accessing',
+fn: function (){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+return function(el, val){
+		this.model.controller._onAfterUnbound_(this);
+		return this;
+	};
+return self;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"afterUnboundCallback",{},$globals.RivetsJS.klass)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: [],
+source: "afterUnboundCallback\x0a\x09\x22Returns a callback used when rivets had bound an element\x22\x0a\x09\x0a\x09<return function(el, val){\x0a\x09\x09this.model.controller._onAfterUnbound_(this);\x0a\x09\x09return this;\x0a\x09}>",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
+}),
+$globals.RivetsJS.klass);
+
+$core.addMethod(
+$core.method({
+selector: "bindCallbackUsing:",
+protocol: 'accessing',
+fn: function (originalBind){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+return function(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10){
+		var answer;
+		debugger
+		answer = originalBind();
+		return answer;
+	};
+return self;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"bindCallbackUsing:",{originalBind:originalBind},$globals.RivetsJS.klass)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["originalBind"],
+source: "bindCallbackUsing: originalBind\x0a\x09\x22Returns a callback used when rivets had bound an element\x22\x0a\x09\x0a\x09<return function(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10){\x0a\x09\x09var answer;\x0a\x09\x09debugger\x0a\x09\x09answer = originalBind();\x0a\x09\x09return answer;\x0a\x09}>",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
+}),
+$globals.RivetsJS.klass);
 
 $core.addMethod(
 $core.method({
@@ -1276,8 +1696,7 @@ var self=this;
 return $core.withContext(function($ctx1) { 
 //>>excludeEnd("ctx");
 return function(){
-	
-		var args = Array.prototype.slice(arguments);
+		var args = Array.prototype.slice.call(arguments);
 		var fn = args.shift();
 		var whoBinds = args.shift();
 
@@ -1291,17 +1710,17 @@ return function(){
 	};
 return self;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx1) {$ctx1.fill(self,"binderCallback",{},$globals.Rivets.klass)});
+}, function($ctx1) {$ctx1.fill(self,"binderCallback",{},$globals.RivetsJS.klass)});
 //>>excludeEnd("ctx");
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "binderCallback\x0a\x09\x22Returns a callback to bind whoBinds.\x22\x0a\x09\x0a\x09<return function(){\x0a\x09\x0a\x09\x09var args = Array.prototype.slice(arguments);\x0a\x09\x09var fn = args.shift();\x0a\x09\x09var whoBinds = args.shift();\x0a\x0a\x09\x09if (typeof fn === 'function') {\x0a\x09\x09\x09return function() {\x0a\x09\x09\x09\x09fn.apply(self, args);\x0a\x09\x09\x09}\x0a\x09\x09}\x0a\x09\x09\x0a\x09\x09return fn;\x0a\x09}>",
+source: "binderCallback\x0a\x09\x22Returns a callback to bind whoBinds.\x22\x0a\x09\x0a\x09<return function(){\x0a\x09\x09var args = Array.prototype.slice.call(arguments);\x0a\x09\x09var fn = args.shift();\x0a\x09\x09var whoBinds = args.shift();\x0a\x0a\x09\x09if (typeof fn === 'function') {\x0a\x09\x09\x09return function() {\x0a\x09\x09\x09\x09fn.apply(self, args);\x0a\x09\x09\x09}\x0a\x09\x09}\x0a\x09\x09\x0a\x09\x09return fn;\x0a\x09}>",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: []
 }),
-$globals.Rivets.klass);
+$globals.RivetsJS.klass);
 
 $core.addMethod(
 $core.method({
@@ -1313,19 +1732,73 @@ var self=this;
 return $core.withContext(function($ctx1) { 
 //>>excludeEnd("ctx");
 self._installUtils();
+self._installBinders();
 return self;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx1) {$ctx1.fill(self,"initialize",{},$globals.Rivets.klass)});
+}, function($ctx1) {$ctx1.fill(self,"initialize",{},$globals.RivetsJS.klass)});
 //>>excludeEnd("ctx");
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "initialize\x0a\x0a\x09self installUtils",
+source: "initialize\x0a\x0a\x09self installUtils.\x0a\x09self installBinders.",
 referencedClasses: [],
 //>>excludeEnd("ide");
-messageSends: ["installUtils"]
+messageSends: ["installUtils", "installBinders"]
 }),
-$globals.Rivets.klass);
+$globals.RivetsJS.klass);
+
+$core.addMethod(
+$core.method({
+selector: "installBinders",
+protocol: 'actions',
+fn: function (){
+var self=this;
+var originalBind,originalUnbind;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+var $2,$1,$4,$3,$5,$6;
+$2=self._rv();
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["rv"]=1;
+//>>excludeEnd("ctx");
+$1=$recv($2)._binders();
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["binders"]=1;
+//>>excludeEnd("ctx");
+originalBind=$recv($1)._at_("bind");
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["at:"]=1;
+//>>excludeEnd("ctx");
+$4=self._rv();
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["rv"]=2;
+//>>excludeEnd("ctx");
+$3=$recv($4)._binders();
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["binders"]=2;
+//>>excludeEnd("ctx");
+originalUnbind=$recv($3)._at_("unbind");
+$5=$recv(self._rv())._binders();
+$recv($5)._at_put_("after-bound",$globals.HashedCollection._newFromPairs_(["bind",self._afterBoundCallback(),"priority",(4000)]));
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["at:put:"]=1;
+//>>excludeEnd("ctx");
+$recv($5)._at_put_("after-unbound",$globals.HashedCollection._newFromPairs_(["unbind",self._afterUnboundCallback(),"priority",(4000)]));
+$6=$recv($5)._yourself();
+return self;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"installBinders",{originalBind:originalBind,originalUnbind:originalUnbind},$globals.RivetsJS.klass)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: [],
+source: "installBinders\x0a\x09\x22Installs custom binders.\x22\x0a\x09\x0a\x09| originalBind originalUnbind |\x0a\x09\x0a\x09originalBind := self rv binders at: #bind.\x0a\x09originalUnbind := self rv binders at: #unbind.\x0a\x09\x0a\x09self rv binders \x0a\x09\x09\x22at: #bind put: (self bindCallbackUsing: originalBind);\x0a\x09\x09at: #unbind put: (self unbindCallbackUsing: originalUnbind);\x22\x0a\x09\x09\x22at: #bind\x0a\x09\x09put: #{\x0a\x09\x09\x09\x09#bind -> (self bindCallbackUsing: originalBind).\x0a\x09\x09\x09\x09#priority -> 4000\x0a\x09\x09\x09};\x22\x0a\x09\x09at: 'after-bound' \x0a\x09\x09put: #{\x0a\x09\x09\x09\x09#bind -> self afterBoundCallback.\x0a\x09\x09\x09\x09#priority -> 4000\x0a\x09\x09\x09};\x0a\x09\x09at: 'after-unbound' \x0a\x09\x09put: #{\x0a\x09\x09\x09\x09#unbind -> self afterUnboundCallback.\x0a\x09\x09\x09\x09#priority -> 4000\x0a\x09\x09\x09};\x0a\x09\x09yourself. \x0a\x0a\x09\x22original := (self rv binders at: 'each-*') at: #routine.\x0a\x09(self rv binders at: 'each-*')\x0a\x09\x09at: #routine \x0a\x09\x09put: [ :el :val | | result |\x0a\x09\x09\x09console log: 'each-* routine: '.\x0a\x09\x09\x09console log: el.\x0a\x09\x09\x09console log: val.\x0a\x09\x09\x09result := original value: el value: val.\x0a\x09\x09\x09console log: result.\x0a\x09\x09\x09result ]\x22",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: ["at:", "binders", "rv", "at:put:", "afterBoundCallback", "afterUnboundCallback", "yourself"]
+}),
+$globals.RivetsJS.klass);
 
 $core.addMethod(
 $core.method({
@@ -1347,7 +1820,7 @@ return self._addFormatter_at_(value,key);
 }));
 return self;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx1) {$ctx1.fill(self,"installUtils",{},$globals.Rivets.klass)});
+}, function($ctx1) {$ctx1.fill(self,"installUtils",{},$globals.RivetsJS.klass)});
 //>>excludeEnd("ctx");
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
@@ -1357,7 +1830,7 @@ referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: ["keysAndValuesDo:", "utilFormatters", "addFormatter:at:"]
 }),
-$globals.Rivets.klass);
+$globals.RivetsJS.klass);
 
 $core.addMethod(
 $core.method({
@@ -1372,7 +1845,7 @@ var $1;
 $1=$recv(require)._value_("rivets");
 return $1;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx1) {$ctx1.fill(self,"rv",{},$globals.Rivets.klass)});
+}, function($ctx1) {$ctx1.fill(self,"rv",{},$globals.RivetsJS.klass)});
 //>>excludeEnd("ctx");
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
@@ -1382,7 +1855,7 @@ referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: ["value:"]
 }),
-$globals.Rivets.klass);
+$globals.RivetsJS.klass);
 
 $core.addMethod(
 $core.method({
@@ -1533,16 +2006,16 @@ $6=$recv($2)._yourself();
 $1=$6;
 return $1;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx1) {$ctx1.fill(self,"utilFormatters",{},$globals.Rivets.klass)});
+}, function($ctx1) {$ctx1.fill(self,"utilFormatters",{},$globals.RivetsJS.klass)});
 //>>excludeEnd("ctx");
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "utilFormatters\x0a\x0a\x09^ Dictionary new \x0a\x09\x09at: #at put: [ :object :key | object basicAt: key ];\x0a\x09\x09at: #reversed put: [ :aCollection | aCollection reversed ];\x0a\x09\x09at: #sorted put: [ :aCollection | aCollection sorted ];\x0a\x09\x09at: #size put: [ :anObject | anObject size ];\x0a\x09\x09at: #rounded put: [ :aNumber | aNumber rounded ];\x0a\x09\x09at: #capitalized put: [ :aString | aString capitalized ];\x0a\x09\x09at: #currency put: [ :aNumber :aCurrencySymbol | aCurrencySymbol asString, (aNumber printShowingDecimalPlaces: 2) ];\x0a\x09\x09at: #decimalPlaces put: [ :aNumber :decimalPlaces | aNumber printShowingDecimalPlaces: decimalPlaces ];\x0a\x09\x09at: #asLowercase put: [ :aString | aString asString asLowercase ];\x0a\x09\x09at: #asUppercase put: [ :aString | aString asString asUppercase ];\x0a\x09\x09at: #bind put: self binderCallback;\x0a\x09\x09yourself",
+source: "utilFormatters\x0a\x0a\x09^ Dictionary new \x0a\x09\x09at: #at put: [ :object :key | object basicAt: key ];\x0a\x09\x09\x22at: #onBound put: [ :controller :arg | controller onBound: arg ];\x22\x0a\x09\x09at: #reversed put: [ :aCollection | aCollection reversed ];\x0a\x09\x09at: #sorted put: [ :aCollection | aCollection sorted ];\x0a\x09\x09at: #size put: [ :anObject | anObject size ];\x0a\x09\x09at: #rounded put: [ :aNumber | aNumber rounded ];\x0a\x09\x09at: #capitalized put: [ :aString | aString capitalized ];\x0a\x09\x09at: #currency put: [ :aNumber :aCurrencySymbol | aCurrencySymbol asString, (aNumber printShowingDecimalPlaces: 2) ];\x0a\x09\x09at: #decimalPlaces put: [ :aNumber :decimalPlaces | aNumber printShowingDecimalPlaces: decimalPlaces ];\x0a\x09\x09at: #asLowercase put: [ :aString | aString asString asLowercase ];\x0a\x09\x09at: #asUppercase put: [ :aString | aString asString asUppercase ];\x0a\x09\x09at: #bind put: self binderCallback;\x0a\x09\x09yourself",
 referencedClasses: ["Dictionary"],
 //>>excludeEnd("ide");
 messageSends: ["at:put:", "new", "basicAt:", "reversed", "sorted", "size", "rounded", "capitalized", ",", "asString", "printShowingDecimalPlaces:", "asLowercase", "asUppercase", "binderCallback", "yourself"]
 }),
-$globals.Rivets.klass);
+$globals.RivetsJS.klass);
 
 });
