@@ -208,7 +208,7 @@ renderOn: html
 
 show
 
-	self view ifNil: [ ^ self ].
+	self hasView ifFalse: [ ^ self render ].
 	
 	self view show
 !
@@ -260,13 +260,6 @@ hasView
 	"Answers true if this controller has a view"
 	
 	^ view notNil
-!
-
-isRendered
-	"Answers true if this controller is rendered."
-	
-	^ self hasView and:[
-	self view children length > 0 ]
 ! !
 
 !Controller class methodsFor: 'accessing'!

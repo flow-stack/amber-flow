@@ -473,39 +473,6 @@ $globals.Controller);
 
 $core.addMethod(
 $core.method({
-selector: "isRendered",
-protocol: 'testing',
-fn: function (){
-var self=this;
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
-//>>excludeEnd("ctx");
-var $1;
-$1=$recv(self._hasView())._and_((function(){
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx2) {
-//>>excludeEnd("ctx");
-return $recv($recv($recv(self._view())._children())._length()).__gt((0));
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx2) {$ctx2.fillBlock({},$ctx1,1)});
-//>>excludeEnd("ctx");
-}));
-return $1;
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx1) {$ctx1.fill(self,"isRendered",{},$globals.Controller)});
-//>>excludeEnd("ctx");
-},
-//>>excludeStart("ide", pragmas.excludeIdeData);
-args: [],
-source: "isRendered\x0a\x09\x22Answers true if this controller is rendered.\x22\x0a\x09\x0a\x09^ self hasView and:[\x0a\x09self view children length > 0 ]",
-referencedClasses: [],
-//>>excludeEnd("ide");
-messageSends: ["and:", "hasView", ">", "length", "children", "view"]
-}),
-$globals.Controller);
-
-$core.addMethod(
-$core.method({
 selector: "model",
 protocol: 'accessing',
 fn: function (){
@@ -808,15 +775,11 @@ var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) { 
 //>>excludeEnd("ctx");
-var $1,$receiver;
-$1=self._view();
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["view"]=1;
-//>>excludeEnd("ctx");
-if(($receiver = $1) == null || $receiver.isNil){
-return self;
-} else {
-$1;
+var $1,$2;
+$1=self._hasView();
+if(!$core.assert($1)){
+$2=self._render();
+return $2;
 };
 $recv(self._view())._show();
 return self;
@@ -826,10 +789,10 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "show\x0a\x0a\x09self view ifNil: [ ^ self ].\x0a\x09\x0a\x09self view show",
+source: "show\x0a\x0a\x09self hasView ifFalse: [ ^ self render ].\x0a\x09\x0a\x09self view show",
 referencedClasses: [],
 //>>excludeEnd("ide");
-messageSends: ["ifNil:", "view", "show"]
+messageSends: ["ifFalse:", "hasView", "render", "show", "view"]
 }),
 $globals.Controller);
 
