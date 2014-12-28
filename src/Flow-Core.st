@@ -429,6 +429,13 @@ refresh
 			added := self newItemControllerFor: e ].
 		added ifNotNil:[ 
 			added render ] ]
+!
+
+show
+
+	self refresh.
+	
+	self view show.
 ! !
 
 !ListController methodsFor: 'initialization'!

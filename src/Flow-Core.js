@@ -1586,6 +1586,31 @@ messageSends: ["with:do:", "keys", "controllers", "getItems", "ifFalse:", "anySa
 }),
 $globals.ListController);
 
+$core.addMethod(
+$core.method({
+selector: "show",
+protocol: 'actions',
+fn: function (){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+self._refresh();
+$recv(self._view())._show();
+return self;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"show",{},$globals.ListController)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: [],
+source: "show\x0a\x0a\x09self refresh.\x0a\x09\x0a\x09self view show.",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: ["refresh", "show", "view"]
+}),
+$globals.ListController);
+
 
 
 $core.addClass('RouteableController', $globals.Controller, [], 'Flow-Core');
