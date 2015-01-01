@@ -234,6 +234,25 @@ testCustomEventWithTwoArgument
 	self assert: (observed includesKey: #something:).	
 	self assert: (observed at: #something:) first == thing.
 	self assert: (observed at: #something:) second == stuff.
+!
+
+testObjectsOr
+
+	| stuff thing |
+	
+	stuff := nil.
+
+	self assert: stuff equals: nil.
+	self assert: thing equals: nil.
+	thing := stuff || 42.
+	self assert: thing equals: 42.
+	
+	stuff := 1984.
+	thing := stuff || 42.
+	
+	self deny: thing = nil.
+	self assert: thing equals: 1984.
+	self deny: thing = 42.
 ! !
 
 WebSocketCommand subclass: #WillFailAfterResponded

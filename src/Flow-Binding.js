@@ -1820,7 +1820,7 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "liveValueBindCallback\x0a\x09\x0a\x09<return function (el) {\x0a    \x09this.handler = this.handler || this.publish.bind(this);\x0a    \x09el.addEventListener('keyup', this.handler);\x0a\x09}>",
+source: "liveValueBindCallback\x0a\x0a\x09<return function (el) {\x0a    \x09this.handler = this.handler || this.publish.bind(this);\x0a    \x09el.addEventListener('keyup', this.handler);\x0a\x09}>",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: []

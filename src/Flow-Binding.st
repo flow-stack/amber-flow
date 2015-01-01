@@ -531,7 +531,7 @@ binderCallback
 !
 
 liveValueBindCallback
-	
+
 	<return function (el) {
     	this.handler = this.handler || this.publish.bind(this);
     	el.addEventListener('keyup', this.handler);

@@ -1312,6 +1312,24 @@ $globals.Object);
 
 $core.addMethod(
 $core.method({
+selector: "||",
+protocol: '*Flow',
+fn: function (anObject){
+var self=this;
+return self;
+
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["anObject"],
+source: "|| anObject\x0a\x09\x22Returns anObject unless the receiver is nil.\x22\x0a\x0a\x09^ self",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
+}),
+$globals.Object);
+
+$core.addMethod(
+$core.method({
 selector: "asRemoteReferenceFor:",
 protocol: '*Flow',
 fn: function (anObject){
@@ -1433,6 +1451,24 @@ referencedClasses: [],
 messageSends: ["new", "class", "copy", "to:do:", "size", "add:", "remove:", "atRandom"]
 }),
 $globals.SequenceableCollection);
+
+$core.addMethod(
+$core.method({
+selector: "||",
+protocol: '*Flow',
+fn: function (anObject){
+var self=this;
+return anObject;
+
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: ["anObject"],
+source: "|| anObject\x0a\x09\x22Returns anObject unless the receiver is nil.\x22\x0a\x09\x0a\x09^ anObject",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
+}),
+$globals.UndefinedObject);
 
 $core.addMethod(
 $core.method({
