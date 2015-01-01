@@ -26,13 +26,15 @@
 			type="text"
 			name="firstName"
 			placeholder="First name"
-			rv-on-blur="controller._onFirstNameBlur"
-			rv-value="model.firstName">
+			rv-on-keyup="controller._onFirstNameKeyUp"
+			rv-live-value="model.firstName">
 	</label>
 	<button class="btn btn-primary"
 		rv-hide="model.isConfirmed"
 		rv-enabled="controller.canConfirm"
 		rv-on-click="controller._confirm">Do you confirm?</button>
+	<p rv-hide="model.isConfirmed">You would confirm: '<strong>{model.firstName}</strong>'</p>	
+
 	<div id="confirmName"></div>
 
 	<p rv-show="model.isConfirmed"><strong>Awesome {model.firstName}!</strong></p>	

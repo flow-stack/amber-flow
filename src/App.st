@@ -166,7 +166,7 @@ initialize
 
 !Example2Controller methodsFor: 'reactions'!
 
-onFirstNameBlur
+onFirstNameKeyUp
 
 	self updateCanConfirm
 ! !

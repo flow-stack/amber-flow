@@ -512,17 +512,6 @@ afterUnboundCallback
 	}>
 !
 
-bindCallbackUsing: originalBind
-	"Returns a callback used when rivets had bound an element"
-	
-	<return function(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10){
-		var answer;
-		debugger
-		answer = originalBind();
-		return answer;
-	}>
-!
-
 binderCallback
 	"Returns a callback to bind whoBinds."
 	
@@ -541,6 +530,23 @@ binderCallback
 	}>
 !
 
+liveValueBindCallback
+	
+	<return function (el) {
+    	this.handler = this.handler || this.publish.bind(this);
+    	el.addEventListener('keyup', this.handler);
+	}>
+!
+
+liveValueUnbindCallback
+	
+	<return  function (el) {
+		if (this.handler) {
+    		el.removeEventListener('keyup', this.handler);
+    	}
+	}>
+!
+
 rv
 	"Answers the rivets accessor.
 	http://rivetsjs.com/docs/guide/"
@@ -552,7 +558,6 @@ utilFormatters
 
 	^ Dictionary new 
 		at: #at put: [ :object :key | object basicAt: key ];
-		"at: #onBound put: [ :controller :arg | controller onBound: arg ];"
 		at: #reversed put: [ :aCollection | aCollection reversed ];
 		at: #sorted put: [ :aCollection | aCollection sorted ];
 		at: #size put: [ :anObject | anObject size ];
@@ -577,47 +582,37 @@ addFormatter: aBlock at: aName
 installBinders
 	"Installs custom binders."
 	
-	| originalBind originalUnbind |
-	
-	originalBind := self rv binders at: #bind.
-	originalUnbind := self rv binders at: #unbind.
-	
+	| liveValue |
+
+	liveValue := self newLiveValue.
+
+	liveValue 
+		at: #bind put: self liveValueBindCallback;
+		at: #unbind put: self liveValueUnbindCallback;
+		yourself.
+		
 	self rv binders 
-		"at: #bind put: (self bindCallbackUsing: originalBind);
-		at: #unbind put: (self unbindCallbackUsing: originalUnbind);"
-		"at: #bind
-		put: #{
-				#bind -> (self bindCallbackUsing: originalBind).
-				#priority -> 4000
-			};"
 		at: 'after-bound' 
 		put: #{
 				#bind -> self afterBoundCallback.
-				#priority -> 4000
-			};
+				#priority -> 4000 };
 		at: 'after-unbound' 
 		put: #{
 				#unbind -> self afterUnboundCallback.
-				#priority -> 4000
-			};
-		yourself. 
-
-	"original := (self rv binders at: 'each-*') at: #routine.
-	(self rv binders at: 'each-*')
-		at: #routine 
-		put: [ :el :val | | result |
-			console log: 'each-* routine: '.
-			console log: el.
-			console log: val.
-			result := original value: el value: val.
-			console log: result.
-			result ]"
+				#priority -> 4000 };
+		at: 'live-value' put: liveValue;
+		yourself.
 !
 
 installUtils
 
 	self utilFormatters keysAndValuesDo: [ :key :value |
 		self addFormatter: value at: key ]
+!
+
+newLiveValue
+
+	<return Object.create(rivets.binders.value)>
 ! !
 
 !RivetsJS class methodsFor: 'initialization'!

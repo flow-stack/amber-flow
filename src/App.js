@@ -503,7 +503,7 @@ $globals.Example2Controller);
 
 $core.addMethod(
 $core.method({
-selector: "onFirstNameBlur",
+selector: "onFirstNameKeyUp",
 protocol: 'reactions',
 fn: function (){
 var self=this;
@@ -513,12 +513,12 @@ return $core.withContext(function($ctx1) {
 self._updateCanConfirm();
 return self;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx1) {$ctx1.fill(self,"onFirstNameBlur",{},$globals.Example2Controller)});
+}, function($ctx1) {$ctx1.fill(self,"onFirstNameKeyUp",{},$globals.Example2Controller)});
 //>>excludeEnd("ctx");
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "onFirstNameBlur\x0a\x0a\x09self updateCanConfirm",
+source: "onFirstNameKeyUp\x0a\x0a\x09self updateCanConfirm",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: ["updateCanConfirm"]

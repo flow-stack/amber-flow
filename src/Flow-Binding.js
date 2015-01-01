@@ -1659,35 +1659,6 @@ $globals.RivetsJS.klass);
 
 $core.addMethod(
 $core.method({
-selector: "bindCallbackUsing:",
-protocol: 'accessing',
-fn: function (originalBind){
-var self=this;
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
-//>>excludeEnd("ctx");
-return function(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10){
-		var answer;
-		debugger
-		answer = originalBind();
-		return answer;
-	};
-return self;
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx1) {$ctx1.fill(self,"bindCallbackUsing:",{originalBind:originalBind},$globals.RivetsJS.klass)});
-//>>excludeEnd("ctx");
-},
-//>>excludeStart("ide", pragmas.excludeIdeData);
-args: ["originalBind"],
-source: "bindCallbackUsing: originalBind\x0a\x09\x22Returns a callback used when rivets had bound an element\x22\x0a\x09\x0a\x09<return function(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10){\x0a\x09\x09var answer;\x0a\x09\x09debugger\x0a\x09\x09answer = originalBind();\x0a\x09\x09return answer;\x0a\x09}>",
-referencedClasses: [],
-//>>excludeEnd("ide");
-messageSends: []
-}),
-$globals.RivetsJS.klass);
-
-$core.addMethod(
-$core.method({
 selector: "binderCallback",
 protocol: 'accessing',
 fn: function (){
@@ -1753,50 +1724,47 @@ selector: "installBinders",
 protocol: 'actions',
 fn: function (){
 var self=this;
-var originalBind,originalUnbind;
+var liveValue;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) { 
 //>>excludeEnd("ctx");
-var $2,$1,$4,$3,$5,$6;
-$2=self._rv();
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["rv"]=1;
-//>>excludeEnd("ctx");
-$1=$recv($2)._binders();
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["binders"]=1;
-//>>excludeEnd("ctx");
-originalBind=$recv($1)._at_("bind");
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["at:"]=1;
-//>>excludeEnd("ctx");
-$4=self._rv();
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["rv"]=2;
-//>>excludeEnd("ctx");
-$3=$recv($4)._binders();
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["binders"]=2;
-//>>excludeEnd("ctx");
-originalUnbind=$recv($3)._at_("unbind");
-$5=$recv(self._rv())._binders();
-$recv($5)._at_put_("after-bound",$globals.HashedCollection._newFromPairs_(["bind",self._afterBoundCallback(),"priority",(4000)]));
+var $1,$2,$3,$4;
+liveValue=self._newLiveValue();
+$1=liveValue;
+$recv($1)._at_put_("bind",self._liveValueBindCallback());
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 $ctx1.sendIdx["at:put:"]=1;
 //>>excludeEnd("ctx");
-$recv($5)._at_put_("after-unbound",$globals.HashedCollection._newFromPairs_(["unbind",self._afterUnboundCallback(),"priority",(4000)]));
-$6=$recv($5)._yourself();
+$recv($1)._at_put_("unbind",self._liveValueUnbindCallback());
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["at:put:"]=2;
+//>>excludeEnd("ctx");
+$2=$recv($1)._yourself();
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["yourself"]=1;
+//>>excludeEnd("ctx");
+$3=$recv(self._rv())._binders();
+$recv($3)._at_put_("after-bound",$globals.HashedCollection._newFromPairs_(["bind",self._afterBoundCallback(),"priority",(4000)]));
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["at:put:"]=3;
+//>>excludeEnd("ctx");
+$recv($3)._at_put_("after-unbound",$globals.HashedCollection._newFromPairs_(["unbind",self._afterUnboundCallback(),"priority",(4000)]));
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+$ctx1.sendIdx["at:put:"]=4;
+//>>excludeEnd("ctx");
+$recv($3)._at_put_("live-value",liveValue);
+$4=$recv($3)._yourself();
 return self;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx1) {$ctx1.fill(self,"installBinders",{originalBind:originalBind,originalUnbind:originalUnbind},$globals.RivetsJS.klass)});
+}, function($ctx1) {$ctx1.fill(self,"installBinders",{liveValue:liveValue},$globals.RivetsJS.klass)});
 //>>excludeEnd("ctx");
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "installBinders\x0a\x09\x22Installs custom binders.\x22\x0a\x09\x0a\x09| originalBind originalUnbind |\x0a\x09\x0a\x09originalBind := self rv binders at: #bind.\x0a\x09originalUnbind := self rv binders at: #unbind.\x0a\x09\x0a\x09self rv binders \x0a\x09\x09\x22at: #bind put: (self bindCallbackUsing: originalBind);\x0a\x09\x09at: #unbind put: (self unbindCallbackUsing: originalUnbind);\x22\x0a\x09\x09\x22at: #bind\x0a\x09\x09put: #{\x0a\x09\x09\x09\x09#bind -> (self bindCallbackUsing: originalBind).\x0a\x09\x09\x09\x09#priority -> 4000\x0a\x09\x09\x09};\x22\x0a\x09\x09at: 'after-bound' \x0a\x09\x09put: #{\x0a\x09\x09\x09\x09#bind -> self afterBoundCallback.\x0a\x09\x09\x09\x09#priority -> 4000\x0a\x09\x09\x09};\x0a\x09\x09at: 'after-unbound' \x0a\x09\x09put: #{\x0a\x09\x09\x09\x09#unbind -> self afterUnboundCallback.\x0a\x09\x09\x09\x09#priority -> 4000\x0a\x09\x09\x09};\x0a\x09\x09yourself. \x0a\x0a\x09\x22original := (self rv binders at: 'each-*') at: #routine.\x0a\x09(self rv binders at: 'each-*')\x0a\x09\x09at: #routine \x0a\x09\x09put: [ :el :val | | result |\x0a\x09\x09\x09console log: 'each-* routine: '.\x0a\x09\x09\x09console log: el.\x0a\x09\x09\x09console log: val.\x0a\x09\x09\x09result := original value: el value: val.\x0a\x09\x09\x09console log: result.\x0a\x09\x09\x09result ]\x22",
+source: "installBinders\x0a\x09\x22Installs custom binders.\x22\x0a\x09\x0a\x09| liveValue |\x0a\x0a\x09liveValue := self newLiveValue.\x0a\x0a\x09liveValue \x0a\x09\x09at: #bind put: self liveValueBindCallback;\x0a\x09\x09at: #unbind put: self liveValueUnbindCallback;\x0a\x09\x09yourself.\x0a\x09\x09\x0a\x09self rv binders \x0a\x09\x09at: 'after-bound' \x0a\x09\x09put: #{\x0a\x09\x09\x09\x09#bind -> self afterBoundCallback.\x0a\x09\x09\x09\x09#priority -> 4000 };\x0a\x09\x09at: 'after-unbound' \x0a\x09\x09put: #{\x0a\x09\x09\x09\x09#unbind -> self afterUnboundCallback.\x0a\x09\x09\x09\x09#priority -> 4000 };\x0a\x09\x09at: 'live-value' put: liveValue;\x0a\x09\x09yourself. ",
 referencedClasses: [],
 //>>excludeEnd("ide");
-messageSends: ["at:", "binders", "rv", "at:put:", "afterBoundCallback", "afterUnboundCallback", "yourself"]
+messageSends: ["newLiveValue", "at:put:", "liveValueBindCallback", "liveValueUnbindCallback", "yourself", "binders", "rv", "afterBoundCallback", "afterUnboundCallback"]
 }),
 $globals.RivetsJS.klass);
 
@@ -1829,6 +1797,85 @@ source: "installUtils\x0a\x0a\x09self utilFormatters keysAndValuesDo: [ :key :va
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: ["keysAndValuesDo:", "utilFormatters", "addFormatter:at:"]
+}),
+$globals.RivetsJS.klass);
+
+$core.addMethod(
+$core.method({
+selector: "liveValueBindCallback",
+protocol: 'accessing',
+fn: function (){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+return function (el) {
+    	this.handler = this.handler || this.publish.bind(this);
+    	el.addEventListener('keyup', this.handler);
+	};
+return self;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"liveValueBindCallback",{},$globals.RivetsJS.klass)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: [],
+source: "liveValueBindCallback\x0a\x09\x0a\x09<return function (el) {\x0a    \x09this.handler = this.handler || this.publish.bind(this);\x0a    \x09el.addEventListener('keyup', this.handler);\x0a\x09}>",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
+}),
+$globals.RivetsJS.klass);
+
+$core.addMethod(
+$core.method({
+selector: "liveValueUnbindCallback",
+protocol: 'accessing',
+fn: function (){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+return  function (el) {
+		if (this.handler) {
+    		el.removeEventListener('keyup', this.handler);
+    	}
+	};
+return self;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"liveValueUnbindCallback",{},$globals.RivetsJS.klass)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: [],
+source: "liveValueUnbindCallback\x0a\x09\x0a\x09<return  function (el) {\x0a\x09\x09if (this.handler) {\x0a    \x09\x09el.removeEventListener('keyup', this.handler);\x0a    \x09}\x0a\x09}>",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
+}),
+$globals.RivetsJS.klass);
+
+$core.addMethod(
+$core.method({
+selector: "newLiveValue",
+protocol: 'actions',
+fn: function (){
+var self=this;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+return $core.withContext(function($ctx1) { 
+//>>excludeEnd("ctx");
+return Object.create(rivets.binders.value);
+return self;
+//>>excludeStart("ctx", pragmas.excludeDebugContexts);
+}, function($ctx1) {$ctx1.fill(self,"newLiveValue",{},$globals.RivetsJS.klass)});
+//>>excludeEnd("ctx");
+},
+//>>excludeStart("ide", pragmas.excludeIdeData);
+args: [],
+source: "newLiveValue\x0a\x0a\x09<return Object.create(rivets.binders.value)>",
+referencedClasses: [],
+//>>excludeEnd("ide");
+messageSends: []
 }),
 $globals.RivetsJS.klass);
 
@@ -2011,7 +2058,7 @@ return $1;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "utilFormatters\x0a\x0a\x09^ Dictionary new \x0a\x09\x09at: #at put: [ :object :key | object basicAt: key ];\x0a\x09\x09\x22at: #onBound put: [ :controller :arg | controller onBound: arg ];\x22\x0a\x09\x09at: #reversed put: [ :aCollection | aCollection reversed ];\x0a\x09\x09at: #sorted put: [ :aCollection | aCollection sorted ];\x0a\x09\x09at: #size put: [ :anObject | anObject size ];\x0a\x09\x09at: #rounded put: [ :aNumber | aNumber rounded ];\x0a\x09\x09at: #capitalized put: [ :aString | aString capitalized ];\x0a\x09\x09at: #currency put: [ :aNumber :aCurrencySymbol | aCurrencySymbol asString, (aNumber printShowingDecimalPlaces: 2) ];\x0a\x09\x09at: #decimalPlaces put: [ :aNumber :decimalPlaces | aNumber printShowingDecimalPlaces: decimalPlaces ];\x0a\x09\x09at: #asLowercase put: [ :aString | aString asString asLowercase ];\x0a\x09\x09at: #asUppercase put: [ :aString | aString asString asUppercase ];\x0a\x09\x09at: #bind put: self binderCallback;\x0a\x09\x09yourself",
+source: "utilFormatters\x0a\x0a\x09^ Dictionary new \x0a\x09\x09at: #at put: [ :object :key | object basicAt: key ];\x0a\x09\x09at: #reversed put: [ :aCollection | aCollection reversed ];\x0a\x09\x09at: #sorted put: [ :aCollection | aCollection sorted ];\x0a\x09\x09at: #size put: [ :anObject | anObject size ];\x0a\x09\x09at: #rounded put: [ :aNumber | aNumber rounded ];\x0a\x09\x09at: #capitalized put: [ :aString | aString capitalized ];\x0a\x09\x09at: #currency put: [ :aNumber :aCurrencySymbol | aCurrencySymbol asString, (aNumber printShowingDecimalPlaces: 2) ];\x0a\x09\x09at: #decimalPlaces put: [ :aNumber :decimalPlaces | aNumber printShowingDecimalPlaces: decimalPlaces ];\x0a\x09\x09at: #asLowercase put: [ :aString | aString asString asLowercase ];\x0a\x09\x09at: #asUppercase put: [ :aString | aString asString asUppercase ];\x0a\x09\x09at: #bind put: self binderCallback;\x0a\x09\x09yourself",
 referencedClasses: ["Dictionary"],
 //>>excludeEnd("ide");
 messageSends: ["at:put:", "new", "basicAt:", "reversed", "sorted", "size", "rounded", "capitalized", ",", "asString", "printShowingDecimalPlaces:", "asLowercase", "asUppercase", "binderCallback", "yourself"]
