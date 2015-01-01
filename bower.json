@@ -1,7 +1,7 @@
 {
   "name": "amber-flow",
   "description": "Make Amber apps nice and easy. This is flow's frontend.",
-  "version": "0.3.10",
+  "version": "0.3.11",
   "main": [
     "src/Flow-API.js",
     "src/Flow-Binding.js",
