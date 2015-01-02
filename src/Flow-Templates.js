@@ -15,7 +15,7 @@ protocol: 'actions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 window.require.undef(self._templateUri());
 return self;
@@ -39,7 +39,7 @@ protocol: 'initialization',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $4,$3,$2,$1;
 $4=self._class();
@@ -47,7 +47,7 @@ $4=self._class();
 $ctx1.sendIdx["class"]=1;
 //>>excludeEnd("ctx");
 $3=$recv($4)._viewPath();
-$2=$recv($3).__comma($recv(self._class())._keyword());
+$2=$recv($3).__comma($recv($recv(self._class())._keyword())._asLowercase());
 self["@templateUri"]=$recv($2).__comma(".html");
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 $ctx1.sendIdx[","]=1;
@@ -60,10 +60,10 @@ return $1;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "initializeTemplateUri\x0a\x09\x22Initilizes the templateUri on the convention that uses the first part of the controller name.\x22\x0a\x09^ templateUri := self class viewPath, self class keyword,'.html'",
+source: "initializeTemplateUri\x0a\x09\x22Initilizes the templateUri on the convention that uses the first part of the controller name.\x22\x0a\x09^ templateUri := self class viewPath, self class keyword asLowercase,'.html'",
 referencedClasses: [],
 //>>excludeEnd("ide");
-messageSends: [",", "viewPath", "class", "keyword"]
+messageSends: [",", "viewPath", "class", "asLowercase", "keyword"]
 }),
 $globals.TemplateController);
 
@@ -75,7 +75,7 @@ fn: function (html){
 var self=this;
 function $Array(){return $globals.Array||(typeof Array=="undefined"?nil:Array)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 $recv(require)._value_value_($recv($Array())._with_(self._templateUri()),(function(template){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
@@ -108,7 +108,7 @@ fn: function (htmlString){
 var self=this;
 var appended;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 appended=$recv(self._parentElement())._append_(htmlString);
 self._view_($recv($recv(appended)._children())._last());
@@ -134,7 +134,7 @@ fn: function (html){
 var self=this;
 function $Array(){return $globals.Array||(typeof Array=="undefined"?nil:Array)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 $recv(require)._value_value_($recv($Array())._with_(self._templateUri()),(function(template){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
@@ -167,7 +167,7 @@ fn: function (htmlString){
 var self=this;
 var appended;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 appended=$recv(self._parentElement())._append_(htmlString);
 self._silentView_($recv($recv(appended)._children())._last());
@@ -192,7 +192,7 @@ protocol: 'accessing',
 fn: function (aString){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=$recv($recv($recv(self._class())._viewPath()).__comma(aString)).__comma(".html");
@@ -221,7 +221,7 @@ protocol: 'accessing',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $2,$1,$receiver;
 $2=self["@templateUri"];
@@ -272,7 +272,7 @@ fn: function (){
 var self=this;
 function $TemplateController(){return $globals.TemplateController||(typeof TemplateController=="undefined"?nil:TemplateController)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=self.__eq($TemplateController());
@@ -297,7 +297,7 @@ protocol: 'testing',
 fn: function (anURI){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=$recv($recv(self._isAbstract())._not())._and_((function(){

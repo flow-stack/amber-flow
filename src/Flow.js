@@ -15,7 +15,7 @@ fn: function (){
 var self=this;
 function $RESTfulAPI(){return $globals.RESTfulAPI||(typeof RESTfulAPI=="undefined"?nil:RESTfulAPI)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $2,$1,$receiver;
 $2=self["@api"];
@@ -46,7 +46,7 @@ protocol: 'actions',
 fn: function (anObject){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=self._subclassResponsibility();
@@ -72,7 +72,7 @@ fn: function (){
 var self=this;
 function $Mapless(){return $globals.Mapless||(typeof Mapless=="undefined"?nil:Mapless)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $3,$2,$1;
 $3=$recv($recv($recv($recv(window)._location())._asString()).__comma($recv($Mapless())._basePath())).__comma("/scaffold");
@@ -130,7 +130,7 @@ fn: function (aString){
 var self=this;
 function $Transcript(){return $globals.Transcript||(typeof Transcript=="undefined"?nil:Transcript)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $2,$1,$3;
 $recv($Transcript())._cr();
@@ -188,7 +188,7 @@ protocol: 'actions',
 fn: function (aString,aBlock,anErrorBlock){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 $recv(self._api())._post_data_do_onError_(self._url(),aString,aBlock,anErrorBlock);
 return self;
@@ -231,7 +231,7 @@ fn: function (aString){
 var self=this;
 function $Flow(){return $globals.Flow||(typeof Flow=="undefined"?nil:Flow)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 $recv(self._parentClass())._subclass_instanceVariableNames_package_(aString,"",$recv($recv($Flow())._scaffolder())._packageName());
 return self;
@@ -274,7 +274,7 @@ protocol: 'actions',
 fn: function (aString){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 self._backendScaffold_do_onError_(aString,(function(res){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
@@ -359,7 +359,7 @@ fn: function (){
 var self=this;
 function $Router(){return $globals.Router||(typeof Router=="undefined"?nil:Router)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=$recv($Router())._active();
@@ -424,7 +424,7 @@ fn: function (){
 var self=this;
 function $Session(){return $globals.Session||(typeof Session=="undefined"?nil:Session)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 self["@session"]=$recv($Session())._new();
@@ -451,7 +451,7 @@ fn: function (){
 var self=this;
 function $Router(){return $globals.Router||(typeof Router=="undefined"?nil:Router)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 $recv(window)._at_put_("flow",self);
 self._resetOnBeforeUnload();
@@ -477,7 +477,7 @@ protocol: 'actions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 window.onbeforeunload = null;
 return self;
@@ -501,7 +501,7 @@ protocol: 'accessing',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=self._scaffolder();
@@ -545,7 +545,7 @@ protocol: 'accessing',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $2,$1,$receiver;
 $2=self["@session"];
@@ -594,7 +594,7 @@ protocol: 'actions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 self._trigger_("started");
 return self;
@@ -622,7 +622,7 @@ protocol: 'actions',
 fn: function (aMaplessClassOrName){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=self._crudModel_(aMaplessClassOrName);
@@ -647,7 +647,7 @@ protocol: 'actions',
 fn: function (aMaplessClassOrName){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 self._mapless_(aMaplessClassOrName);
@@ -673,7 +673,7 @@ protocol: 'actions',
 fn: function (aMaplessClassOrName){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 self._model_(aMaplessClassOrName);
@@ -718,7 +718,7 @@ protocol: 'actions',
 fn: function (aMaplessName){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=$recv(self._maplessScaffolder())._scaffold_(aMaplessName);
@@ -762,7 +762,7 @@ protocol: 'actions',
 fn: function (aModelName){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=$recv(self._modelScaffolder())._scaffold_(aModelName);
@@ -864,7 +864,7 @@ fn: function (){
 var self=this;
 function $Remote(){return $globals.Remote||(typeof Remote=="undefined"?nil:Remote)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=$recv($Remote())._for_(self);
@@ -926,7 +926,7 @@ fn: function (aStream){
 var self=this;
 var content;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1,$2,$3,$4;
 (
@@ -986,7 +986,7 @@ fn: function (){
 var self=this;
 function $Dictionary(){return $globals.Dictionary||(typeof Dictionary=="undefined"?nil:Dictionary)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=$recv((function(newDic){
@@ -1020,7 +1020,7 @@ protocol: '*Flow',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=$recv((function(h){
@@ -1054,7 +1054,7 @@ protocol: '*Flow',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=$recv(self._class())._asRemoteReferenceFor_(self);
@@ -1080,7 +1080,7 @@ fn: function (anObject){
 var self=this;
 function $RR(){return $globals.RR||(typeof RR=="undefined"?nil:RR)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=$recv($RR())._new();
@@ -1105,7 +1105,7 @@ protocol: '*Flow',
 fn: function (aStream){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $5,$4,$3,$2,$1;
 (
@@ -1156,7 +1156,7 @@ fn: function (anObject){
 var self=this;
 function $RR(){return $globals.RR||(typeof RR=="undefined"?nil:RR)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=$recv($RR())._new();
@@ -1199,7 +1199,7 @@ protocol: '*Flow',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 "todo";
@@ -1225,7 +1225,7 @@ protocol: '*Flow',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=$recv(self._class())._asRemoteReferenceFor_(self);
@@ -1250,7 +1250,7 @@ protocol: '*Flow',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 self._trigger_("changed");
 return self;
@@ -1292,7 +1292,7 @@ protocol: '*Flow',
 fn: function (onDoneBlock){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=$recv($recv($recv(jQuery)._value_(self))._promise())._done_(onDoneBlock);
@@ -1336,7 +1336,7 @@ fn: function (anObject){
 var self=this;
 function $RR(){return $globals.RR||(typeof RR=="undefined"?nil:RR)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=$recv($RR())._new();
@@ -1397,7 +1397,7 @@ protocol: '*Flow',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=$recv(self._isNil())._not();
@@ -1423,7 +1423,7 @@ fn: function (){
 var self=this;
 var shaked,source;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 shaked=$recv(self._class())._new();

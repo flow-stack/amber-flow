@@ -16,7 +16,7 @@ fn: function (){
 var self=this;
 function $Transcript(){return $globals.Transcript||(typeof Transcript=="undefined"?nil:Transcript)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $recv($Transcript())._cr();
@@ -42,7 +42,7 @@ protocol: 'reactions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 $recv(window)._alert_("Nicely clicked!");
 return self;
@@ -68,7 +68,7 @@ fn: function (){
 var self=this;
 function $MockPerson(){return $globals.MockPerson||(typeof MockPerson=="undefined"?nil:MockPerson)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $2,$3,$1;
 $2=$recv($MockPerson())._new();

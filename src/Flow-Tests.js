@@ -12,7 +12,7 @@ protocol: 'tests',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $2,$1,$3,$5,$4;
 $2=true._asRemoteReference();
@@ -64,7 +64,7 @@ fn: function (){
 var self=this;
 function $Class(){return $globals.Class||(typeof Class=="undefined"?nil:Class)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $2,$1,$5,$4,$3;
 $2=$recv($Class())._asRemoteReference();
@@ -117,7 +117,7 @@ protocol: 'tests',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $2,$1;
 $2=(4.2)._asRemoteReference();
@@ -148,7 +148,7 @@ protocol: 'tests',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $2,$1;
 $2=(42)._asRemoteReference();
@@ -180,7 +180,7 @@ fn: function (){
 var self=this;
 function $Metaclass(){return $globals.Metaclass||(typeof Metaclass=="undefined"?nil:Metaclass)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 self._assert_($recv($recv($Metaclass())._asRemoteReference())._isRemoteReference());
 return self;
@@ -204,7 +204,7 @@ protocol: 'tests',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $2,$1;
 $2=nil._asRemoteReference();
@@ -240,7 +240,7 @@ var self=this;
 function $Error(){return $globals.Error||(typeof Error=="undefined"?nil:Error)}
 function $Flow(){return $globals.Flow||(typeof Flow=="undefined"?nil:Flow)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $3,$2,$1,$7,$6,$5,$4,$11,$10,$9,$8,$14,$13,$12,$19,$18,$17,$16,$23,$22,$21,$20,$15;
 self._shouldnt_raise_((function(){
@@ -395,7 +395,7 @@ var echo;
 function $Flow(){return $globals.Flow||(typeof Flow=="undefined"?nil:Flow)}
 function $Echo(){return $globals.Echo||(typeof Echo=="undefined"?nil:Echo)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $4,$3,$2,$1,$8,$7,$6,$5,$9,$11,$10,$13,$12,$16,$15,$14;
 $4=$recv($Flow())._session();
@@ -508,7 +508,7 @@ var faulty;
 function $Flow(){return $globals.Flow||(typeof Flow=="undefined"?nil:Flow)}
 function $WillFailAfterResponded(){return $globals.WillFailAfterResponded||(typeof WillFailAfterResponded=="undefined"?nil:WillFailAfterResponded)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $4,$3,$2,$1,$8,$7,$6,$5,$10,$9,$12,$11;
 $4=$recv($Flow())._session();
@@ -608,7 +608,7 @@ var faulty;
 function $Flow(){return $globals.Flow||(typeof Flow=="undefined"?nil:Flow)}
 function $WillFailAfterSent(){return $globals.WillFailAfterSent||(typeof WillFailAfterSent=="undefined"?nil:WillFailAfterSent)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $4,$3,$2,$1,$8,$7,$6,$5,$10,$9,$12,$11;
 $4=$recv($Flow())._session();
@@ -708,7 +708,7 @@ var faulty;
 function $Flow(){return $globals.Flow||(typeof Flow=="undefined"?nil:Flow)}
 function $WillFailBeforeSend(){return $globals.WillFailBeforeSend||(typeof WillFailBeforeSend=="undefined"?nil:WillFailBeforeSend)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $4,$3,$2,$1,$8,$7,$6,$5,$10,$9;
 $4=$recv($Flow())._session();
@@ -802,7 +802,7 @@ var ping;
 function $Flow(){return $globals.Flow||(typeof Flow=="undefined"?nil:Flow)}
 function $Ping(){return $globals.Ping||(typeof Ping=="undefined"?nil:Ping)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $4,$3,$2,$1,$8,$7,$6,$5,$10,$9,$12,$11;
 $4=$recv($Flow())._session();
@@ -896,7 +896,7 @@ var self=this;
 var observed;
 function $Dictionary(){return $globals.Dictionary||(typeof Dictionary=="undefined"?nil:Dictionary)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 observed=$recv($Dictionary())._new();
 $recv(observed)._when_do_("something",(function(){
@@ -938,7 +938,7 @@ var observed,thing;
 function $Dictionary(){return $globals.Dictionary||(typeof Dictionary=="undefined"?nil:Dictionary)}
 function $Thing(){return $globals.Thing||(typeof Thing=="undefined"?nil:Thing)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 observed=$recv($Dictionary())._new();
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
@@ -984,7 +984,7 @@ var observed,things;
 function $Dictionary(){return $globals.Dictionary||(typeof Dictionary=="undefined"?nil:Dictionary)}
 function $Thing(){return $globals.Thing||(typeof Thing=="undefined"?nil:Thing)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 observed=$recv($Dictionary())._new();
@@ -1057,7 +1057,7 @@ function $Thing(){return $globals.Thing||(typeof Thing=="undefined"?nil:Thing)}
 function $Stuff(){return $globals.Stuff||(typeof Stuff=="undefined"?nil:Stuff)}
 function $Array(){return $globals.Array||(typeof Array=="undefined"?nil:Array)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $3,$2,$1;
 observed=$recv($Dictionary())._new();
@@ -1119,7 +1119,7 @@ fn: function (){
 var self=this;
 var stuff,thing;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 stuff=nil;
@@ -1158,7 +1158,7 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "testObjectsOr\x0a\x0a\x09| stuff thing |\x0a\x09\x0a\x09stuff := nil.\x0a\x0a\x09self assert: stuff equals: nil.\x0a\x09self assert: thing equals: nil.\x0a\x09thing := stuff || 42.\x0a\x09self assert: thing equals: 42.\x0a\x09\x0a\x09stuff := 1984.\x0a\x09thing := stuff || 42.\x0a\x09\x0a\x09self deny: thing = nil.\x0a\x09self assert: thing equals: 1984.\x0a\x09self deny: thing = 42.\x0a\x09\x0a\x09",
+source: "testObjectsOr\x0a\x0a\x09| stuff thing |\x0a\x09\x0a\x09stuff := nil.\x0a\x0a\x09self assert: stuff equals: nil.\x0a\x09self assert: thing equals: nil.\x0a\x09thing := stuff || 42.\x0a\x09self assert: thing equals: 42.\x0a\x09\x0a\x09stuff := 1984.\x0a\x09thing := stuff || 42.\x0a\x09\x0a\x09self deny: thing = nil.\x0a\x09self assert: thing equals: 1984.\x0a\x09self deny: thing = 42.",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: ["assert:equals:", "||", "deny:", "="]
@@ -1175,7 +1175,7 @@ protocol: 'reactions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 self._error_("Failing just after the answer");
 return self;
@@ -1202,7 +1202,7 @@ protocol: 'reactions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 self._error_("Failing just after sent");
 return self;
@@ -1229,7 +1229,7 @@ protocol: 'reactions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 self._error_("Failing just before sending");
 return self;

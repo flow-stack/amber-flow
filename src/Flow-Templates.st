@@ -65,7 +65,7 @@ silentSetTemplate: htmlString
 
 initializeTemplateUri
 	"Initilizes the templateUri on the convention that uses the first part of the controller name."
-	^ templateUri := self class viewPath, self class keyword,'.html'
+	^ templateUri := self class viewPath, self class keyword asLowercase,'.html'
 ! !
 
 !TemplateController methodsFor: 'rendering'!

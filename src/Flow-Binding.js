@@ -15,7 +15,7 @@ protocol: 'actions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=$globals.HashedCollection._newFromPairs_(["model",self._getModelAsArgument(),"controller",self]);
@@ -41,7 +41,7 @@ fn: function (){
 var self=this;
 function $RivetsJS(){return $globals.RivetsJS||(typeof RivetsJS=="undefined"?nil:RivetsJS)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 $recv($recv($RivetsJS())._rv())._bind_to_(self._view(),self._asBindArgument());
 return self;
@@ -67,7 +67,7 @@ var self=this;
 var conf;
 function $RivetsJS(){return $globals.RivetsJS||(typeof RivetsJS=="undefined"?nil:RivetsJS)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 conf=self._getConfiguration();
 $recv($recv($RivetsJS())._rv())._configure_(conf);
@@ -92,7 +92,7 @@ protocol: 'actions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $2,$1;
 $2=$recv(self._hasModel())._not();
@@ -134,7 +134,7 @@ protocol: 'actions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=$globals.HashedCollection._newFromPairs_(["handler",self._getHandler()]);
@@ -159,7 +159,7 @@ protocol: 'actions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 return function( target, event, binding ){
 		this.call(binding.model);
@@ -185,7 +185,7 @@ protocol: 'actions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=$recv(self["@model"])._data();
@@ -210,7 +210,7 @@ protocol: 'initialization',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 (
@@ -312,7 +312,7 @@ protocol: 'actions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 self._unbind();
@@ -338,7 +338,7 @@ protocol: 'actions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 self._unbind();
 (
@@ -370,7 +370,7 @@ protocol: 'actions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1,$receiver;
 $1=self["@view"];
@@ -402,7 +402,7 @@ fn: function (){
 var self=this;
 function $BindingController(){return $globals.BindingController||(typeof BindingController=="undefined"?nil:BindingController)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=self.__eq($BindingController());
@@ -432,7 +432,7 @@ protocol: 'accessing',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $2,$1;
 $2=$recv($recv(self["@getItemsBlock"])._numArgs())._isZero();
@@ -579,7 +579,7 @@ protocol: 'actions',
 fn: function (aView,aModel){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $2,$1;
 $2=$recv(self["@itemControllerClass"])._isNil();
@@ -610,7 +610,7 @@ fn: function (aRivetsBinding){
 var self=this;
 var boundItemView,boundItemModel;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 (
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
@@ -655,7 +655,7 @@ fn: function (aRivetsBinding){
 var self=this;
 var boundItemModel;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 (
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
@@ -733,7 +733,7 @@ protocol: 'actions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 self._configure();
 self._makeCustomBinder();
@@ -759,7 +759,7 @@ protocol: 'actions',
 fn: function (theEachBind){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 return function(el){
 		this.view.onViewCreated = function(aView, aModel){ self._onViewCreated_for_(aView, aModel) };
@@ -787,7 +787,7 @@ protocol: 'actions',
 fn: function (theEachRoutine){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 return function(el, collection){
 		var results = theEachRoutine.call(this, el, collection);
@@ -855,7 +855,7 @@ fn: function (){
 var self=this;
 var theEachBind,theEachRoutine;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $2,$1,$5,$4,$3,$8,$7,$6,$11,$10,$9,$14,$13,$12;
 $2=self._rivets();
@@ -991,7 +991,7 @@ protocol: 'actions',
 fn: function (aRivetJSView,aModel){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $2,$1;
 $2=$recv(self["@itemControllerClass"])._isNil();
@@ -1039,7 +1039,7 @@ protocol: 'reactions',
 fn: function (aRivetJSView,aModel){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=$recv(aModel)._id();
@@ -1077,7 +1077,7 @@ protocol: 'reactions',
 fn: function (aView,aModel){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 self._removeControllerAt_($recv(aModel)._id());
 return self;
@@ -1124,7 +1124,7 @@ protocol: 'actions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 $recv(self._view())._modal_("hide");
 self._trigger_("modalClosed");
@@ -1149,7 +1149,7 @@ protocol: 'actions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 $recv($recv(jQuery)._value_(self["@view"]))._modal_(self._modalOptions());
 return self;
@@ -1173,7 +1173,7 @@ protocol: 'initialization',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 (
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
@@ -1213,7 +1213,7 @@ protocol: 'accessing',
 fn: function (aString){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 self._basicAt_put_("message",aString);
 return self;
@@ -1237,7 +1237,7 @@ protocol: 'accessing',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=$recv(self._class())._defaultModalOptions();
@@ -1262,7 +1262,7 @@ protocol: 'actions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 $recv(self._view())._modal_("show");
 self._trigger_("modalOpened");
@@ -1287,7 +1287,7 @@ protocol: 'accessing',
 fn: function (aString){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 self._basicAt_put_("title",aString);
 return self;
@@ -1311,7 +1311,7 @@ protocol: 'actions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 $recv(self._view())._modal_("toggle");
 return self;
@@ -1357,7 +1357,7 @@ fn: function (){
 var self=this;
 function $ModalController(){return $globals.ModalController||(typeof ModalController=="undefined"?nil:ModalController)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=self.__eq($ModalController());
@@ -1384,7 +1384,7 @@ protocol: 'accessing',
 fn: function (aString){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 self._basicAt_put_("buttonLabel",aString);
 return self;
@@ -1408,7 +1408,7 @@ protocol: 'accessing',
 fn: function (aBlock){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 self._when_do_("confirm",aBlock);
 return self;
@@ -1438,7 +1438,7 @@ protocol: 'accessing',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 self._trigger_("accept");
 return self;
@@ -1462,7 +1462,7 @@ protocol: 'accessing',
 fn: function (aBlock){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 self._when_do_("accept",aBlock);
 return self;
@@ -1486,7 +1486,7 @@ protocol: 'accessing',
 fn: function (aString){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 self._basicAt_put_("acceptButtonLabel",aString);
 return self;
@@ -1510,7 +1510,7 @@ protocol: 'accessing',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 self._trigger_("reject");
 return self;
@@ -1534,7 +1534,7 @@ protocol: 'accessing',
 fn: function (aBlock){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 self._when_do_("reject",aBlock);
 return self;
@@ -1558,7 +1558,7 @@ protocol: 'accessing',
 fn: function (aString){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 self._basicAt_put_("rejectButtonLabel",aString);
 return self;
@@ -1586,7 +1586,7 @@ protocol: 'actions',
 fn: function (aBlock,aName){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 $recv($recv(self._rv())._formatters())._at_put_(aName,aBlock);
 return self;
@@ -1610,7 +1610,7 @@ protocol: 'accessing',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 return function(el, val){
 		this.model.controller._onAfterBound_(this);
@@ -1637,7 +1637,7 @@ protocol: 'accessing',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 return function(el, val){
 		this.model.controller._onAfterUnbound_(this);
@@ -1664,7 +1664,7 @@ protocol: 'accessing',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 return function(){
 		var args = Array.prototype.slice.call(arguments);
@@ -1700,7 +1700,7 @@ protocol: 'initialization',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 self._installUtils();
 self._installBinders();
@@ -1726,7 +1726,7 @@ fn: function (){
 var self=this;
 var liveValue;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1,$2,$3,$4;
 liveValue=self._newLiveValue();
@@ -1761,7 +1761,7 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "installBinders\x0a\x09\x22Installs custom binders.\x22\x0a\x09\x0a\x09| liveValue |\x0a\x0a\x09liveValue := self newLiveValue.\x0a\x0a\x09liveValue \x0a\x09\x09at: #bind put: self liveValueBindCallback;\x0a\x09\x09at: #unbind put: self liveValueUnbindCallback;\x0a\x09\x09yourself.\x0a\x09\x09\x0a\x09self rv binders \x0a\x09\x09at: 'after-bound' \x0a\x09\x09put: #{\x0a\x09\x09\x09\x09#bind -> self afterBoundCallback.\x0a\x09\x09\x09\x09#priority -> 4000 };\x0a\x09\x09at: 'after-unbound' \x0a\x09\x09put: #{\x0a\x09\x09\x09\x09#unbind -> self afterUnboundCallback.\x0a\x09\x09\x09\x09#priority -> 4000 };\x0a\x09\x09at: 'live-value' put: liveValue;\x0a\x09\x09yourself. ",
+source: "installBinders\x0a\x09\x22Installs custom binders.\x22\x0a\x09\x0a\x09| liveValue |\x0a\x0a\x09liveValue := self newLiveValue.\x0a\x0a\x09liveValue \x0a\x09\x09at: #bind put: self liveValueBindCallback;\x0a\x09\x09at: #unbind put: self liveValueUnbindCallback;\x0a\x09\x09yourself.\x0a\x09\x09\x0a\x09self rv binders \x0a\x09\x09at: 'after-bound' \x0a\x09\x09put: #{\x0a\x09\x09\x09\x09#bind -> self afterBoundCallback.\x0a\x09\x09\x09\x09#priority -> 4000 };\x0a\x09\x09at: 'after-unbound' \x0a\x09\x09put: #{\x0a\x09\x09\x09\x09#unbind -> self afterUnboundCallback.\x0a\x09\x09\x09\x09#priority -> 4000 };\x0a\x09\x09at: 'live-value' put: liveValue;\x0a\x09\x09yourself.",
 referencedClasses: [],
 //>>excludeEnd("ide");
 messageSends: ["newLiveValue", "at:put:", "liveValueBindCallback", "liveValueUnbindCallback", "yourself", "binders", "rv", "afterBoundCallback", "afterUnboundCallback"]
@@ -1775,7 +1775,7 @@ protocol: 'actions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 $recv(self._utilFormatters())._keysAndValuesDo_((function(key,value){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
@@ -1807,7 +1807,7 @@ protocol: 'accessing',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 return function (el) {
     	this.handler = this.handler || this.publish.bind(this);
@@ -1834,7 +1834,7 @@ protocol: 'accessing',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 return  function (el) {
 		if (this.handler) {
@@ -1862,7 +1862,7 @@ protocol: 'actions',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 return Object.create(rivets.binders.value);
 return self;
@@ -1886,7 +1886,7 @@ protocol: 'accessing',
 fn: function (){
 var self=this;
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 $1=$recv(require)._value_("rivets");
@@ -1912,7 +1912,7 @@ fn: function (){
 var self=this;
 function $Dictionary(){return $globals.Dictionary||(typeof Dictionary=="undefined"?nil:Dictionary)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) { 
+return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $2,$3,$4,$5,$6,$1;
 $2=$recv($Dictionary())._new();
