@@ -1111,60 +1111,6 @@ messageSends: ["new", "when:do:", "at:put:", "with:with:", "trigger:with:with:",
 }),
 $globals.FlowTest);
 
-$core.addMethod(
-$core.method({
-selector: "testObjectsOr",
-protocol: 'tests',
-fn: function (){
-var self=this;
-var stuff,thing;
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-return $core.withContext(function($ctx1) {
-//>>excludeEnd("ctx");
-var $1;
-stuff=nil;
-self._assert_equals_(stuff,nil);
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["assert:equals:"]=1;
-//>>excludeEnd("ctx");
-self._assert_equals_(thing,nil);
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["assert:equals:"]=2;
-//>>excludeEnd("ctx");
-thing=$recv(stuff).__or_or((42));
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["||"]=1;
-//>>excludeEnd("ctx");
-self._assert_equals_(thing,(42));
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["assert:equals:"]=3;
-//>>excludeEnd("ctx");
-stuff=(1984);
-thing=$recv(stuff).__or_or((42));
-$1=$recv(thing).__eq(nil);
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["="]=1;
-//>>excludeEnd("ctx");
-self._deny_($1);
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-$ctx1.sendIdx["deny:"]=1;
-//>>excludeEnd("ctx");
-self._assert_equals_(thing,(1984));
-self._deny_($recv(thing).__eq((42)));
-return self;
-//>>excludeStart("ctx", pragmas.excludeDebugContexts);
-}, function($ctx1) {$ctx1.fill(self,"testObjectsOr",{stuff:stuff,thing:thing},$globals.FlowTest)});
-//>>excludeEnd("ctx");
-},
-//>>excludeStart("ide", pragmas.excludeIdeData);
-args: [],
-source: "testObjectsOr\x0a\x0a\x09| stuff thing |\x0a\x09\x0a\x09stuff := nil.\x0a\x0a\x09self assert: stuff equals: nil.\x0a\x09self assert: thing equals: nil.\x0a\x09thing := stuff || 42.\x0a\x09self assert: thing equals: 42.\x0a\x09\x0a\x09stuff := 1984.\x0a\x09thing := stuff || 42.\x0a\x09\x0a\x09self deny: thing = nil.\x0a\x09self assert: thing equals: 1984.\x0a\x09self deny: thing = 42.",
-referencedClasses: [],
-//>>excludeEnd("ide");
-messageSends: ["assert:equals:", "||", "deny:", "="]
-}),
-$globals.FlowTest);
-
 
 
 $core.addClass('WillFailAfterResponded', $globals.WebSocketCommand, [], 'Flow-Tests');

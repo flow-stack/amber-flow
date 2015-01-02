@@ -47,7 +47,7 @@ $4=self._class();
 $ctx1.sendIdx["class"]=1;
 //>>excludeEnd("ctx");
 $3=$recv($4)._viewPath();
-$2=$recv($3).__comma($recv($recv(self._class())._keyword())._asLowercase());
+$2=$recv($3).__comma($recv(self._class())._keyword());
 self["@templateUri"]=$recv($2).__comma(".html");
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 $ctx1.sendIdx[","]=1;
@@ -60,10 +60,10 @@ return $1;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "initializeTemplateUri\x0a\x09\x22Initilizes the templateUri on the convention that uses the first part of the controller name.\x22\x0a\x09^ templateUri := self class viewPath, self class keyword asLowercase,'.html'",
+source: "initializeTemplateUri\x0a\x09\x22Initilizes the templateUri on the convention that uses the first part of the controller name.\x22\x0a\x09^ templateUri := self class viewPath, self class keyword,'.html'",
 referencedClasses: [],
 //>>excludeEnd("ide");
-messageSends: [",", "viewPath", "class", "asLowercase", "keyword"]
+messageSends: [",", "viewPath", "class", "keyword"]
 }),
 $globals.TemplateController);
 

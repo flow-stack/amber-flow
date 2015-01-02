@@ -400,12 +400,6 @@ isRemote
 promise: onDoneBlock
 	
 	^ (jQuery value: self) promise done: onDoneBlock
-!
-
-|| anObject
-	"Returns anObject unless the receiver is nil."
-
-	^ self
 ! !
 
 !Object class methodsFor: '*Flow'!
@@ -449,14 +443,6 @@ shuffled
 		shaked add: (source remove: source atRandom) ].
 		
 	^ shaked
-! !
-
-!UndefinedObject methodsFor: '*Flow'!
-
-|| anObject
-	"Returns anObject unless the receiver is nil."
-	
-	^ anObject
 ! !
 
 !UndefinedObject class methodsFor: '*Flow'!
