@@ -1,4 +1,4 @@
-define("amber-flow/Flow-Core", ["amber/boot", "minimapless/MiniMapless", "amber_core/Kernel-Objects", "amber-flow-app/MVC-Models"], function($boot){
+define("amber-flow/Flow-Core", ["amber/boot", "amber_core/Kernel-Objects", "minimapless/MiniMapless", "amber-flow/MVC-Models"], function($boot){
 var $core=$boot.api,nil=$boot.nil,$recv=$boot.asReceiver,$globals=$boot.globals;
 var smalltalk=$core,_st=$recv,globals=$globals;
 $core.addPackage('Flow-Core');

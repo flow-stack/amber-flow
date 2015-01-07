@@ -33,16 +33,21 @@ module.exports = function (grunt) {
             },
             all: {
                 src: [ // list all sources in dependency order
+
+                    'src/MVC-Core.st',
+                    'src/MVC-Models.st',
+                    'src/MVC-Controllers.st',
+                    'src/MVC-Templates.st',
+                    'src/MVC-Binding.st',
+
                     'src/Flow.st',
                     'src/Flow-Core.st',
                     'src/Flow-API.st',
-                    'src/Flow-Templates.st',
-                    'src/Flow-Binding.st',
                     'src/App.st',
 
-                    'src/Flow-Binding-Tests.st',
+                    'src/MVC-Binding-Tests.st',
                     'src/MiniMapless-Tests.st',
-                    'src/Flow-Templates-Tests.st',
+                    'src/MVC-Templates-Tests.st',
                     'src/Flow-Tests.st',
                     'src/App-Tests.st'
                 ],
