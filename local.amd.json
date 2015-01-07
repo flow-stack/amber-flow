@@ -5,8 +5,7 @@
 	"shim": {
 		"amber-flow": {
 		  "deps": [
-		    "bootstrap",
-		    "amber-dom-events",
+		    "amber-mvc",
 		    "minimapless"
 		  ]
 		}
