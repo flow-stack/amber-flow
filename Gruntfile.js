@@ -39,17 +39,16 @@ module.exports = function (grunt) {
                     'src/Flow-API.st',
                     'src/App.st',
 
-                    'src/MiniMapless-Tests.st',
                     'src/Flow-Tests.st',
                     'src/App-Tests.st'
                 ],
                 amd_namespace: 'amber-flow',
                 libraries: ['SUnit', 'Web', 
                     'DOMEvents', 
-                    'MVC-Core' , 
+                    'MVC-Core', 
                     'MVC-Iterables',
                     'MVC-Routeables',
-                    'MiniMapless'],
+                    'MiniMapless' ],
                  options: {
                    library_dirs: [
                         'bower_components/amber-mvc/src',
