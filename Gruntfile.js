@@ -34,9 +34,9 @@ module.exports = function (grunt) {
             all: {
                 src: [ // list all sources in dependency order
 
-                    'src/Flow.st',
                     'src/Flow-Core.st',
                     'src/Flow-API.st',
+                    'src/Flow-Scaffolding.st',
                     'src/App.st',
 
                     'src/Flow-Tests.st',

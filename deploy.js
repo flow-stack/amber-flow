@@ -13,9 +13,9 @@ define([
 
     'minimapless/MiniMapless',
     
-	'amber-flow/Flow',
 	'amber-flow/Flow-Core',
 	'amber-flow/Flow-API',
+    'amber-flow/Flow-Scaffolding',
     'amber-flow/App'
     // --- packages to be deployed end here ---
 ], function (amber) {
