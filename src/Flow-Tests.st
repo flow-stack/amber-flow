@@ -176,7 +176,7 @@ testCustomEventWithNoArgument
 	
 	observed when: #something do:[ observed at: #something put: #happen ].
 	
-	observed trigger: #something.
+	observed triggerEvent: #something.
 	
 	self assert: (observed includesKey: #something).	
 	self assert: (observed at: #something) = #happen.

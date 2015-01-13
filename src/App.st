@@ -3,7 +3,23 @@ Object subclass: #App
 	instanceVariableNames: ''
 	package: 'App'!
 
+App class instanceVariableNames: 'main'!
+
+!App class methodsFor: 'accessing'!
+
+main
+	"Answers the main controller of the app (parent of all the other ones).
+	Initializes it lazily."
+
+	^ main ifNil: [ self initializeMain ]
+! !
+
 !App class methodsFor: 'actions'!
+
+home
+
+	self main reset
+!
 
 publishObjects
 
@@ -17,17 +33,46 @@ publishObjects
 		yourself
 !
 
+setupRoutes
+
+	Router rlite 
+		add: '' do: [ :r | Router set: '#/home' ];
+		add: '/' do: [ :r | Router set: '#/home' ];
+		add: '/#' do: [ :r | Router set: '#/home' ];
+		add: '/home' do: [ :r | App home ];
+		add: 'example1' do: [ :r | App main showExample1 ];
+		add: 'example2' do: [ :r | App main showExample2 ];
+		add: 'example3' do: [ :r | App main showExample3 ];
+		add: 'example4' do: [ :r | App main showExample4 ];
+		add: 'example5' do: [ :r | App main showExample5 ];
+		yourself
+!
+
 start
 
 	Flow install.
 	
 	Flow app: self.
 	Flow session visitor: AppVisitor new.
-	self publishObjects.
 
 	Flow start.
 	
-	Router refresh
+	Router processHash
+! !
+
+!App class methodsFor: 'initialization'!
+
+initialize
+
+	self setupRoutes
+!
+
+initializeMain
+
+	^ main := MainController 
+				for: Flow session
+				on: nil
+				appendingTo: '#main-wrapper' asJQuery
 ! !
 
 MaplessModel subclass: #AppVisitor
@@ -82,12 +127,11 @@ initialize
 		yourself
 ! !
 
-!Example1Controller class methodsFor: 'testing'!
+!Example1Controller class methodsFor: 'accessing'!
 
-isValidFor: anURI
-	"Answers true if this controller is the right route for anURI"
-	
-	^ anURI match: '^example1$'
+defaultModel
+
+	^ Flow session
 ! !
 
 BindingController subclass: #Example2Controller
@@ -182,14 +226,6 @@ defaultModel
 		yourself
 ! !
 
-!Example2Controller class methodsFor: 'testing'!
-
-isValidFor: anURI
-	"Answers true if this controller is the right route for anURI"
-	
-	^ anURI match: '^example2$'
-! !
-
 TemplateController subclass: #Example3Controller
 	instanceVariableNames: ''
 	package: 'App'!
@@ -229,19 +265,13 @@ initialize
 			self observeEvents ]
 ! !
 
-!Example3Controller class methodsFor: 'testing'!
+!Example3Controller class methodsFor: 'accessing'!
 
 defaultModel
 
 	^ Thing new 
 		firstName: 'Visitor';
 		yourself
-!
-
-isValidFor: anURI
-	"Answers true if this controller is the right route for anURI"
-	
-	^ anURI match: '^example3$'
 ! !
 
 BindingController subclass: #Example4Controller
@@ -410,14 +440,6 @@ defaultModel
 	^ Flow session
 ! !
 
-!Example4Controller class methodsFor: 'testing'!
-
-isValidFor: anURI
-	"Answers true if this controller is the right route for anURI"
-	
-	^ anURI match: '^example4$'
-! !
-
 BindingController subclass: #Example5Controller
 	instanceVariableNames: ''
 	package: 'App'!
@@ -573,14 +595,6 @@ defaultModel
 	^ Flow session
 ! !
 
-!Example5Controller class methodsFor: 'testing'!
-
-isValidFor: anURI
-	"Answers true if this controller is the right route for anURI"
-	
-	^ anURI match: '^example5$'
-! !
-
 TemplateController subclass: #MainController
 	instanceVariableNames: ''
 	package: 'App'!
@@ -589,7 +603,62 @@ TemplateController subclass: #MainController
 
 The AppController is the main/root controller of your flow-based application.!
 
+!MainController methodsFor: 'accessing'!
+
+example1
+
+	^ self ifAbsentAt: #example1 put: [
+		Example1Controller 
+			for: Example1Controller defaultModel
+			on: self
+			appendingTo: '#example1-wrapper' asJQuery ]
+!
+
+example2
+
+	^ self ifAbsentAt: #example2 put: [
+		Example2Controller 
+			for: Example2Controller defaultModel
+			on: self
+			appendingTo: '#example2-wrapper' asJQuery ]
+!
+
+example3
+
+	^ self ifAbsentAt: #example3 put: [
+		Example3Controller 
+			for: Example3Controller defaultModel
+			on: self
+			appendingTo: '#example3-wrapper' asJQuery ]
+!
+
+example4
+
+	^ self ifAbsentAt: #example4 put: [
+		Example4Controller 
+			for: Example4Controller defaultModel
+			on: self
+			appendingTo: '#example4-wrapper' asJQuery ]
+!
+
+example5
+
+	^ self ifAbsentAt: #example5 put: [
+		Example5Controller 
+			for: Example5Controller defaultModel
+			on: self
+			appendingTo: '#example5-wrapper' asJQuery ]
+! !
+
 !MainController methodsFor: 'actions'!
+
+hideAll
+	"Hides all subcontrollers and the welcome message"
+
+	'#welcome' asJQuery hide.
+	
+	super hideAll
+!
 
 highlightTitle
 
@@ -599,6 +668,53 @@ highlightTitle
 observeEvents
 
 	(view asJQuery find: 'a#inspect-main') on: 'click' do: [ self inspect ]
+!
+
+reset
+	"Hides all subcontrollers and shows the welcome message"
+
+	self hideAll.
+	
+	self show.
+	
+	'#welcome' asJQuery show.
+!
+
+showExample1
+
+	self show.
+	self hideAll.
+	self example1 show
+!
+
+showExample2
+
+	console log: 'showExample2'.
+
+	self show.
+	self hideAll.
+	self example2 show
+!
+
+showExample3
+
+	self show.
+	self hideAll.
+	self example3 show
+!
+
+showExample4
+
+	self show.
+	self hideAll.
+	self example4 show
+!
+
+showExample5
+
+	self show.
+	self hideAll.
+	self example5 show
 ! !
 
 !MainController methodsFor: 'initialization'!
@@ -609,19 +725,8 @@ initialize
 	
 	self 
 		when: #onAfterView do: [ 
-			self highlightTitle.
 			self observeEvents ];
 		yourself
-! !
-
-!MainController class methodsFor: 'testing'!
-
-isValidFor: anURI
-	"Answers true if this controller is the right route for anURI"
-	
-	^ (anURI match: '^/$') or: [
-	(anURI match: '^home&') or: [
-	(anURI match: '^$')]]
 ! !
 
 BindingController subclass: #ThingDetailsController
@@ -636,11 +741,11 @@ BindingController subclass: #ThingRowController
 
 removeThing
 
-	self trigger: #removeThing
+	self triggerEvent: #removeThing
 !
 
 viewDetails
 
-	self trigger: #viewDetails
+	self triggerEvent: #viewDetails
 ! !
 

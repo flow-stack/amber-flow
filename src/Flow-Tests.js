@@ -907,7 +907,7 @@ return $recv(observed)._at_put_("something","happen");
 }, function($ctx2) {$ctx2.fillBlock({},$ctx1,1)});
 //>>excludeEnd("ctx");
 }));
-$recv(observed)._trigger_("something");
+$recv(observed)._triggerEvent_("something");
 self._assert_($recv(observed)._includesKey_("something"));
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 $ctx1.sendIdx["assert:"]=1;
@@ -920,10 +920,10 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "testCustomEventWithNoArgument\x0a\x0a\x09| observed |\x0a\x0a\x09observed := Dictionary new.\x0a\x09\x0a\x09observed when: #something do:[ observed at: #something put: #happen ].\x0a\x09\x0a\x09observed trigger: #something.\x0a\x09\x0a\x09self assert: (observed includesKey: #something).\x09\x0a\x09self assert: (observed at: #something) = #happen.",
+source: "testCustomEventWithNoArgument\x0a\x0a\x09| observed |\x0a\x0a\x09observed := Dictionary new.\x0a\x09\x0a\x09observed when: #something do:[ observed at: #something put: #happen ].\x0a\x09\x0a\x09observed triggerEvent: #something.\x0a\x09\x0a\x09self assert: (observed includesKey: #something).\x09\x0a\x09self assert: (observed at: #something) = #happen.",
 referencedClasses: ["Dictionary"],
 //>>excludeEnd("ide");
-messageSends: ["new", "when:do:", "at:put:", "trigger:", "assert:", "includesKey:", "=", "at:"]
+messageSends: ["new", "when:do:", "at:put:", "triggerEvent:", "assert:", "includesKey:", "=", "at:"]
 }),
 $globals.FlowTest);
 

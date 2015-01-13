@@ -2,7 +2,8 @@ define([
     'amber/deploy',
     // --- packages to be deployed begin here ---
 
-    'text',
+    'bootstrap',
+    'rlite',
     'rivets',
 
     'domevents/DOMEvents',

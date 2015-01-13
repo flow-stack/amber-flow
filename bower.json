@@ -1,7 +1,7 @@
 {
   "name": "amber-flow",
   "description": "Make Amber apps nice and easy. This is flow's frontend.",
-  "version": "0.3.13",
+  "version": "0.3.16",
   "main": [
     "src/Flow-API.js",
     "src/Flow-Core.js",
@@ -24,16 +24,17 @@
   "homepage": "https://github.com/flow-stack/amber-flow",
   "keywords": [
     "Amber",
-    "Smalltalk"
+    "Smalltalk",
+    "MVC"
   ],
   "license": [
     "MIT"
   ],
   "private": false,
   "dependencies": {
-    "amber": "^0.14.0",
-    "minimapless": "~0.10.8",
-    "amber-mvc": "~0.1.0"
+    "amber": "^0.14.2",
+    "minimapless": "~0.10.9",
+    "amber-mvc": "~0.1.8"
   },
   "devDependencies": {
     "helios": "^0.3.0"
