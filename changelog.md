@@ -1,7 +1,7 @@
-Today - Unreleased
+January 14, 2015 - Release 0.3.18
 ===================================
 
-* nothing at the moment
+* Upgrades amber-mvc to 0.1.13
 
 January 14, 2015 - Release 0.3.17
 ===================================
