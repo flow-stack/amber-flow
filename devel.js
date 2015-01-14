@@ -6,8 +6,7 @@ define([
     'amber-attic/IDE',
     'minimapless/MiniMapless-Tests',
 
-	'amber-flow/Flow-Tests',
-	'amber-flow/App-Tests'
+	'amber-flow/Flow-Tests'
     // --- packages used only during development end here ---
 ], function (amber) {
     return amber;

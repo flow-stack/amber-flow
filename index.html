@@ -12,14 +12,15 @@
 
   <body>
 
-    <div id="main-wrapper"></div>
+    <h1>Amber Flow</h1>
+    <p>The frontend side of the Flow stack</p>
 
-  <a id="legacy"
-      onclick="require('amber/helpers').globals.Browser._open()"
-      style="position: fixed; bottom: 0; right: 0; opacity: 0.75; padding: 10px; background-color: #fff">Legacy IDE</a>
-  <a id="helios"
-    onclick="require('amber/helpers').popupHelios()"
-    style="position: fixed; bottom: 0; right: 120px; opacity: 0.35; padding: 10px; background-color: #fff">Helios</a>
+    <a id="legacy"
+        onclick="require('amber/helpers').globals.Browser._open()"
+        style="position: fixed; bottom: 0; right: 0; opacity: 0.75; padding: 10px; background-color: #fff">Legacy IDE</a>
+    <a id="helios"
+      onclick="require('amber/helpers').popupHelios()"
+      style="position: fixed; bottom: 0; right: 120px; opacity: 0.35; padding: 10px; background-color: #fff">Helios</a>
 
     <script type='text/javascript'>
         require(['app'], function (amber) {
