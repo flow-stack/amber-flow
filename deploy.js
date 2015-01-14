@@ -15,8 +15,7 @@ define([
     'amber-mvc/MVC-Routeables',
     
 	'amber-flow/Flow-Core',
-	'amber-flow/Flow-API',
-    'amber-flow/Flow-Scaffolding'
+	'amber-flow/Flow-API'
     // --- packages to be deployed end here ---
 ], function (amber) {
     return amber;

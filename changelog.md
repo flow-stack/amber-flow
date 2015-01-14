@@ -3,6 +3,12 @@ Today - Unreleased
 
 * nothing at the moment
 
+January 14, 2015 - Release 0.3.17
+===================================
+
+* Moves scaffolding to devel instead of deploy
+* Upgrades amber-mvc to 0.1.12
+
 January 13, 2015 - Release 0.3.16
 ===================================
 
