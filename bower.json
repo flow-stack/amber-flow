@@ -33,8 +33,8 @@
   "private": false,
   "dependencies": {
     "amber": "^0.14.2",
-    "minimapless": "~0.10.9",
-    "amber-mvc": "~0.1.8"
+    "amber-mvc": "^0.1.11",
+    "amber-attic": "~0.1.1"
   },
   "devDependencies": {
     "helios": "^0.3.0"

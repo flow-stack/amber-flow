@@ -3,6 +3,7 @@ define([
     './deploy',
     // --- packages used only during development begin here ---
 	// 'amber-attic/IDE',
+    'amber-attic/IDE',
     'minimapless/MiniMapless-Tests',
 
 	'amber-flow/Flow-Tests',
