@@ -1,14 +1,5 @@
 {
     "paths": {
 		"amber-flow": "src"
-    },
-	"shim": {
-		"amber-flow": {
-		  "deps": [
-		    "bootstrap",
-		    "amber-dom-events",
-		    "minimapless"
-		  ]
-		}
-	}    
+    }
 }

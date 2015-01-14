@@ -173,13 +173,13 @@ This API follows the typical REST on http style!
 
 delete: anURLString do: aBlock onError: errorBlock
 
-	self trigger: 'aboutToAJAX'.
+	self triggerEvent: #aboutToAJAX.
 
 	jQuery ajax: anURLString options: #{
 		'type' -> 'DELETE'.
 		'contentType' -> 'text/json'.
-		'complete' -> [:res |
-			self trigger: 'afterAJAX'.
+		'complete' -> [ :res |
+			self triggerEvent: #afterAJAX: with: res.
 			res status = 200
 				ifTrue: [ aBlock value: res responseText ]
 				ifFalse: [ errorBlock value: res ] ]
@@ -188,13 +188,13 @@ delete: anURLString do: aBlock onError: errorBlock
 
 get: anURLString do: aBlock onError: errorBlock
 
-	self trigger: 'aboutToAJAX'.
+	self triggerEvent: #aboutToAJAX.
 
 	jQuery ajax: anURLString options: #{
 		'type' -> 'GET'.
 		'contentType' -> 'text/json'.
-		'complete' -> [:res |
-			self trigger: 'afterAJAX'.
+		'complete' -> [ :res |
+			self triggerEvent: #afterAJAX: with: res.
 			res status = 200
 				ifTrue: [ aBlock value: res responseText ]
 				ifFalse: [ errorBlock value: res responseText ] ]
@@ -203,14 +203,14 @@ get: anURLString do: aBlock onError: errorBlock
 
 post: anURLString data: aDataString do: aBlock onError: errorBlock
 
-	self trigger: 'aboutToAJAX'.
+	self triggerEvent: #aboutToAJAX.
 
 	jQuery ajax: anURLString options: #{
 		'type' -> 'POST'.
 		'contentType' -> 'text/json'.
 		'data' -> aDataString.
-		'complete' -> [:res |
-			self trigger: 'afterAJAX'.
+		'complete' -> [ :res |
+			self triggerEvent: #afterAJAX: with: res.
 			res status = 200
 				ifTrue: [ aBlock value: res responseText ]
 				ifFalse: [ errorBlock value: res ] ]
@@ -219,14 +219,14 @@ post: anURLString data: aDataString do: aBlock onError: errorBlock
 
 put: anURLString data: aDataString do: aBlock onError: errorBlock
 
-	self trigger: 'aboutToAJAX'.
+	self triggerEvent: #aboutToAJAX.
 
 	jQuery ajax: anURLString options: #{
 		'type' -> 'PUT'.
 		'contentType' -> 'text/json'.
 		'data' -> aDataString.
 		'complete' -> [:res |
-			self trigger: 'afterAJAX'.
+			self triggerEvent: #afterAJAX: with: res.
 			res status = 200
 				ifTrue: [ aBlock value: res responseText ]
 				ifFalse: [ errorBlock value: res ] ]
@@ -342,7 +342,7 @@ onMessageBlock: aBlock
 
 onOpenBlock
 
-	^ onOpenBlock ifNil:[ onOpenBlock := [ self trigger: 'webSocketConnected' ] ]
+	^ onOpenBlock ifNil:[ onOpenBlock := [ self triggerEvent: #webSocketConnected ] ]
 !
 
 onOpenBlock: aBlock
