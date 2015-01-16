@@ -1,4 +1,4 @@
-January 15, 2015 - Release 0.3.20
+January 15, 2015 - Release 0.3.21
 ===================================
 
 * Upgrades amber-mvc to 0.1.16
