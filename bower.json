@@ -1,7 +1,7 @@
 {
   "name": "amber-flow",
   "description": "Make Amber apps nice and easy. This is flow's frontend.",
-  "version": "0.3.20",
+  "version": "0.3.21",
   "main": [
     "src/Flow-API.js",
     "src/Flow-Core.js",
@@ -33,7 +33,7 @@
   "private": false,
   "dependencies": {
     "amber": "^0.14.2",
-    "amber-mvc": "^0.1.15"
+    "amber-mvc": "^0.1.16"
   },
   "devDependencies": {
     "amber-attic": "~0.1.1",
