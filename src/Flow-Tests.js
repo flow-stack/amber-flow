@@ -1,6 +1,7 @@
 define("amber-flow/Flow-Tests", ["amber/boot", "amber_core/SUnit", "amber-flow/Flow-API"], function($boot){
 var $core=$boot.api,nil=$boot.nil,$recv=$boot.asReceiver,$globals=$boot.globals;
 $core.addPackage('Flow-Tests');
+$core.packages["Flow-Tests"].innerEval = function (expr) { return eval(expr); };
 $core.packages["Flow-Tests"].transport = {"type":"amd","amdNamespace":"amber-flow"};
 
 $core.addClass('FlowRemoteReferenceTest', $globals.TestCase, [], 'Flow-Tests');

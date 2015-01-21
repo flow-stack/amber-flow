@@ -1,3 +1,11 @@
+January 21, 2015 - Release 0.3.23
+===================================
+
+* Upgrades amber-mvc to 0.1.18
+* Upgrades amber-dev to 0.3.1
+* Upgrades amber-attic to 0.1.3
+* Upgrades Helios to 0.3.4
+
 January 17, 2015 - Release 0.3.22
 ===================================
 

@@ -46,8 +46,6 @@ module.exports = function (grunt) {
                     'Web', 
                     'DOMEvents', 
                     'MVC-Core', 
-                    // 'MVC-Iterables',
-                    // 'MVC-Routeables',
                     'MiniMapless' ],
                  options: {
                    library_dirs: [

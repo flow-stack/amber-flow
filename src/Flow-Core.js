@@ -1,6 +1,7 @@
 define("amber-flow/Flow-Core", ["amber/boot", "amber_core/Kernel-Objects", "minimapless/MiniMapless", "amber-mvc/MVC-Core"], function($boot){
 var $core=$boot.api,nil=$boot.nil,$recv=$boot.asReceiver,$globals=$boot.globals;
 $core.addPackage('Flow-Core');
+$core.packages["Flow-Core"].innerEval = function (expr) { return eval(expr); };
 $core.packages["Flow-Core"].transport = {"type":"amd","amdNamespace":"amber-flow"};
 
 $core.addClass('Flow', $globals.Object, [], 'Flow-Core');

@@ -1,6 +1,7 @@
 define("amber-flow/Flow-API", ["amber/boot", "amber_core/Kernel-Objects", "amber_core/Kernel-Exceptions", "minimapless/MiniMapless"], function($boot){
 var $core=$boot.api,nil=$boot.nil,$recv=$boot.asReceiver,$globals=$boot.globals;
 $core.addPackage('Flow-API');
+$core.packages["Flow-API"].innerEval = function (expr) { return eval(expr); };
 $core.packages["Flow-API"].transport = {"type":"amd","amdNamespace":"amber-flow"};
 
 $core.addClass('APIClient', $globals.Object, ['rest', 'ws'], 'Flow-API');

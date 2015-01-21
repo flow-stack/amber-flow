@@ -1,6 +1,7 @@
 define("amber-flow/Flow-Scaffolding", ["amber/boot", "amber_core/Kernel-Objects"], function($boot){
 var $core=$boot.api,nil=$boot.nil,$recv=$boot.asReceiver,$globals=$boot.globals;
 $core.addPackage('Flow-Scaffolding');
+$core.packages["Flow-Scaffolding"].innerEval = function (expr) { return eval(expr); };
 $core.packages["Flow-Scaffolding"].transport = {"type":"amd","amdNamespace":"amber-flow"};
 
 $core.addClass('AbsrtactScaffolder', $globals.Object, [], 'Flow-Scaffolding');
