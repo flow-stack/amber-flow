@@ -1,3 +1,10 @@
+February 2, 2015 - Release 0.3.27
+===================================
+
+* Upgrades amber 0.14.4
+* Upgrades amber-mvc 0.1.23
+
+
 January 30, 2015 - Release 0.3.26
 ===================================
 
