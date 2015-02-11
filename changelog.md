@@ -1,3 +1,10 @@
+February 10, 2015 - Release 0.3.28
+===================================
+
+* Upgrades amber-mvc 0.1.25
+* Adds amber-minimal-ide
+
+
 February 2, 2015 - Release 0.3.27
 ===================================
 
