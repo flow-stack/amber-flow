@@ -521,12 +521,13 @@ selector: "delete:do:onError:",
 protocol: 'actions',
 fn: function (anURLString,aBlock,errorBlock){
 var self=this;
+function $JQuery(){return $globals.JQuery||(typeof JQuery=="undefined"?nil:JQuery)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 self._triggerEvent_("aboutToAJAX");
-$recv(jQuery)._ajax_options_(anURLString,$globals.HashedCollection._newFromPairs_(["type","DELETE","contentType","text/json","complete",(function(res){
+$recv($recv($JQuery())._current())._ajax_options_(anURLString,$globals.HashedCollection._newFromPairs_(["type","DELETE","contentType","text/json","complete",(function(res){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx2) {
 //>>excludeEnd("ctx");
@@ -551,10 +552,10 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["anURLString", "aBlock", "errorBlock"],
-source: "delete: anURLString do: aBlock onError: errorBlock\x0a\x0a\x09self triggerEvent: #aboutToAJAX.\x0a\x0a\x09jQuery ajax: anURLString options: #{\x0a\x09\x09'type' -> 'DELETE'.\x0a\x09\x09'contentType' -> 'text/json'.\x0a\x09\x09'complete' -> [ :res |\x0a\x09\x09\x09self triggerEvent: #afterAJAX: with: res.\x0a\x09\x09\x09res status = 200\x0a\x09\x09\x09\x09ifTrue: [ aBlock value: res responseText ]\x0a\x09\x09\x09\x09ifFalse: [ errorBlock value: res ] ]\x0a\x09}",
-referencedClasses: [],
+source: "delete: anURLString do: aBlock onError: errorBlock\x0a\x0a\x09self triggerEvent: #aboutToAJAX.\x0a\x0a\x09JQuery current ajax: anURLString options: #{\x0a\x09\x09'type' -> 'DELETE'.\x0a\x09\x09'contentType' -> 'text/json'.\x0a\x09\x09'complete' -> [ :res |\x0a\x09\x09\x09self triggerEvent: #afterAJAX: with: res.\x0a\x09\x09\x09res status = 200\x0a\x09\x09\x09\x09ifTrue: [ aBlock value: res responseText ]\x0a\x09\x09\x09\x09ifFalse: [ errorBlock value: res ] ]\x0a\x09}",
+referencedClasses: ["JQuery"],
 //>>excludeEnd("ide");
-messageSends: ["triggerEvent:", "ajax:options:", "triggerEvent:with:", "ifTrue:ifFalse:", "=", "status", "value:", "responseText"]
+messageSends: ["triggerEvent:", "ajax:options:", "current", "triggerEvent:with:", "ifTrue:ifFalse:", "=", "status", "value:", "responseText"]
 }),
 $globals.RESTfulAPI);
 
@@ -564,12 +565,13 @@ selector: "get:do:onError:",
 protocol: 'actions',
 fn: function (anURLString,aBlock,errorBlock){
 var self=this;
+function $JQuery(){return $globals.JQuery||(typeof JQuery=="undefined"?nil:JQuery)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1,$2;
 self._triggerEvent_("aboutToAJAX");
-$recv(jQuery)._ajax_options_(anURLString,$globals.HashedCollection._newFromPairs_(["type","GET","contentType","text/json","complete",(function(res){
+$recv($recv($JQuery())._current())._ajax_options_(anURLString,$globals.HashedCollection._newFromPairs_(["type","GET","contentType","text/json","complete",(function(res){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx2) {
 //>>excludeEnd("ctx");
@@ -598,10 +600,10 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["anURLString", "aBlock", "errorBlock"],
-source: "get: anURLString do: aBlock onError: errorBlock\x0a\x0a\x09self triggerEvent: #aboutToAJAX.\x0a\x0a\x09jQuery ajax: anURLString options: #{\x0a\x09\x09'type' -> 'GET'.\x0a\x09\x09'contentType' -> 'text/json'.\x0a\x09\x09'complete' -> [ :res |\x0a\x09\x09\x09self triggerEvent: #afterAJAX: with: res.\x0a\x09\x09\x09res status = 200\x0a\x09\x09\x09\x09ifTrue: [ aBlock value: res responseText ]\x0a\x09\x09\x09\x09ifFalse: [ errorBlock value: res responseText ] ]\x0a\x09}",
-referencedClasses: [],
+source: "get: anURLString do: aBlock onError: errorBlock\x0a\x0a\x09self triggerEvent: #aboutToAJAX.\x0a\x0a\x09JQuery current ajax: anURLString options: #{\x0a\x09\x09'type' -> 'GET'.\x0a\x09\x09'contentType' -> 'text/json'.\x0a\x09\x09'complete' -> [ :res |\x0a\x09\x09\x09self triggerEvent: #afterAJAX: with: res.\x0a\x09\x09\x09res status = 200\x0a\x09\x09\x09\x09ifTrue: [ aBlock value: res responseText ]\x0a\x09\x09\x09\x09ifFalse: [ errorBlock value: res responseText ] ]\x0a\x09}",
+referencedClasses: ["JQuery"],
 //>>excludeEnd("ide");
-messageSends: ["triggerEvent:", "ajax:options:", "triggerEvent:with:", "ifTrue:ifFalse:", "=", "status", "value:", "responseText"]
+messageSends: ["triggerEvent:", "ajax:options:", "current", "triggerEvent:with:", "ifTrue:ifFalse:", "=", "status", "value:", "responseText"]
 }),
 $globals.RESTfulAPI);
 
@@ -732,12 +734,13 @@ selector: "post:data:do:onError:",
 protocol: 'actions',
 fn: function (anURLString,aDataString,aBlock,errorBlock){
 var self=this;
+function $JQuery(){return $globals.JQuery||(typeof JQuery=="undefined"?nil:JQuery)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 self._triggerEvent_("aboutToAJAX");
-$recv(jQuery)._ajax_options_(anURLString,$globals.HashedCollection._newFromPairs_(["type","POST","contentType","text/json","data",aDataString,"complete",(function(res){
+$recv($recv($JQuery())._current())._ajax_options_(anURLString,$globals.HashedCollection._newFromPairs_(["type","POST","contentType","text/json","data",aDataString,"complete",(function(res){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx2) {
 //>>excludeEnd("ctx");
@@ -762,10 +765,10 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["anURLString", "aDataString", "aBlock", "errorBlock"],
-source: "post: anURLString data: aDataString do: aBlock onError: errorBlock\x0a\x0a\x09self triggerEvent: #aboutToAJAX.\x0a\x0a\x09jQuery ajax: anURLString options: #{\x0a\x09\x09'type' -> 'POST'.\x0a\x09\x09'contentType' -> 'text/json'.\x0a\x09\x09'data' -> aDataString.\x0a\x09\x09'complete' -> [ :res |\x0a\x09\x09\x09self triggerEvent: #afterAJAX: with: res.\x0a\x09\x09\x09res status = 200\x0a\x09\x09\x09\x09ifTrue: [ aBlock value: res responseText ]\x0a\x09\x09\x09\x09ifFalse: [ errorBlock value: res ] ]\x0a\x09}",
-referencedClasses: [],
+source: "post: anURLString data: aDataString do: aBlock onError: errorBlock\x0a\x0a\x09self triggerEvent: #aboutToAJAX.\x0a\x0a\x09JQuery current ajax: anURLString options: #{\x0a\x09\x09'type' -> 'POST'.\x0a\x09\x09'contentType' -> 'text/json'.\x0a\x09\x09'data' -> aDataString.\x0a\x09\x09'complete' -> [ :res |\x0a\x09\x09\x09self triggerEvent: #afterAJAX: with: res.\x0a\x09\x09\x09res status = 200\x0a\x09\x09\x09\x09ifTrue: [ aBlock value: res responseText ]\x0a\x09\x09\x09\x09ifFalse: [ errorBlock value: res ] ]\x0a\x09}",
+referencedClasses: ["JQuery"],
 //>>excludeEnd("ide");
-messageSends: ["triggerEvent:", "ajax:options:", "triggerEvent:with:", "ifTrue:ifFalse:", "=", "status", "value:", "responseText"]
+messageSends: ["triggerEvent:", "ajax:options:", "current", "triggerEvent:with:", "ifTrue:ifFalse:", "=", "status", "value:", "responseText"]
 }),
 $globals.RESTfulAPI);
 
@@ -775,12 +778,13 @@ selector: "put:data:do:onError:",
 protocol: 'actions',
 fn: function (anURLString,aDataString,aBlock,errorBlock){
 var self=this;
+function $JQuery(){return $globals.JQuery||(typeof JQuery=="undefined"?nil:JQuery)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
 self._triggerEvent_("aboutToAJAX");
-$recv(jQuery)._ajax_options_(anURLString,$globals.HashedCollection._newFromPairs_(["type","PUT","contentType","text/json","data",aDataString,"complete",(function(res){
+$recv($recv($JQuery())._current())._ajax_options_(anURLString,$globals.HashedCollection._newFromPairs_(["type","PUT","contentType","text/json","data",aDataString,"complete",(function(res){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx2) {
 //>>excludeEnd("ctx");
@@ -805,10 +809,10 @@ return self;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: ["anURLString", "aDataString", "aBlock", "errorBlock"],
-source: "put: anURLString data: aDataString do: aBlock onError: errorBlock\x0a\x0a\x09self triggerEvent: #aboutToAJAX.\x0a\x0a\x09jQuery ajax: anURLString options: #{\x0a\x09\x09'type' -> 'PUT'.\x0a\x09\x09'contentType' -> 'text/json'.\x0a\x09\x09'data' -> aDataString.\x0a\x09\x09'complete' -> [:res |\x0a\x09\x09\x09self triggerEvent: #afterAJAX: with: res.\x0a\x09\x09\x09res status = 200\x0a\x09\x09\x09\x09ifTrue: [ aBlock value: res responseText ]\x0a\x09\x09\x09\x09ifFalse: [ errorBlock value: res ] ]\x0a\x09}",
-referencedClasses: [],
+source: "put: anURLString data: aDataString do: aBlock onError: errorBlock\x0a\x0a\x09self triggerEvent: #aboutToAJAX.\x0a\x0a\x09JQuery current ajax: anURLString options: #{\x0a\x09\x09'type' -> 'PUT'.\x0a\x09\x09'contentType' -> 'text/json'.\x0a\x09\x09'data' -> aDataString.\x0a\x09\x09'complete' -> [:res |\x0a\x09\x09\x09self triggerEvent: #afterAJAX: with: res.\x0a\x09\x09\x09res status = 200\x0a\x09\x09\x09\x09ifTrue: [ aBlock value: res responseText ]\x0a\x09\x09\x09\x09ifFalse: [ errorBlock value: res ] ]\x0a\x09}",
+referencedClasses: ["JQuery"],
 //>>excludeEnd("ide");
-messageSends: ["triggerEvent:", "ajax:options:", "triggerEvent:with:", "ifTrue:ifFalse:", "=", "status", "value:", "responseText"]
+messageSends: ["triggerEvent:", "ajax:options:", "current", "triggerEvent:with:", "ifTrue:ifFalse:", "=", "status", "value:", "responseText"]
 }),
 $globals.RESTfulAPI);
 
@@ -2375,13 +2379,14 @@ selector: "future",
 protocol: 'accessing',
 fn: function (){
 var self=this;
+function $JQuery(){return $globals.JQuery||(typeof JQuery=="undefined"?nil:JQuery)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $2,$1,$receiver;
 $2=self["@future"];
 if(($receiver = $2) == null || $receiver.isNil){
-self["@future"]=$recv(jQuery)._Deferred();
+self["@future"]=$recv($recv($JQuery())._current())._Deferred();
 $1=self["@future"];
 } else {
 $1=$2;
@@ -2393,10 +2398,10 @@ return $1;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "future\x0a\x09\x22Answers the jQuery future\x0a\x09http://api.jquery.com/category/deferred-object/\x22\x0a\x09\x0a\x09^ future ifNil:[ future := jQuery Deferred ]",
-referencedClasses: [],
+source: "future\x0a\x09\x22Answers the jQuery future\x0a\x09http://api.jquery.com/category/deferred-object/\x22\x0a\x09\x0a\x09^ future ifNil:[ future := JQuery current Deferred ]",
+referencedClasses: ["JQuery"],
 //>>excludeEnd("ide");
-messageSends: ["ifNil:", "Deferred"]
+messageSends: ["ifNil:", "Deferred", "current"]
 }),
 $globals.Remote);
 
@@ -2426,11 +2431,12 @@ selector: "initializeFuture",
 protocol: 'initialization',
 fn: function (){
 var self=this;
+function $JQuery(){return $globals.JQuery||(typeof JQuery=="undefined"?nil:JQuery)}
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx1) {
 //>>excludeEnd("ctx");
 var $1;
-self["@future"]=$recv(jQuery)._Deferred();
+self["@future"]=$recv($recv($JQuery())._current())._Deferred();
 $recv(self["@future"])._fail_((function(x){
 //>>excludeStart("ctx", pragmas.excludeDebugContexts);
 return $core.withContext(function($ctx2) {
@@ -2448,10 +2454,10 @@ return $1;
 },
 //>>excludeStart("ide", pragmas.excludeIdeData);
 args: [],
-source: "initializeFuture\x0a\x09\x0a\x09future := jQuery Deferred.\x0a\x09\x0a\x09future fail: [ :x | x signal ].\x0a\x09\x0a\x09^ future",
-referencedClasses: [],
+source: "initializeFuture\x0a\x09\x0a\x09future := JQuery current Deferred.\x0a\x09\x0a\x09future fail: [ :x | x signal ].\x0a\x09\x0a\x09^ future",
+referencedClasses: ["JQuery"],
 //>>excludeEnd("ide");
-messageSends: ["Deferred", "fail:", "signal"]
+messageSends: ["Deferred", "current", "fail:", "signal"]
 }),
 $globals.Remote);
 
