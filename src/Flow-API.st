@@ -175,7 +175,7 @@ delete: anURLString do: aBlock onError: errorBlock
 
 	self triggerEvent: #aboutToAJAX.
 
-	jQuery ajax: anURLString options: #{
+	JQuery current ajax: anURLString options: #{
 		'type' -> 'DELETE'.
 		'contentType' -> 'text/json'.
 		'complete' -> [ :res |
@@ -190,7 +190,7 @@ get: anURLString do: aBlock onError: errorBlock
 
 	self triggerEvent: #aboutToAJAX.
 
-	jQuery ajax: anURLString options: #{
+	JQuery current ajax: anURLString options: #{
 		'type' -> 'GET'.
 		'contentType' -> 'text/json'.
 		'complete' -> [ :res |
@@ -205,7 +205,7 @@ post: anURLString data: aDataString do: aBlock onError: errorBlock
 
 	self triggerEvent: #aboutToAJAX.
 
-	jQuery ajax: anURLString options: #{
+	JQuery current ajax: anURLString options: #{
 		'type' -> 'POST'.
 		'contentType' -> 'text/json'.
 		'data' -> aDataString.
@@ -221,7 +221,7 @@ put: anURLString data: aDataString do: aBlock onError: errorBlock
 
 	self triggerEvent: #aboutToAJAX.
 
-	jQuery ajax: anURLString options: #{
+	JQuery current ajax: anURLString options: #{
 		'type' -> 'PUT'.
 		'contentType' -> 'text/json'.
 		'data' -> aDataString.
@@ -668,7 +668,7 @@ future
 	"Answers the jQuery future
 	http://api.jquery.com/category/deferred-object/"
 	
-	^ future ifNil:[ future := jQuery Deferred ]
+	^ future ifNil:[ future := JQuery current Deferred ]
 !
 
 id
@@ -714,7 +714,7 @@ printOn: aStream
 
 initializeFuture
 	
-	future := jQuery Deferred.
+	future := JQuery current Deferred.
 	
 	future fail: [ :x | x signal ].
 	

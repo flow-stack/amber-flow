@@ -1,14 +1,9 @@
-February 10, 2015 - Release 0.3.29
+February 18, 2015 - Release 0.3.30
 ===================================
 
-* Upgrades amber-mvc 0.1.26
-
-
-February 10, 2015 - Release 0.3.28
-===================================
-
-* Upgrades amber-mvc 0.1.25
-* Adds amber-minimal-ide
+* Upgrades amber 0.14.10
+* Upgrades amber-mvc 0.1.29
+* Adjusts Gruntfile.js and configs
 
 
 February 2, 2015 - Release 0.3.27

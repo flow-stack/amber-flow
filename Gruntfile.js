@@ -28,7 +28,7 @@ module.exports = function (grunt) {
         amberc: {
             options: {
                 amber_dir: path.join(__dirname, "bower_components", "amber"),
-                library_dirs: ['src'],
+                library_dirs: ['src', 'bower_components/amber/contrib/src'],
                 closure_jar: ''
             },
             all: {
@@ -48,7 +48,9 @@ module.exports = function (grunt) {
                     'MVC-Core', 
                     'MiniMapless' ],
                  options: {
-                   library_dirs: [
+                 library_dirs: [
+                        'src', 
+                        'bower_components/amber/contrib/src',
                         'bower_components/amber-mvc/src',
                         'bower_components/minimapless/src',
                         'bower_components/amber-dom-events/src' ], 
